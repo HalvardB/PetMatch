@@ -1,6 +1,6 @@
 package com.example.demo;
 
-public class Buyer implements User {
+public class Buyer extends User {
     AnimalType animalType;
     HomeType homeType;
     Boolean isPreviousAnimalOwner;
