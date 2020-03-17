@@ -1,9 +1,9 @@
 CREATE TABLE USER(
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
-  first_name VARCHAR (20) NOT NULL,
-  last_name VARCHAR(30) NOT NULL,
-  password VARCHAR(50) NOT NULL,
-  email VARCHAR(50) NOT NULL,
+  first_name VARCHAR (20),
+  last_name VARCHAR(30),
+  password VARCHAR(50),
+  email VARCHAR(50),
   bio VARCHAR(500),
   want_newsletter BOOLEAN,
   municipality ENUM ('AGDER', 'INNLANDET', 'MORE_OG_ROMSDAL', 'NORDLAND',

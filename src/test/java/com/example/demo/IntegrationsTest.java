@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -33,23 +34,23 @@ public class IntegrationsTest {
     public void contextLoads() {
     }
 
-    @Test
-    public void testPostUser() throws Exception {
-        // See is "new book" exist - it should not
-        mvc.perform(
-                MockMvcRequestBuilders.get("/registrer")
-        )
-                .andExpect(status().is2xxSuccessful());
-        //.andExpect(MockMvcResultMatchers.content().string(not(containsString("New User"))));
-        // Create "new book"
-        mvc.perform(
-                MockMvcRequestBuilders.post("/registrer")
-                        .content(mapper.writeValueAsString(new User("Robin", "Ladyboy", "Katoi", "soi6@pattaya.com")))
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
-        )
-                .andExpect(status().is2xxSuccessful())
-                .andExpect(MockMvcResultMatchers.content().string(containsString("Robin")));
-    }
+//    @Test
+//    public void testPostUser() throws Exception {
+//        // See is "new book" exist - it should not
+//        mvc.perform(
+//                MockMvcRequestBuilders.get("/registrer")
+//        )
+//                .andExpect(status().is2xxSuccessful());
+//        //.andExpect(MockMvcResultMatchers.content().string(not(containsString("New User"))));
+//        // Create "new book"
+//        mvc.perform(
+//                MockMvcRequestBuilders.post("/registrer")
+//                        .content(mapper.writeValueAsString(new User("Robin", "Ladyboy", "Katoi", "soi6@pattaya.com")))
+//                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+//        )
+//                .andExpect(status().is2xxSuccessful())
+//                .andExpect(MockMvcResultMatchers.content().string(containsString("Robin")));
+//    }
 }
 
 //    @Test
