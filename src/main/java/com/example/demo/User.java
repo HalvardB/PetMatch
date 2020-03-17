@@ -1,8 +1,16 @@
 package com.example.demo;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Inheritance(strategy = InheritanceType.JOINED)
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     private String firstName;
     private String lastName;
     private String password;
@@ -11,9 +19,11 @@ public class User {
     private String bio;
     private Boolean wantNewsletter;
     private UserType userType;
-    private List<Picture> pictureList; // Only profile picture? Remove list
+//    private List<Picture> pictureList; // Only profile picture? Remove list
 
-    public User(String firstName, String lastName, String password, String email, Municipality municipality, String bio, Boolean wantNewsletter, UserType userType, List<Picture> pictureList) {
+    public User(){}
+
+    public User(String firstName, String lastName, String password, String email, Municipality municipality, String bio, Boolean wantNewsletter, UserType userType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -22,7 +32,14 @@ public class User {
         this.bio = bio;
         this.wantNewsletter = wantNewsletter;
         this.userType = userType;
-        this.pictureList = pictureList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -89,13 +106,6 @@ public class User {
         this.userType = userType;
     }
 
-    public List<Picture> getPictureList() {
-        return pictureList;
-    }
-
-    public void setPictureList(List<Picture> pictureList) {
-        this.pictureList = pictureList;
-    }
 
 
 }
