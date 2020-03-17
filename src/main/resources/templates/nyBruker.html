@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
 
     <!-------- FORM NEW USER -------->
 
-    <form action="" method="post">
+    <form th:object="${user}" action="/registrer" method="post">
 
 
             <div class="arrow">
@@ -40,19 +40,19 @@
             <div class="contentForm">
             
                 <div class="inputs">
-                    <input id="first" type="text" placeholder="Fornavn">
+                    <input th:field="*{firstName}" id="first" type="text" placeholder="Fornavn" autofocus>
                 </div>
 
                 <div class="inputs">
-                    <input id="last" type="text" placeholder="Etternavn">
+                    <input th:field="*{lastName}" id="last" type="text" placeholder="Etternavn">
                 </div>
 
                 <div>
-                    <input class="inputs" type="email" placeholder="E-post">
+                    <input th:field="*{email}" class="inputs" type="email" placeholder="E-post">
                 </div>
 
                 <div>
-                    <input class="inputs" type="email" placeholder="Passord">
+                    <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
                 </div>
 
                 <div id="submit">
