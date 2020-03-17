@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff914d;
+    height: 60px;
+}
+
+#headerLogo {
+    height: 35px;
+}
+
+.tekst {
+    text-align: center;
+}
