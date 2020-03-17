@@ -18,6 +18,7 @@ public class Animal {
     private List<Buyer> matchList;
     private Boolean isFemale;
 
+    // vekt, stueren, hundevennlig, kattevenlig
 
     public Animal(AnimalType animalType, String name, int age, String bio, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, List<Picture> pictureList, List<Buyer> matchList) {
         this.animalType = animalType;
