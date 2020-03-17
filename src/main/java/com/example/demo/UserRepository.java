@@ -4,8 +4,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-    Iterable<User> findByFirstName(String firstName);
-    Iterable<User> findByLastName(String lastName);
-    Iterable<User> findByPassword(String password);
-    Iterable<User> findByEmail(String email);
+    User findByFirstName(String firstName);
+    User findByLastName(String lastName);
+    User findByPassword(String password);
+    User findByEmail (String email);
 }
