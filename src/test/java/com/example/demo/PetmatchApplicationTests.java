@@ -21,4 +21,12 @@ class PetmatchApplicationTests {
         assertEquals(false, userRepository.findAll().iterator().hasNext());
     }
 
+    @Test
+    void makeAUserProfile() {
+        User user = new User("Robin", "Dalboy", "Secret", "robin@dalboy.com");
+        userRepository.save(user);
+        assertEquals(true, userRepository.findAll().iterator().hasNext());
+    }
+
+
 }
