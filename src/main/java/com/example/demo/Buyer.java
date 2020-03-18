@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -53,12 +55,12 @@ public class Buyer extends User {
         this.homeType = homeType;
     }
 
-    public Boolean getPreviousAnimalOwner() {
+    public Boolean getIsPreviousAnimalOwner() {
         return isPreviousAnimalOwner;
     }
 
-    public void setPreviousAnimalOwner(Boolean previousAnimalOwner) {
-        isPreviousAnimalOwner = previousAnimalOwner;
+    public void setIsPreviousAnimalOwner(Boolean isPreviousAnimalOwner) {
+        isPreviousAnimalOwner = isPreviousAnimalOwner;
     }
 
     public Boolean getHasChildren() {

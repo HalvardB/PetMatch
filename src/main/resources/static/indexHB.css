@@ -1,0 +1,42 @@
+body {
+    font-size: 10px;
+}
+
+.menuImage {
+    width: 42px;
+    margin-top: 756px;
+    margin-left: 40px;
+}
+
+.showOptions {
+    display: block;
+}
+
+.hideOptions {
+    display: none;
+}
+
+.optionImg {
+    width: 50px;
+}
+
+.optionType {
+    display: block;
+    margin: 20px;
+    margin-left: 50px;
+}
+
+.option {
+    display: inline-block;
+    margin: 5px;
+    padding: 6px;
+}
+
+.activeOption {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    background-color: bisque;
+    border: 1px solid orange;
+    border-radius: 20px;
+}

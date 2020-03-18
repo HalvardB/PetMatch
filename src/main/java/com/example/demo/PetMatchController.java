@@ -31,9 +31,6 @@ public class PetMatchController {
         return "intropage";
     }
 
-
-
-
     @GetMapping("/animalProfile")
     public String getAnimalProfile(@ModelAttribute User user) {
         return "animalProfile";
@@ -44,5 +41,8 @@ public class PetMatchController {
         return "userProfile";
     }
 
-
+    @GetMapping("/preferanser")
+    public String getPreferences(@ModelAttribute User user, @ModelAttribute Animal animal, @ModelAttribute Buyer buyer) {
+        return "preferances";
+    }
 }
