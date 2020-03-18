@@ -31,4 +31,18 @@ public class PetMatchController {
         return "intropage";
     }
 
+
+
+
+    @GetMapping("/animalProfile")
+    public String getAnimalProfile(@ModelAttribute User user) {
+        return "animalProfile";
+    }
+
+    @GetMapping("/userProfile")
+    public String getUserProfile(@ModelAttribute User user) {
+        return "userProfile";
+    }
+
+
 }

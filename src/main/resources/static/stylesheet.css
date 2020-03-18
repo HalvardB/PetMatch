@@ -1,4 +1,4 @@
-/*-------- GENERELL STYLEING ---------*/
+/*-------- GENERAL STYLING ---------*/
 
 * {
     box-sizing: border-box;
@@ -15,7 +15,8 @@ header {
     justify-content: center;
     align-items: center;
     background-color: #ff914d;
-   /* background-color: black;*/
+    color: white;
+    /* background-color: black;*/
     height: 60px;
 }
 
@@ -31,33 +32,55 @@ input {
     width: 100%;
     margin: 10% 0;
     border-radius: 20px;
-    border:0.5px solid grey;
-    padding:10px;
+    border: 0.5px solid grey;
+    padding: 10px;
 
 }
 
 #loginButton {
     border-radius: 20px;
-    border:0;
-    padding:10px;
+    border: 0;
+    padding: 10px;
     width: 100%;
     background-color: #302F2F;
     color: white;
-
 }
-/*-------- LOGG INN STYLEING ---------*/
 
-#headerLoginTekst {
-    color: white;
+/*----------- GENERAL PROFILES ----------*/
+
+.prefIcons {
+    width: 50px;
+    height: 50px;
 }
+
+.containerProfiles {
+    margin: 0 auto;
+    width: 85%;
+}
+
+.prefH4 {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.iconContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.locationBopelContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+/*-------- LOGIN STYLING ---------*/
+
 
 #headerLogo {
     height: 35px;
 }
 
-.tekst {
-    text-align: center;
-}
 
 .arrow {
     margin: 0 10px;
@@ -85,4 +108,43 @@ input {
     width: 150px;
     background-color: #302F2F;
     color: white;
+}
+
+
+/*-------- ANIMAL PROFILE STYLEING ---------*/
+
+#animalProfilGallery {
+    width: 375px;
+    height: 450px;
+    object-fit: cover;
+}
+
+#animalNameAge {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+#animalAge {
+    margin: 5px 20px;
+    font-weight: 400;
+
+}
+
+#animalName {
+    margin-top: 15px;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+
+
+/*-------- USER PROFILE STYLEING ---------*/
+
+#userPic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 100px;
+
 }
