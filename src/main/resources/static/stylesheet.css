@@ -1,3 +1,5 @@
+/*-------- GENERELL STYLEING ---------*/
+
 * {
     box-sizing: border-box;
 }
@@ -5,6 +7,7 @@
 body {
     width: 100%;
     margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header {
@@ -15,10 +18,70 @@ header {
     height: 60px;
 }
 
+.formContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10% 20%;
+    max-width: 100%;
+}
+
+input {
+    width: 100%;
+    margin: 10% 0;
+    border-radius: 20px;
+    border:0.5px solid grey;
+    padding:10px;
+
+}
+
+#loginButton {
+    border-radius: 20px;
+    border:0;
+    padding:10px;
+    width: 100%;
+    background-color: #302F2F;
+    color: white;
+
+}
+/*-------- LOGG INN STYLEING ---------*/
+
+#headerLoginTekst {
+    color: white;
+}
+
 #headerLogo {
     height: 35px;
 }
 
 .tekst {
     text-align: center;
+}
+
+.arrow {
+    margin: 0 10px;
+}
+
+#introimg {
+    height: auto;
+}
+
+.introTekst {
+    text-align: center;
+    width: 170px;
+}
+
+.containerLoginSignup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.buttonNoColor {
+    border-radius: 20px;
+    border: 0;
+    padding: 10px;
+    width: 150px;
+    background-color: #302F2F;
+    color: white;
 }
