@@ -1,6 +1,6 @@
 package com.example.demo;
 
-public enum DogRace {
+public enum DogBreed {
     ALASKA_HUSKY,
     BEAGLE,
     BORDER_COLLIE,
