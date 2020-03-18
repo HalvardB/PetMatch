@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pet Match | Logg inn</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../static/stylesheet.css">
     <title>Logg inn</title>
 </head>
+
 <body>
 
-<!-------- HEADER -------->
+    <!-------- HEADER -------->
 
-<header>
-    <div class="headerNyBruker">
-        <p id="headerLoginTekst">Logg inn</p>
-    </div>
-</header>
+    <header>
+        <div class="headerLogin">
+            <p id="headerLoginTekst">Logg inn</p>
+        </div>
+    </header>
 
-<!-------- FORM LOGIN -------->
+    <!-------- FORM LOGIN -------->
 
+
+    <form action="" method="post">
+        <div class="formContainer">
+            
+                <input id="epost" type="text" placeholder="E-post" required autofocus>
+           
+                <input id="passord" type="password" placeholder="Passord" required>
+          
+                <input id="loginButton" type="submit" value="Logg inn">
+           
+        </div>
+    </form>
 
 
 </body>
+
 </html>

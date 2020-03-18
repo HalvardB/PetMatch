@@ -5,7 +5,7 @@
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pet Match | Logg inn</title>
-    <link rel="stylesheet" type="text/css" href="nyBruker.css">
+    <link rel="stylesheet" type="text/css" href="../static/stylesheet.css">
 </head>
 
 </head>
@@ -21,13 +21,15 @@
 
     <!-------- FORM NEW USER -------->
 
+
+
     <form th:object="${user}" action="/registrer" method="post">
 
+        <div class="arrow">
+            <p>&#8826</p>
+        </div>
 
-            <div class="arrow">
-                <p>&#8826</p>
-            </div>
-
+        <div class="formContainer">
             <div class="tekst">
                 <p>
                     Fyll ut detaljene nedenfor for å opprette en konto
@@ -36,30 +38,19 @@
                     Dine detaljer
                 </p>
             </div>
-
-            <div class="contentForm">
+           
+                <input th:field="*{firstName}" class="inputs" id="first" type="text" placeholder="Fornavn" autofocus>
             
-                <div class="inputs">
-                    <input th:field="*{firstName}" id="first" type="text" placeholder="Fornavn" autofocus>
-                </div>
-
-                <div class="inputs">
-                    <input th:field="*{lastName}" id="last" type="text" placeholder="Etternavn">
-                </div>
-
-                <div>
-                    <input th:field="*{email}" class="inputs" type="email" placeholder="E-post">
-                </div>
-
-                <div>
-                    <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
-                </div>
-
-                <div id="submit">
-                    <input id="Button" type="submit" value="Registrer  →">
-                </div>
+                <input th:field="*{lastName}" class="inputs" id="last" type="text" placeholder="Etternavn">
+        
+                <input th:field="*{email}" type="email" placeholder="E-post">
+           
+                <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
+            
+            <div id="submitBox">
+                <input id="loginButton" type="submit" value="Registrer  →">
             </div>
-            
+        </div>
     </form>
 
 
