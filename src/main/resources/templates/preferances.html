@@ -33,78 +33,77 @@
         <input type="hidden" id="isSterilizedOption" th:field="${animal.isSterilized}">
 
 
-        <div name="userType" class="optionType">
+        <div class="optionType">
             <p id="buyer" class="activeOption">Kjøper</p>
             <p id="seller" class="option" >Selger</p>
         </div>
 
         <div id="buyerOptions" class="showOptions">
-            <div name="animalType" class="optionType">
+            <div class="optionType">
                 <img id="dog" src="image/dogIcon.png" alt="Hund" class="activeOption optionImg">
                 <img id="cat" src="image/catIconGrey.png" alt="Katt" class="optionImg">
             </div>
 
-            <div name="homeType" class="optionType">
+            <div class="optionType">
                 <p>Bopel</p>
                 <p id="apartment" class="activeOption">Leilighet</p>
                 <p id="house" class="option">Hus</p>
             </div>
 
-            <div name="isPreviousAnimalOwner" class="optionType">
+            <div class="optionType">
                 <p>Hatt dyr tidligere</p>
                 <p id="yesPrevious" class="activeOption">Ja</p>
                 <p id="noPrevious" class="option">Nei</p>
             </div>
 
-            <div name="homeType" class="optionType">
+            <div class="optionType">
                 <p>Barn i husstanden</p>
                 <p id="yesChildren" class="activeOption">Ja</p>
                 <p id="noChildren" class="option">Nei</p>
             </div>
 
-            <div name="gender" class="optionType">
+            <div class="optionType">
                 <p>Kjønn</p>
-                <p id="female" class="activeOption">Hunkjønn</p>
-                <p id="male" class="option">Hankjønn</p>
+                <p id="femaleBuyer" class="activeOption">Hunkjønn</p>
+                <p id="maleBuyer" class="option">Hankjønn</p>
             </div>
         </div>
 
         <div id="sellerOptions" class="hideOptions">
-            <div name="animalType" class="optionType">
+            <div class="optionType">
                 <img id="dogSeller" src="image/dogIcon.png" alt="Hund" class="activeOption optionImg">
                 <img id="catSeller" src="image/catIconGrey.png" alt="Katt" class="optionImg">
             </div>
 
-            <div name="isChipped" class="optionType">
+            <div class="optionType">
                 <p>Chip</p>
                 <p id="yesChipped" class="activeOption">Ja</p>
                 <p id="noChipped" class="option">Nei</p>
             </div>
 
-            <div name="isVaccinated" class="optionType">
+            <div class="optionType">
                 <p>Vaksinert</p>
                 <p id="yesVaccinated" class="activeOption">Ja</p>
                 <p id="noVaccinated" class="option">Nei</p>
             </div>
 
-            <div name="isChildFriendly" class="optionType">
+            <div class="optionType">
                 <p>Barnevennlig</p>
                 <p id="yesChildfriendly" class="activeOption">Ja</p>
                 <p id="noChildfriendly" class="option">Nei</p>
             </div>
 
-            <div name="isSterilized" class="optionType">
+            <div class="optionType">
                 <p>Sterilisert/Kastrert</p>
                 <p id="yesSterilized" class="activeOption">Ja</p>
                 <p id="noSterilized" class="option">Nei</p>
             </div>
 
-            <div name="genderSeller" class="optionType">
+            <div class="optionType">
                 <p>Kjønn</p>
                 <p id="femaleSeller" class="activeOption">Hunkjønn</p>
                 <p id="maleSeller" class="option">Hankjønn</p>
             </div>
-
         </div>
 
         <input type="submit" value="Fortsett">

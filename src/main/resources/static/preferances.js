@@ -42,7 +42,6 @@ seller.addEventListener("click", (event) => {
     changeFormValues(userTypeOption, "SELLER");
 });
 
-
 const dog = document.getElementById("dog");
 const cat = document.getElementById("cat");
 
@@ -60,66 +59,33 @@ cat.addEventListener("click", (event) => {
     editImgClass(dog);
 });
 
+function addEvent(idName1, idName2){
+    const const1 = document.getElementById(idName1);
+    const const2 = document.getElementById(idName2);
 
-const apartment = document.getElementById("apartment");
-const house = document.getElementById("house");
+    const1.addEventListener("click", (event) => {
+        event.target.className = "activeOption";
+        editTextClass(const2);
+    });
 
-house.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(apartment);
-});
+    const2.addEventListener("click", (event) => {
+        event.target.className = "activeOption";
+        editTextClass(const1);
+    });
+}
 
-apartment.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(house);
-});
-
-
-const yesPrevious = document.getElementById("yesPrevious");
-const noPrevious = document.getElementById("noPrevious");
-
-yesPrevious.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(noPrevious);
-});
-
-noPrevious.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(yesPrevious);
-});
-
-
-const yesChildren = document.getElementById("yesChildren");
-const noChildren = document.getElementById("noChildren");
-
-yesChildren.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(noChildren);
-});
-
-noChildren.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(yesChildren);
-});
-
-
-const female = document.getElementById("female");
-const male = document.getElementById("male");
-
-female.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(male);
-});
-
-male.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(female);
-});
-
+addEvent("femaleSeller", "maleSeller");
+addEvent("yesSterilized", "noSterilized");
+addEvent("yesChildfriendly", "noChildfriendly");
+addEvent("yesVaccinated", "noVaccinated");
+addEvent("yesChipped", "noChipped");
+addEvent("apartment", "house");
+addEvent("yesPrevious", "noPrevious");
+addEvent("yesChildren", "noChildren");
+addEvent("femaleBuyer", "maleBuyer");
 
 
 // SELLER OPTIONS
-
 const dogSeller = document.getElementById("dogSeller");
 const catSeller = document.getElementById("catSeller");
 
@@ -135,74 +101,4 @@ catSeller.addEventListener("click", (event) => {
     event.target.src = "image/catIcon.png";
     dogSeller.src = "image/dogIconGrey.png";
     editImgClass(dogSeller);
-});
-
-
-const yesChipped = document.getElementById("yesChipped");
-const noChipped = document.getElementById("noChipped");
-
-yesChipped.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(noChipped);
-});
-
-noChipped.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(yesChipped);
-});
-
-
-const yesVaccinated = document.getElementById("yesVaccinated");
-const noVaccinated = document.getElementById("noVaccinated");
-
-yesVaccinated.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(noVaccinated);
-});
-
-noVaccinated.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(yesVaccinated);
-});
-
-
-const yesChildfriendly = document.getElementById("yesChildfriendly");
-const noChildfriendly = document.getElementById("noChildfriendly");
-
-yesChildfriendly.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(noChildfriendly);
-});
-
-noChildfriendly.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(yesChildfriendly);
-});
-
-
-const yesSterilized = document.getElementById("yesSterilized");
-const noSterilized = document.getElementById("noSterilized");
-
-yesSterilized.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(noSterilized);
-});
-
-noSterilized.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(yesSterilized);
-});
-
-
-const femaleSeller = document.getElementById("femaleSeller");
-const maleSeller = document.getElementById("maleSeller");
-
-femaleSeller.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(maleSeller);
-});
-
-maleSeller.addEventListener("click", (event) => {
-    event.target.className = "activeOption";
-    editTextClass(femaleSeller);
 });
