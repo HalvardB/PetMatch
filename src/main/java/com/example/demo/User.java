@@ -16,9 +16,9 @@ public class User {
     private String password;
     private String email;
     private Municipality municipality;
-    private String bio;
     private Boolean wantNewsletter;
     private UserType userType;
+    private String bio;
 //    private List<Picture> pictureList; // Only profile picture? Remove list
 
     public User(){}
@@ -29,9 +29,9 @@ public class User {
         this.password = password;
         this.email = email;
         this.municipality = municipality;
-        this.bio = bio;
         this.wantNewsletter = wantNewsletter;
         this.userType = userType;
+        this.bio = bio;
     }
 
     public User(String firstName, String lastName, String password, String email) {
@@ -89,14 +89,6 @@ public class User {
         this.municipality = municipality;
     }
 
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
     public Boolean getWantNewsletter() {
         return wantNewsletter;
     }
@@ -111,6 +103,14 @@ public class User {
 
     public void setUserType(UserType userType) {
         this.userType = userType;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
 

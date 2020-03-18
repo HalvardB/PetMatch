@@ -1,0 +1,16 @@
+package com.example.demo;
+
+public enum DogBreed {
+    ALASKA_HUSKY,
+    BEAGLE,
+    BORDER_COLLIE,
+    CHINESE_CRESTED,
+    DALMATINER,
+    DVERGPINCHER,
+    JACK_RUSSEL,
+    NORSK_ELGHUND,
+    SCHAFER,
+    STAFFORDSHIRE_BULL_TERRIER,
+    TIBETANSK_SPANIEL,
+    WHIPPET
+}

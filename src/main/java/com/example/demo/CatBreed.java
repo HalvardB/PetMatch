@@ -1,17 +1,16 @@
 package com.example.demo;
 
-public enum CatRace {
-    MAINE_COON,
-    PERSER,
-    HELLIG_BIRMA,
+public enum CatBreed {
+    BENGAL,
     DEVON_REX,
-    NORSK_SKOGSKATT,
+    HELLIG_BIRMA,
+    MAINE_COON,
     NEVA_MASQUERADE,
+    NORSK_SKOGKATT,
+    PERSER,
     RAGDOLL,
     SCOTTISH_STRAIGHT,
     SHENGO_SIDDIS,
-    SIAMESER,
-    BENGAL,
     SIBIRKATT,
-    SPHYNX,
+    SPHYNX
 }

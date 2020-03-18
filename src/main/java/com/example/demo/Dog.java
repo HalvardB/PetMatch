@@ -3,10 +3,10 @@ package com.example.demo;
 import java.util.List;
 
 public class Dog extends Animal {
-    private DogRace dogRace;
+    private DogBreed dogBreed;
 
-    public Dog(AnimalType animalType, String name, int age, String bio, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, List<Picture> pictureList, List<Buyer> matchList, DogRace dogRace) {
-        super(animalType, name, age, bio, isChipped, isVaccinated, isSterilized, isChildFriendly, isActive, isAvailable, animalSize, pictureList, matchList);
-        this.dogRace = dogRace;
+    public Dog(AnimalType animalType, String name, int age, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, Boolean isFemale, String bio, List<Picture> pictureList, List<Buyer> matchList, DogBreed dogBreed) {
+        super(animalType, name, age, isChipped, isVaccinated, isSterilized, isChildFriendly, isActive, isAvailable, animalSize, isFemale, bio, pictureList, matchList);
+        this.dogBreed = dogBreed;
     }
 }

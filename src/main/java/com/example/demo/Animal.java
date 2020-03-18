@@ -6,7 +6,6 @@ public class Animal {
     private AnimalType animalType;
     private String name;
     private int age;
-    private String bio;
     private Boolean isChipped;
     private Boolean isVaccinated;
     private Boolean isSterilized;
@@ -14,17 +13,17 @@ public class Animal {
     private Boolean isActive;
     private Boolean isAvailable;
     private AnimalSize animalSize;
+    private String bio;
+    private Boolean isFemale;
     private List<Picture> pictureList;
     private List<Buyer> matchList;
-    private Boolean isFemale;
 
     // vekt, stueren, hundevennlig, kattevenlig
 
-    public Animal(AnimalType animalType, String name, int age, String bio, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, List<Picture> pictureList, List<Buyer> matchList) {
+    public Animal(AnimalType animalType, String name, int age, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, Boolean isFemale, String bio,  List<Picture> pictureList, List<Buyer> matchList) {
         this.animalType = animalType;
         this.name = name;
         this.age = age;
-        this.bio = bio;
         this.isChipped = isChipped;
         this.isVaccinated = isVaccinated;
         this.isSterilized = isSterilized;
@@ -32,8 +31,10 @@ public class Animal {
         this.isActive = isActive;
         this.isAvailable = isAvailable;
         this.animalSize = animalSize;
+        this.bio = bio;
         this.pictureList = pictureList;
         this.matchList = matchList;
+        this.isFemale = isFemale;
     }
 
     public AnimalType getAnimalType() {
@@ -58,14 +59,6 @@ public class Animal {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
     }
 
     public Boolean getChipped() {
@@ -118,6 +111,22 @@ public class Animal {
 
     public AnimalSize getAnimalSize() {
         return animalSize;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public Boolean getFemale() {
+        return isFemale;
+    }
+
+    public void setFemale(Boolean female) {
+        isFemale = female;
     }
 
     public void setAnimalSize(AnimalSize animalSize) {
