@@ -15,9 +15,9 @@ public class PetMatchController {
 
     @GetMapping("/")
     public String getHome() {
-        User newUser = new User("Halvard", "Bastiansen", "123", "h@lvard.com");
-        userRepository.save(newUser);
-        return "index";
+//        User newUser = new User("Halvard", "Bastiansen", "123", "h@lvard.com");
+//        userRepository.save(newUser);
+        return "intropage";
     }
 
     @GetMapping("/registrer")
