@@ -22,8 +22,6 @@ header {
 
 }
 
-
-
 .formContainer {
     display: flex;
     justify-content: center;
@@ -57,12 +55,21 @@ input {
     color: white;
 }
 
+a {
+    border-radius: 15px;
+    border: 0;
+    padding: 10px;
+    width: 160px;
+    height: 40px;
+    background-color: #ff914d;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
 .arrow {
 
 }
-
-
-
 
 /*----------- GENERAL PROFILES ----------*/
 
@@ -96,36 +103,32 @@ input {
 
 /*-------- LOGIN STYLING ---------*/
 
+
 #headerLogo {
     height: 35px;
 }
 
-
-
-
 #introimg {
-    height: auto;
+    width: 250px;
 }
 
+.containerIntro {
+    display: flex;
+    justify-content: center;
+}
+/*
 .introTekst {
     text-align: center;
     width: 170px;
 }
-
+*/
 .containerLoginSignup {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.buttonNoColor {
-    border-radius: 20px;
-    border: 0;
-    padding: 10px;
-    width: 150px;
-    background-color: #302F2F;
-    color: white;
-}
+
 
 /*--------  NY BRUKER STYLING ---------*/
 
@@ -213,3 +216,43 @@ input {
     width: 85%;
 }
 
+/*-------- FOOTER  STYLING ---------*/
+
+.menuImage {
+    width: 42px;
+    margin-top: 756px;
+    margin-left: 40px;
+}
+
+.showOptions {
+    display: block;
+}
+
+.hideOptions {
+    display: none;
+}
+
+.optionImg {
+    width: 50px;
+}
+
+.optionType {
+    display: block;
+    margin: 20px;
+    margin-left: 50px;
+}
+
+.option {
+    display: inline-block;
+    margin: 5px;
+    padding: 6px;
+}
+
+.activeOption {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    background-color: bisque;
+    border: 1px solid orange;
+    border-radius: 20px;
+}

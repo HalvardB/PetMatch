@@ -28,7 +28,7 @@ public class PetMatchController {
     @PostMapping("/registrer")
     public String postRegistrer(@ModelAttribute User user) {
         userRepository.save(user);
-        return "intropage";
+        return "preferances";
     }
 
     @GetMapping("/animalProfile")
@@ -45,4 +45,38 @@ public class PetMatchController {
     public String getPreferences(@ModelAttribute User user, @ModelAttribute Animal animal, @ModelAttribute Buyer buyer) {
         return "preferances";
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @GetMapping("/loggInn")
+    public String getLoggInn(@ModelAttribute User user) {
+        User userEmail = userRepository.findByEmail(user.getEmail());
+        return "login";
+    }
+
 }
