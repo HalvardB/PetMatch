@@ -70,8 +70,3 @@ VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON
 
 
 
-
-
-
-
-

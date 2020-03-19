@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PetMatchController {
 
-    @Autowired UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/")
     public String getHome() {
@@ -46,37 +47,17 @@ public class PetMatchController {
         return "preferances";
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @GetMapping("/loggInn")
     public String getLoggInn(@ModelAttribute User user) {
         User userEmail = userRepository.findByEmail(user.getEmail());
         return "login";
+    }
+
+
+    @GetMapping("/testing")
+    public String getTesting() {
+        return "testing";
+
     }
 
 }
