@@ -49,6 +49,7 @@ dog.addEventListener("click", (event) => {
     event.target.className = "optionImg activeOption";
     event.target.src = "image/dogIcon.png";
     cat.src = "image/catIconGrey.png";
+    animalTypeOption.value = "dog";
     editImgClass(cat);
 });
 
@@ -56,6 +57,7 @@ cat.addEventListener("click", (event) => {
     event.target.className = "optionImg activeOption";
     event.target.src = "image/catIcon.png";
     dog.src = "image/dogIconGrey.png";
+    animalTypeOption.value = "cat";
     editImgClass(dog);
 });
 

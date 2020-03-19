@@ -21,8 +21,6 @@
 
     <!-------- FORM NEW USER -------->
 
-
-
     <form th:object="${user}" action="/registrer" method="post">
 
         <div class="arrow">
@@ -31,29 +29,23 @@
 
         <div class="formContainer">
             <div class="tekst">
-                <p>
-                    Fyll ut detaljene nedenfor for å opprette en konto
-                </p>
-                <p>
-                    Dine detaljer
-                </p>
+                <p>Fyll ut detaljene nedenfor for å opprette en konto</p>
+                <p>Dine detaljer</p>
             </div>
            
-                <input th:field="*{firstName}" class="inputs" id="first" type="text" placeholder="Fornavn" autofocus>
-            
-                <input th:field="*{lastName}" class="inputs" id="last" type="text" placeholder="Etternavn">
-        
-                <input th:field="*{email}" type="email" placeholder="E-post">
-           
-                <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
+            <input th:field="*{firstName}" class="inputs" id="first" type="text" placeholder="Fornavn" autofocus>
+
+            <input th:field="*{lastName}" class="inputs" id="last" type="text" placeholder="Etternavn">
+
+            <input th:field="*{email}" type="email" placeholder="E-post">
+
+            <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
             
             <div id="submitBox">
                 <input id="loginButton" type="submit" value="Registrer  →">
             </div>
         </div>
     </form>
-
-
 </body>
 
 </html>
