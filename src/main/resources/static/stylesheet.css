@@ -8,6 +8,7 @@ body {
     width: 375px;
     margin: auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*Posisjonering av match hjertet*/
 }
 
 header {
@@ -16,34 +17,58 @@ header {
     align-items: center;
     background-color: #ff914d;
     color: white;
-    /* background-color: black;*/
+    width: 375px;
     height: 60px;
+
 }
 
 .formContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    margin: 10% 20%;
+    margin: 10% 18%;
     max-width: 100%;
 }
 
 input {
     width: 100%;
     margin: 10% 0;
-    border-radius: 20px;
-    border: 0.5px solid grey;
+    border-radius: 15px;
+    border: 0.3px solid grey;
     padding: 10px;
-
 }
 
-#loginButton {
-    border-radius: 20px;
+::placeholder{
+    color: #ff914d;
+    text-align: center;
+    opacity: 0.7;
+}
+
+#orangeButton {
+    border-radius: 15px;
     border: 0;
     padding: 10px;
-    width: 100%;
-    background-color: #302F2F;
+    width: 160px;
+    height: 40px;
+    background-color: #ff914d;
     color: white;
+}
+
+a {
+    border-radius: 15px;
+    border: 0;
+    padding: 10px;
+    width: 160px;
+    height: 40px;
+    background-color: #ff914d;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.arrow {
+
 }
 
 /*----------- GENERAL PROFILES ----------*/
@@ -54,13 +79,16 @@ input {
 }
 
 .containerProfiles {
-    margin: 0 auto;
+    margin: 0 30px;
     width: 85%;
+    /*Posisjonering av match hjertet*/
+    position: absolute;
+    top: 410px;
 }
 
 .prefH4 {
     margin-top: 15px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .iconContainer {
@@ -73,7 +101,6 @@ input {
     align-items: center;
 }
 
-
 /*-------- LOGIN STYLING ---------*/
 
 
@@ -81,41 +108,64 @@ input {
     height: 35px;
 }
 
-
-.arrow {
-    margin: 0 10px;
-}
-
 #introimg {
-    height: auto;
+    width: 250px;
 }
 
+.containerIntro {
+    display: flex;
+    justify-content: center;
+}
+/*
 .introTekst {
     text-align: center;
     width: 170px;
 }
-
+*/
 .containerLoginSignup {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.buttonNoColor {
-    border-radius: 20px;
-    border: 0;
-    padding: 10px;
-    width: 150px;
-    background-color: #302F2F;
-    color: white;
+
+
+/*--------  NY BRUKER STYLING ---------*/
+
+#dineDetaljer {
+    font-size: 15px;
+    opacity: 0.6;
+    margin-top: 30px;
+    margin-bottom: 0;
 }
 
+#first {
+    margin-top: 10px;
+}
 
-/*-------- ANIMAL PROFILE STYLEING ---------*/
+/*-------- ANIMAL PROFILE STYLING ---------*/
 
-#animalProfilGallery {
+#animalGalleryDiv {
+    /*Posisjonering av match hjertet*/
+    position: absolute;
+    top: 0;
+
+}
+#redHeartDiv {
+    /*Posisjonering av match hjertet*/
+    position: absolute;
+    top: 324px;
+    left: 229px;
+}
+
+#redHeartIcon {
+    width: 150px;
+    height: 150px;
+}
+
+#animalProfileGallery {
     width: 375px;
-    height: 450px;
+    height: 400px;
     object-fit: cover;
 }
 
@@ -128,7 +178,6 @@ input {
 #animalAge {
     margin: 5px 20px;
     font-weight: 400;
-
 }
 
 #animalName {
@@ -137,14 +186,73 @@ input {
     font-weight: 400;
 }
 
+/*-------- USER PROFILE STYLING ---------*/
 
 
-/*-------- USER PROFILE STYLEING ---------*/
 
+#userPicNameDiv {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
 #userPic {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 100px;
+}
+#userProfileLine {
+    position: absolute;
+    top: 320px;
+    width: 300px;
+    left: 35px;
+    border: 0.5px ridge;
+}
 
+#userBioContainer {
+    position: absolute;
+    top: 340px;
+    margin: 0 30px;
+    width: 85%;
+}
+
+/*-------- FOOTER  STYLING ---------*/
+
+.menuImage {
+    width: 42px;
+    margin-top: 756px;
+    margin-left: 40px;
+}
+
+.showOptions {
+    display: block;
+}
+
+.hideOptions {
+    display: none;
+}
+
+.optionImg {
+    width: 50px;
+}
+
+.optionType {
+    display: block;
+    margin: 20px;
+    margin-left: 50px;
+}
+
+.option {
+    display: inline-block;
+    margin: 5px;
+    padding: 6px;
+}
+
+.activeOption {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    background-color: bisque;
+    border: 1px solid orange;
+    border-radius: 20px;
 }

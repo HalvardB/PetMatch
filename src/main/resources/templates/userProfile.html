@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <title>Pet Match | Brukerprofil</title>
 </head>
-<body>
 
+<body>
 <!-------- HEADER -------->
 <header>
     <div>
-        <p >Kristine Hansen</p>
+        <p>Brukerprofil</p>
     </div>
 </header>
 
 <!-------- USER PICTURE + NAME -------->
-<div>
+
+
+<div id="userPicNameDiv">
     <img id="userPic" src="image/dummyDog.jfif" alt="">
     <h3>Kristine Hansen</h3>
 </div>
 
+<hr id="userProfileLine">
+
 <!-------- USER BIO + PREFERENCES -------->
-<div>
+
+<div id="userBioContainer">
     <div>
         <p>Lorem Ipsum er rett og slett dummytekst fra
             og for trykkeindustrien. Lorem Ipsum har
@@ -33,14 +39,36 @@
         </p>
     </div>
 
-    <div>
-        <h4>Preferanser</h4>
-
-        <div>
-            <img class="prefIcons" src="image/lokasjon.png" alt="">
-        </div>
+    <div class="locationBopelContainer">
+        <img class="prefIcons" src="image/lokasjon.png" alt="Lokasjon">
+        <p>Oslo</p>
     </div>
 
+    <div class="locationBopelContainer">
+        <img class="prefIcons" src="image/bopel.png" alt="Bopel">
+        <p>Leilighet</p>
+    </div>
+
+
+    <div>
+        <h4 class="prefH4">Preferanser</h4>
+
+        <div class="iconContainer">
+            <img class="prefIcons" src="image/kid.png" alt="">
+            <img class="prefIcons" src="image/male.png" alt="">
+            <img class="prefIcons" src="image/female.png" alt="">
+            <img class="prefIcons" src="image/chip.png" alt="">
+            <img class="prefIcons" src="image/vaksine.png" alt="">
+            <img class="prefIcons" src="image/scissor.png" alt="">
+        </div>
+    </div>
 </div>
+
+
+<!--<footer>
+    <div th:replace="templates :: menu"></div>
+</footer>-->
+
 </body>
+
 </html>

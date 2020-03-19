@@ -65,4 +65,18 @@ public class PetMatchController {
         animalRepository.save(animal);
         return("redirect:/nyttdyr");
     }
+
+    @GetMapping("/loggInn")
+    public String getLoggInn(@ModelAttribute User user) {
+        User userEmail = userRepository.findByEmail(user.getEmail());
+        return "login";
+    }
+
+
+    @GetMapping("/testing")
+    public String getTesting() {
+        return "testing";
+
+    }
+
 }

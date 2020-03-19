@@ -1,12 +1,12 @@
 INSERT INTO USER(first_name, last_name, password, email, want_newsletter, municipality, user_type, bio)
 VALUES ('Christer', 'Falck', 'Chris123', 'Falcken@gmail.com', true, 'TRONDELAG', 'SELLER', 'Etter jeg flyttet til Trondheim for å åpne platesjappe har jeg ikke tid til hund lenger.
 Derfor leter jeg etter et nytt hjem for min kjære følgesvenn de siste årene.'),
-('Eduardo', 'Martinez', 'Eddi1712', 'eduardo_12@gmail.com', false, 'OSLO', 'SELLER', 'Ved siden av jobben min hjelper jeg personer å distribuere sine kattunger.
+('Eduardo', 'Martinez', 'Eddi1712', 'eduardo_12@gmail.com', false, 'OSLO', 'SELLER', 'Ved siden av jobben min hjelper jeg personer å distribuere sine kattunger og hunder.
 Derfor har jeg lagt ut et par annonser her. Ta kontakt om du finner noen av de interessante:)'),
 ('Geir', 'Pettersen', 'Geir123', 'geir.p@gmail.com', true, 'VIKEN', 'SELLER', 'Jeg og kona har noen katter som har fått unger. Disse ønsker vi oss et nytt hjem til,
 da vi ikke har så god kapasitet for gi alle ungene like mye kjærlighet og omsorg som en kattunge trenger.'),
 ('Josefine', 'Kristiansen', 'JK12345', 'Yousofine@hotmail.com', true, 'VESTFOLD_OG_TELEMARK', 'SELLER', 'Katten vår hjemme har nettopp fått unger og vi ønsker ny eier for en fin liten kattepus.'),
-('William', 'Stange', 'Will123', 'william.s@gmail.com', true, 'OSLO', 'SELLER', 'Jeg jobber ved Dyrebeskyttelsen i Norge og vi har et par hunder som trenger et nytt hjem:)');
+('William', 'Stange', 'Will123', 'william.s@gmail.com', true, 'OSLO', 'SELLER', 'Jeg jobber ved Dyrebeskyttelsen i Norge og vi har et par hunder og katter som trenger et nytt hjem:)');
 
 INSERT INTO animal (animal_type, name, age, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_active, is_available, animal_size, is_female, owner_id, bio)
 VAlUES ('DOG', 'Kafka', 1, true, true, true, true, false, true, 'MEDIUM', false, 1, 'Kafka ble funnet på gata i Spania, nå ser han etter et nytt hjem i Norge.'),
@@ -35,18 +35,38 @@ Han er vandt til å være alene hjemme på dagtid mens jeg er på jobb.'),
 ('DOG', 'Prins', 3, true, true, true, true, true, true, 'SMALL', true, 5, 'Den er forholdsvis aktiv, og har et særdeles godt gemytt. Hunden er svært sosial og er veldig glad i mennesker, særlig barn.
 Den er godt oppdratt og reagerer fint på andre hunder og ukjente mennesker. Hunden har aldri vist tegn til aggresjon og er neppe en god vakthund.');
 
+INSERT INTO animal (animal_type, name, age, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_active, is_available, animal_size, is_female, owner_id, bio)
+VAlUES ('CAT', 'Kitty', 3, true, true, true, true, false, true, 'Large', false, 3, 'Kan ikke ha katten lenger på grun av familiendring skriv og spør om det er noe..'),
+('CAT', 'Nusse', 2, false, true, false, false, true, true, 'LARGE', false, 2, 'Nusse (katten) 2 år gammel søker en kjærlig familie.Han er kjælen, trygg og god. Fantastisk gemytt, fin med barn. Fanger gjerne mus og jordrotter.
+Han er sterilisert men ikke chippet, har fått alle vaksiner.'),
+('CAT', 'Sjanten', 1, true, false, true, true, false, true,'SMALL', true, 2, 'Gis bort grunnet allergi.'),
+('CAT', 'Leila', 1, true, true, true, true, false, true, 'SMALL', false , 5, 'Leila kom inn til oss sammen med sine to små kattunger. Kattungene var dessverre syke og måtte rett til behandling, og er nå i et fosterhjem.
+Leila derimot virker noe nedfor fra og være borte fra sine to små, samt finner seg ikke helt til rette i de nye omgivelsene her på senteret.'),
+('CAT', 'Daisy', 1, false, false, false, false, true, true, 'SMALL', true, 3, 'Neva Masquerade er en god familiekatt. De er kjærlige og lekne. De er lojale og knytter seg til eieren sin.
+De liker å være der det skjer, og koser seg som familiens midtpunkt. '),
+ ('CAT', 'Zooey', 2, true, true, true, true, true, true, 'LARGE', true, 3, 'Dette er en en svart jente som heter Zooey. Hun er utrolig herlig og sosial.
+Hun er godt vant med hunder, da vi selv har hund og datteren vår har en hund de jevnlig har møtt gjennom oppveksten. De er godt vant med folk i alle aldre, og at det er mye liv og røre i huset vårt.'),
+('CAT', 'Alex', 2, true, true, true, false, false, true, 'MEDIUM', true, 4, 'Vi har vakre perser kattunger til overs, passer bra som kosekatt.'),
+('CAT', 'Musa', 6, true, true, true, true, true, true, 'LARGE', false, 5, 'Det er med klump i halsen at  ser meg nødt til å omplassere den lille ragdoll-pusen, Musa.
+Sønnen min har utviklet allergi, og etter en periode med testing av ulike tiltak, med varierende suksess , innser jeg at at dette blir det eneste riktige nå..'),
+('CAT', 'Angel', 1, false, false, false, true, true, true, 'SMALL', false, 5, 'Sjelden Scottish straight gutt, kalt Angel gis bort.
+Kattungen er veldig rasetypisk, fordi den har en veldig sjelden farge, med rundt hode, fine små ører, store runde og fine øyner som gjør at kattungen ligner på en bamse/ engler.'),
+('CAT', 'Siko', 2, true, true, true, false, false, true, 'MEDIUM', true, 2, 'Ble funnet sammen med flere andre skjønninger i en koloni på Jørpeland. Der levde vi ute i en usikker verden. Uten kjærlighet og omsorg. Vi ble heldigvis reddet og kjørt til dyrenes hus av dyrevenner. Tross at jeg ikke hadde hatt menneskelig kontakt ble jeg fort trygg.
+Er en nyskjerrig og leken krabat som har blitt en skikkelig kosepus. Leken og nyskjerrig som alle andre kattunger.'),
+('CAT', 'Pus', 5, true, true, true, true, false, true, 'MEDIUM', false, 5, 'Brownie er ei ung sibirdame som ønsker seg nytt hjem. Hun blir 5 år i juli. Hun ønsker et hjem hvor hun kan ha mulighet til å gå ut som hun vil, i trygge omgivelser.
+Men hun må også ha mulighet til å være inne så mye hun vil.'),
+('CAT', 'Gunnar', 2, false, false, false, true, false, true, 'SMALL', false, 3, 'Han er litt over et år, og vurderes gi bort om jeg finner rett hjem. Lyder navnet Gunnar ikke kastrert eller stamtavle.
+Kjempe kosete og skal helst følge deg overalt.');
+
+INSERT INTO DOG (id, breed)
+VALUES (1, 'ALASKA_HUSKY'), (2, 'BEAGLE'), (3, 'BORDER_COLLIE'), (4, 'CHINESE_CRESTED'), (5, 'DALMATINER'), (6, 'DVERGPINCHER'),
+(7, 'JACK_RUSSEL'), (8, 'NORSK_ELGHUND'), (9, 'SCHAFER'), (10, 'STAFFORDSHIRE_BULL_TERRIER'), (11, 'TIBETANSK_SPANIEL'), (12, 'WHIPPET');
+
+INSERT INTO CAT (id, breed)
+VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON'), (17, 'NEVA_MASQUERADE'), (18, 'NORSK_SKOGKATT'),
+(19, 'PERSER'), (20, 'RAGDOLL'), (21, 'SCOTTISH_STRAIGHT'), (22, 'SHENGO_SIDDIS'), (23, 'SIBIRKATT'), (24, 'SPHYNX');
 
 
 
 
 
-
-
-
-
-
-INSERT INTO animal (animal_type, name, age, bio, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_Active, is_Available, animal_size, is_female)
-VALUES ('DOG', 'Kafka', 1, 'Kafka ble funnet på gata i Spania, nå ser han etter et nytt hjem i Norge.
-', true, true, true, true, true, true, 'MEDIUM', false);
-INSERT INTO dog (id, breed)
-VALUES (1, 'ALASKA_HUSKY');

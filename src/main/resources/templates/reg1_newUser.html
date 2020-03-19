@@ -5,27 +5,26 @@
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pet Match | Logg inn</title>
-    <link rel="stylesheet" type="text/css" href="../static/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
 </head>
 
 <body>
-    <!-------- HEADER -------->
+<!-------- HEADER -------->
 
-    <header>
-        <div class="headerNyBruker">
-            <p id="headerLoginTekst">Ny bruker</p>
-        </div>
-    </header>
+<header>
+    <div class="headerNyBruker">
+        <p id="headerLoginTekst">Ny bruker</p>
+    </div>
+</header>
 
-    <!-------- FORM NEW USER -------->
+<!-------- FORM NEW USER -------->
+<div class="arrow"¨>
+    <a href="/intropage"><p>&#8826</p></a>
+</div>
 
-    <form th:object="${user}" action="/registrer" method="post">
-
-        <div class="arrow">
-            <p>&#8826</p>
-        </div>
+<form th:object="${user}" action="/registrer" method="post">
 
         <div class="formContainer">
             <div class="tekst">
