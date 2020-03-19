@@ -5,53 +5,58 @@
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pet Match | Logg inn</title>
-    <link rel="stylesheet" type="text/css" href="../static/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
 </head>
 
 <body>
-    <!-------- HEADER -------->
+<!-------- HEADER -------->
 
-    <header>
-        <div class="headerNyBruker">
-            <p id="headerLoginTekst">Ny bruker</p>
+<header>
+    <div class="headerNyBruker">
+        <p id="headerLoginTekst">Ny bruker</p>
+    </div>
+</header>
+
+<!-------- FORM NEW USER -------->
+
+<div class="arrow">
+    <p>&#8826</p>
+</div>
+
+<form th:object="${user}" action="/registrer" method="post">
+
+
+    <div class="formContainer">
+        <div class="tekst">
+            <p>
+                Fyll ut detaljene nedenfor for å opprette en konto
+            </p>
+            <p id="dineDetaljer">
+                Dine detaljer:
+            </p>
         </div>
-    </header>
 
-    <!-------- FORM NEW USER -------->
+        <input th:field="*{firstName}" class="inputs" id="first" type="text" placeholder="Fornavn" autofocus>
+
+        <input th:field="*{lastName}" class="inputs" id="last" type="text" placeholder="Etternavn">
+
+        <input th:field="*{email}" type="email" placeholder="E-post">
+
+        <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
 
 
+        <label for="checkboxSamtykke">
+                <input id="checkboxSamtykke" type="checkbox">
+                Jeg samtykker til blablabla...
+        </label>
 
-    <form th:object="${user}" action="/registrer" method="post">
-
-        <div class="arrow">
-            <p>&#8826</p>
+        <div id="submitBox">
+            <input id="orangeButton" type="submit" value="Registrer  →">
         </div>
-
-        <div class="formContainer">
-            <div class="tekst">
-                <p>
-                    Fyll ut detaljene nedenfor for å opprette en konto
-                </p>
-                <p>
-                    Dine detaljer
-                </p>
-            </div>
-           
-                <input th:field="*{firstName}" class="inputs" id="first" type="text" placeholder="Fornavn" autofocus>
-            
-                <input th:field="*{lastName}" class="inputs" id="last" type="text" placeholder="Etternavn">
-        
-                <input th:field="*{email}" type="email" placeholder="E-post">
-           
-                <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
-            
-            <div id="submitBox">
-                <input id="loginButton" type="submit" value="Registrer  →">
-            </div>
-        </div>
-    </form>
+    </div>
+</form>
 
 
 </body>
