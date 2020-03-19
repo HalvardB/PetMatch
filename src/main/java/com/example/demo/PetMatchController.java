@@ -45,4 +45,10 @@ public class PetMatchController {
     public String getPreferences(@ModelAttribute User user, @ModelAttribute Animal animal, @ModelAttribute Buyer buyer) {
         return "preferances";
     }
+
+    @GetMapping("/testing")
+    public String getTesting() {
+        return "testing";
+    }
+
 }
