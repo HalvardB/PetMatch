@@ -13,21 +13,21 @@ import java.sql.Statement;
 @RestController
 public class DbController {
 
-    @Autowired
-    DataSource dataSource;
-
-    @GetMapping("/user-agent")
-    public String userAgent(HttpServletRequest request) {
-        return request.getHeader("User-Agent");
-    }
-
-    @GetMapping("/db")
-    public String dbVersion() throws SQLException {
-        Statement statement = dataSource.getConnection().createStatement();
-        ResultSet resultSet = statement.executeQuery("select version();");
-        if (resultSet.next()) {
-            return resultSet.getString(1);
-        }
-        return null;
-    }
+//    @Autowired
+//    DataSource dataSource;
+//
+//    @GetMapping("/user-agent")
+//    public String userAgent(HttpServletRequest request) {
+//        return request.getHeader("User-Agent");
+//    }
+//
+//    @GetMapping("/db")
+//    public String dbVersion() throws SQLException {
+//        Statement statement = dataSource.getConnection().createStatement();
+//        ResultSet resultSet = statement.executeQuery("select version();");
+//        if (resultSet.next()) {
+//            return resultSet.getString(1);
+//        }
+//        return null;
+//    }
 }

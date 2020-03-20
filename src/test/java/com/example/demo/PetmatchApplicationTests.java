@@ -27,6 +27,4 @@ class PetmatchApplicationTests {
         userRepository.save(user);
         assertEquals(true, userRepository.findAll().iterator().hasNext());
     }
-
-
 }
