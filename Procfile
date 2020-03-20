@@ -1,0 +1,1 @@
+web: java -jar target/PetMatch-0.0.1-SNAPSHOT.jar
