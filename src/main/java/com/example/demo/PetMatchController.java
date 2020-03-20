@@ -2,12 +2,15 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @Controller
@@ -29,6 +32,20 @@ public class PetMatchController {
         return "intropage";
     }
 
+    @GetMapping("animal/{id}")
+    public String getAnimalProfile(@PathVariable Integer id, Model m){
+        Animal animal = animalRepository.findById(id).get();
+        m.addAttribute("animal", animal);
+        return "animalProfile";
+    }
+
+    @GetMapping("animals")
+    public String getAnimalProfile(Model m){
+        List<Animal> animals = (List<Animal>) animalRepository.findAll();
+        m.addAttribute("animals", animals);
+        return "buyersAllAnimalsView";
+    }
+
     @GetMapping("/animalProfile")
     public String getAnimalProfile(@ModelAttribute User user) {
         return "animalProfile";
@@ -45,9 +62,10 @@ public class PetMatchController {
     }
 
     @PostMapping("/registrer")
-    public String postRegistrer(@ModelAttribute User user, HttpSession session) {
+    public String postRegistrer(@ModelAttribute User user, HttpSession s) {
         userRepository.save(user);
-        session.setAttribute("currentUser", user);
+        s.setAttribute("currentUser", user);
+        s.setAttribute("userId", user.getId());
         return "redirect:/preferanser";
     }
 
@@ -62,15 +80,23 @@ public class PetMatchController {
     }
 
     @PostMapping("/nyttdyr")
-    public String postNyttDyr(@ModelAttribute Animal animal) {
+    public String postNyttDyr(@ModelAttribute Animal animal, HttpSession s) {
+        animal.setOwnerId((Integer) s.getAttribute("userId"));
+        animal.setIsAvailable(true);
         animalRepository.save(animal);
-        return("redirect:/nyttdyr");
+
+        User user = userRepository.findById((Integer) s.getAttribute("userId")).get();
+        user.setUserType(UserType.SELLER);
+        userRepository.save(user);
+
+        return("redirect:/");
     }
 
     @GetMapping("/login")
     public String getLogin() {
         return "login";
     }
+
 
     @PostMapping("/login")
     public String postLogin(@ModelAttribute User user, HttpSession s) {
@@ -81,7 +107,6 @@ public class PetMatchController {
         }
         return "/buyerAllAnimalsView";
     }
-
 
     @GetMapping("/testing")
     public String getTesting() {
@@ -96,6 +121,23 @@ public class PetMatchController {
     @GetMapping("/buyerAllAnimalsView")
     public String getBuyerAllAnimalsView() {
         return "buyerAllAnimalsView";
+    }
+
+    @GetMapping("/kjoper")
+    public String getSellerPreferanser(@ModelAttribute Buyer buyer) {
+        return "reg4_buyer";
+    }
+
+    @PostMapping("/kjoper")
+    public String postSellerPreferanser(@ModelAttribute Buyer buyer, HttpSession s) {
+        User user = userRepository.findById((Integer) s.getAttribute("userId")).get();
+
+        buyer.setId(user.getId());
+        buyerRepository.save(buyer);
+
+        user.setUserType(UserType.BUYER);
+        userRepository.save(user);
+        return "redirect:/";
     }
 
 }
