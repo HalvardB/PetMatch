@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -30,6 +31,11 @@ public class PetMatchController {
 
     @Autowired
     BuyerRepository buyerRepository;
+
+    @GetMapping("/user-agent")
+    public String userAgent(HttpServletRequest request) {
+        return request.getHeader("User-Agent");
+    }
 
     @GetMapping("/db")
     public String dbVersion() throws SQLException {
