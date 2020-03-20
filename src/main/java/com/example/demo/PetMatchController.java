@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -32,24 +33,18 @@ public class PetMatchController {
         return "intropage";
     }
 
-    @GetMapping("animal/{id}")
-    public String getAnimalProfile(@PathVariable Integer id, Model m) {
-        Animal animal = animalRepository.findById(id).get();
-        m.addAttribute("animal", animal);
-        return "animalProfile";
-    }
-
-    @GetMapping("animals")
-    public String getAnimalProfile(Model m) {
-        List<Animal> animals = (List<Animal>) animalRepository.findAll();
-        m.addAttribute("animals", animals);
-        return "buyersAllAnimalsView";
-    }
-
     @GetMapping("/animalProfile/{id}")
-    public String getAnimalProfile(@ModelAttribute User user, @PathVariable int id) {
+    public String getAnimalProfile(@PathVariable int id, Model m) {
+        Animal animal = animalRepository.findById(id).get();
+        int getOwnerId = animal.getOwnerId();
+
+        User theAnimalUser = userRepository.findById(getOwnerId).get();
+
+        m.addAttribute("animal", animal);
+        m.addAttribute("theAnimalUser", theAnimalUser);
         return "animalProfile";
     }
+
 
     @GetMapping("/userProfile")
     public String getUserProfile(@ModelAttribute User user) {
@@ -123,6 +118,7 @@ public class PetMatchController {
 
     @GetMapping("/buyerAllAnimalsView")
     public String getBuyerAllAnimalsView(Model m) {
+
         List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
         m.addAttribute("allAnimals", allAnimals);
         return "buyerAllAnimalsView";
@@ -150,6 +146,49 @@ public class PetMatchController {
         s.setAttribute("currentUser", user);
         s.setAttribute("userId", user.getId());
         return "redirect:/animals";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @GetMapping("/sellersAnimalLikes")
+    public String getsellersAnimalLikes() {
+        return "sellersAnimalLikes";
     }
 
 }

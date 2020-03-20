@@ -19,16 +19,15 @@
 <!-------- MAIN -------->
 
 <div class="animalMatchesContainer">
-
-    a
-    <div th:each="animal : ${allAnimals}">
-        <a href="/animalProfile">
-            <div class="animalMatchesPicIcon">
+    <div th:each="eachAnimal : ${allAnimals}">
+        <div class="animalMatchesPicIcon">
+            <a th:href="'/animalProfile/' + ${eachAnimal.id}">
                 <img class="animalMatchesPic" src="image/dummyDog.jfif" alt="">
-                <p class="animalMatchesTextStyle" th:text="${animal.name}">Kira</p>
+                <p class="animalMatchesTextStyle" th:text="${eachAnimal.name}">Kira</p>
                 <img class="heartIconStyle" src="image/heartOutline.png" alt="">
-            </div>
-        </a>
+            </a>
+        </div>
+
     </div>
 
 

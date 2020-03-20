@@ -15,7 +15,12 @@ public class Cat extends Animal{
 
     public Cat(){};
 
-//    public Cat(AnimalType animalType, String name, int age, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, Boolean isFemale, String bio, CatBreed catBreed) {
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    //    public Cat(AnimalType animalType, String name, int age, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, Boolean isFemale, String bio, CatBreed catBreed) {
 //            super(animalType, name, age, isChipped, isVaccinated, isSterilized, isChildFriendly, isActive, isAvailable, animalSize, isFemale, bio);
 //            this.catBreed = catBreed;
 //
