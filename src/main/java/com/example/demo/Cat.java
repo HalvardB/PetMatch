@@ -11,7 +11,7 @@ public class Cat extends Animal{
 
     @Id
     private int id;
-    private CatBreed catBreed;
+//    private CatBreed catBreed;
 
     public Cat(){};
 

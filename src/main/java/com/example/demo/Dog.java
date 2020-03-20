@@ -11,7 +11,7 @@ public class Dog extends Animal {
 
     @Id
     private int id;
-    private DogBreed dogBreed;
+//    private DogBreed dogBreed;
 
     public Dog(){};
 
