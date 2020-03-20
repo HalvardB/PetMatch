@@ -15,25 +15,25 @@ Han er 4 år gammel. Vi ønsker å finne ett hjem som er i aktivitet rundt ham o
 Han trives ikke å være aleine for lenge.', 'Beagle_1.jpg', 'Beagle_2.jpg', 'Beagle_3.jpg'),
 ('DOG', 'Blazy', 9, true, false, true, true, true, true,'LARGE', false, 2, 'Jeg heter Blazy og er en 9 år gammel hund.
 Jeg er en blanding av border collie og Irsk setter og er fortsatt glad i aktivitet, turer og lek.
-Jeg er glad i barn, men litt utrygg på enkelte hunder.', 'Border_Collie_1.jpg', 'Border_Collie_2.jpg'),
+Jeg er glad i barn, men litt utrygg på enkelte hunder.', 'Border_Collie_1.jpg', 'Border_Collie_2.jpg', null),
 ('DOG', 'Lars', 1, true, true, true, false , false, true, 'SMALL', false , 2, 'På grunn av dvs omstendigheter så må Lars ha nytt hjem. Han er en chinese crested på 1 år, kastrert, frisk og rask. Vaksinert og chippet.
-Lars kan markere inne, men det løser seg med bellyband eller bleie.'),
+Lars kan markere inne, men det løser seg med bellyband eller bleie.', 'https://www.akc.org/wp-content/themes/akc/component-library/assets/img/welcome.jpg', null, null),
 ('DOG', 'Chico', 1, true, true, true, true, true, true, 'LARGE', true, 5, 'Vi gir bort Chico til et hyggelig hjem som kan ta vare på søte Chico.
-gis bort grunnet corona gjør at vi ikke har kapasitet til å ha ta vare på henne.'),
+gis bort grunnet corona gjør at vi ikke har kapasitet til å ha ta vare på henne.', null, null, null),
  ('DOG', 'Ozzy', 4, true, false, false, false, false, true, 'SMALL', false, 5, 'Dette er IKKE en kosehund. Han trenger mye forståelse og trening. Han kan opptre aggresivt mot fremmede. Gis ikke bort til noen som ikke forstår hva det innebærer, han biter når han føler seg redd.
-Ozzy er på jakt etter et nytt hjem pga astma og allergi påvist på vår sønn.'),
+Ozzy er på jakt etter et nytt hjem pga astma og allergi påvist på vår sønn.', null, null, null),
 ('DOG', 'Nila', 2, true, false, true, true, true, true, 'LARGE', true, 5, 'Hun går overens med barn og andre hunder.
-Hun er chippet og har pass (men mangler rabiesvaksinen for at passet skal være gyldig).'),
+Hun er chippet og har pass (men mangler rabiesvaksinen for at passet skal være gyldig).', null, null, null),
 ('DOG', 'Tor', 1, true, true, true, true, true, true, 'MEDIUM', false, 5, 'Vi ønsker å finne ett hjem som er i aktivitet rundt ham om dagene. Han trives ikke å være aleine for lenge.
-Han elsker lange turer og og har masse glede å gi.'),
+Han elsker lange turer og og har masse glede å gi.', null, null, null),
 ('DOG', 'Storm', 8, true, true , true, true, false, true, 'LARGE', false, 2,  'Det er med et tungt hjerte å omplassere hunden Storm.
-Storm er snart 9 år, han er en blandingsrase (husky, border collie, Schafer og pointer). Han er kastrert og chippet.'),
+Storm er snart 9 år, han er en blandingsrase (husky, border collie, Schafer og pointer). Han er kastrert og chippet.', null, null, null),
 ('DOG', 'Leo', 2, true, true, true, true, true, true, 'MEDIUM', false, 2, 'En veldig aktiv og sporty hund.
-Han har gått på valpekurs, kan de vanlige kommandoene, er kjempe villig til å lære så lenge en belønning finner sted etterpå.'),
+Han har gått på valpekurs, kan de vanlige kommandoene, er kjempe villig til å lære så lenge en belønning finner sted etterpå.', null, null, null),
 ('DOG', 'Mitch', 4, true, true, true, false, false, true, 'SMALL', false, 5, 'Mitch er en sosial og glad hund, er vandt til katt og barn. Trives best når han får kos og blir klødd på brystet. Liker seg like godt foran vedovnen som ute i skogen.
-Han er vandt til å være alene hjemme på dagtid mens jeg er på jobb.'),
+Han er vandt til å være alene hjemme på dagtid mens jeg er på jobb.', null, null, null),
 ('DOG', 'Prins', 3, true, true, true, true, true, true, 'SMALL', true, 5, 'Den er forholdsvis aktiv, og har et særdeles godt gemytt. Hunden er svært sosial og er veldig glad i mennesker, særlig barn.
-Den er godt oppdratt og reagerer fint på andre hunder og ukjente mennesker. Hunden har aldri vist tegn til aggresjon og er neppe en god vakthund.');
+Den er godt oppdratt og reagerer fint på andre hunder og ukjente mennesker. Hunden har aldri vist tegn til aggresjon og er neppe en god vakthund.', null, null, null);
 
 INSERT INTO animal (animal_type, name, age, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_active, is_available, animal_size, is_female, owner_id, bio, animal_img1, animal_img2, animal_img3)
 VAlUES ('CAT', 'Kitty', 3, true, true, true, true, false, true, 'Large', false, 3, 'Kan ikke ha katten lenger på grun av familiendring skriv og spør om det er noe..', 'Bengal_1.jpg', 'Bengal_2.jpg', 'Bengal_3.jpg'),
@@ -41,22 +41,22 @@ VAlUES ('CAT', 'Kitty', 3, true, true, true, true, false, true, 'Large', false, 
 Han er sterilisert men ikke chippet, har fått alle vaksiner.', 'Devon_Rex_1.jpg', 'Devon_Rex_2.jpg', 'Devon_Rex_3.jpg'),
 ('CAT', 'Sjanten', 1, true, false, true, true, false, true,'SMALL', true, 2, 'Gis bort grunnet allergi.', 'Hellig_Birma_1.jpg', 'Hellig_Birma_2.jpg', 'Hellig_Birma_3.jpg'),
 ('CAT', 'Leila', 1, true, true, true, true, false, true, 'SMALL', false , 5, 'Leila kom inn til oss sammen med sine to små kattunger. Kattungene var dessverre syke og måtte rett til behandling, og er nå i et fosterhjem.
-Leila derimot virker noe nedfor fra og være borte fra sine to små, samt finner seg ikke helt til rette i de nye omgivelsene her på senteret.'),
+Leila derimot virker noe nedfor fra og være borte fra sine to små, samt finner seg ikke helt til rette i de nye omgivelsene her på senteret.', null, null, null),
 ('CAT', 'Daisy', 1, false, false, false, false, true, true, 'SMALL', true, 3, 'Neva Masquerade er en god familiekatt. De er kjærlige og lekne. De er lojale og knytter seg til eieren sin.
-De liker å være der det skjer, og koser seg som familiens midtpunkt. '),
+De liker å være der det skjer, og koser seg som familiens midtpunkt. ', null, null, null),
  ('CAT', 'Zooey', 2, true, true, true, true, true, true, 'LARGE', true, 3, 'Dette er en en svart jente som heter Zooey. Hun er utrolig herlig og sosial.
-Hun er godt vant med hunder, da vi selv har hund og datteren vår har en hund de jevnlig har møtt gjennom oppveksten. De er godt vant med folk i alle aldre, og at det er mye liv og røre i huset vårt.'),
-('CAT', 'Alex', 2, true, true, true, false, false, true, 'MEDIUM', true, 4, 'Vi har vakre perser kattunger til overs, passer bra som kosekatt.'),
+Hun er godt vant med hunder, da vi selv har hund og datteren vår har en hund de jevnlig har møtt gjennom oppveksten. De er godt vant med folk i alle aldre, og at det er mye liv og røre i huset vårt.', null, null, null),
+('CAT', 'Alex', 2, true, true, true, false, false, true, 'MEDIUM', true, 4, 'Vi har vakre perser kattunger til overs, passer bra som kosekatt.', null, null, null),
 ('CAT', 'Musa', 6, true, true, true, true, true, true, 'LARGE', false, 5, 'Det er med klump i halsen at  ser meg nødt til å omplassere den lille ragdoll-pusen, Musa.
-Sønnen min har utviklet allergi, og etter en periode med testing av ulike tiltak, med varierende suksess , innser jeg at at dette blir det eneste riktige nå..'),
+Sønnen min har utviklet allergi, og etter en periode med testing av ulike tiltak, med varierende suksess , innser jeg at at dette blir det eneste riktige nå..', null, null, null),
 ('CAT', 'Angel', 1, false, false, false, true, true, true, 'SMALL', false, 5, 'Sjelden Scottish straight gutt, kalt Angel gis bort.
-Kattungen er veldig rasetypisk, fordi den har en veldig sjelden farge, med rundt hode, fine små ører, store runde og fine øyner som gjør at kattungen ligner på en bamse/ engler.'),
+Kattungen er veldig rasetypisk, fordi den har en veldig sjelden farge, med rundt hode, fine små ører, store runde og fine øyner som gjør at kattungen ligner på en bamse/ engler.', null, null, null),
 ('CAT', 'Siko', 2, true, true, true, false, false, true, 'MEDIUM', true, 2, 'Ble funnet sammen med flere andre skjønninger i en koloni på Jørpeland. Der levde vi ute i en usikker verden. Uten kjærlighet og omsorg. Vi ble heldigvis reddet og kjørt til dyrenes hus av dyrevenner. Tross at jeg ikke hadde hatt menneskelig kontakt ble jeg fort trygg.
-Er en nyskjerrig og leken krabat som har blitt en skikkelig kosepus. Leken og nyskjerrig som alle andre kattunger.'),
+Er en nyskjerrig og leken krabat som har blitt en skikkelig kosepus. Leken og nyskjerrig som alle andre kattunger.', null, null, null),
 ('CAT', 'Pus', 5, true, true, true, true, false, true, 'MEDIUM', false, 5, 'Brownie er ei ung sibirdame som ønsker seg nytt hjem. Hun blir 5 år i juli. Hun ønsker et hjem hvor hun kan ha mulighet til å gå ut som hun vil, i trygge omgivelser.
-Men hun må også ha mulighet til å være inne så mye hun vil.'),
+Men hun må også ha mulighet til å være inne så mye hun vil.', null, null, null),
 ('CAT', 'Gunnar', 2, false, false, false, true, false, true, 'SMALL', false, 3, 'Han er litt over et år, og vurderes gi bort om jeg finner rett hjem. Lyder navnet Gunnar ikke kastrert eller stamtavle.
-Kjempe kosete og skal helst følge deg overalt.');
+Kjempe kosete og skal helst følge deg overalt.', null, null, null);
 
 INSERT INTO DOG (id, breed)
 VALUES (1, 'ALASKA_HUSKY'), (2, 'BEAGLE'), (3, 'BORDER_COLLIE'), (4, 'CHINESE_CRESTED'), (5, 'DALMATINER'), (6, 'DVERGPINCHER'),

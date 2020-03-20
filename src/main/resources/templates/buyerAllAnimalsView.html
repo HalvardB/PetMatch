@@ -20,11 +20,11 @@
 
 <div class="animalMatchesContainer">
 
-    a
+
     <div th:each="animal : ${allAnimals}">
         <a href="/animalProfile">
             <div class="animalMatchesPicIcon">
-                <img class="animalMatchesPic" src="image/dummyDog.jfif" alt="">
+                <img class="animalMatchesPic" th:src="'Dogs/'+${animal.getAnimalImg1()}" alt="">
                 <p class="animalMatchesTextStyle" th:text="${animal.name}">Kira</p>
                 <img class="heartIconStyle" src="image/heartOutline.png" alt="">
             </div>

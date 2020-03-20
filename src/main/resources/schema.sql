@@ -38,9 +38,9 @@ CREATE TABLE ANIMAL(
   is_female BOOLEAN,
   owner_id BIGINT,
   bio VARCHAR(500),
-  animal_img1 VARCHAR(100),
-  animal_img2 VARCHAR(100),
-  animal_img3 VARCHAR(100),
+  animal_img1 VARCHAR(100) default null,
+  animal_img2 VARCHAR(100) default null,
+  animal_img3 VARCHAR(100) default null,
   FOREIGN KEY (owner_id) REFERENCES USER(id)
 );
 
