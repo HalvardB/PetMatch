@@ -46,8 +46,8 @@ public class PetMatchController {
         return "buyersAllAnimalsView";
     }
 
-    @GetMapping("/animalProfile")
-    public String getAnimalProfile(@ModelAttribute User user) {
+    @GetMapping("/animalProfile/{id}")
+    public String getAnimalProfile(@ModelAttribute User user, @PathVariable int id) {
         return "animalProfile";
     }
 
@@ -63,7 +63,6 @@ public class PetMatchController {
 
     @PostMapping("/registrer")
     public String postRegistrer(@ModelAttribute User user, HttpSession s) {
-        userRepository.save(user);
         s.setAttribute("currentUser", user);
         s.setAttribute("userId", user.getId());
         return "redirect:/preferanser";
@@ -81,15 +80,20 @@ public class PetMatchController {
 
     @PostMapping("/nyttdyr")
     public String postNyttDyr(@ModelAttribute Animal animal, HttpSession s) {
-        animal.setOwnerId((Integer) s.getAttribute("userId"));
-        animal.setIsAvailable(true);
-        animalRepository.save(animal);
+        User user = (User) s.getAttribute("currentUser");
 
-        User user = userRepository.findById((Integer) s.getAttribute("userId")).get();
         user.setUserType(UserType.SELLER);
         userRepository.save(user);
 
-        return ("redirect:/");
+        animal.setOwnerId(user.getId());
+        animal.setIsAvailable(true);
+        animalRepository.save(animal);
+
+        // Updating session
+        s.setAttribute("currentUser", user);
+        s.setAttribute("userId", user.getId());
+
+        return("redirect:/");
     }
 
     @GetMapping("/login")
@@ -121,7 +125,6 @@ public class PetMatchController {
     public String getBuyerAllAnimalsView(Model m) {
         List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
         m.addAttribute("allAnimals", allAnimals);
-
         return "buyerAllAnimalsView";
     }
 
@@ -132,14 +135,21 @@ public class PetMatchController {
 
     @PostMapping("/kjoper")
     public String postSellerPreferanser(@ModelAttribute Buyer buyer, HttpSession s) {
-        User user = userRepository.findById((Integer) s.getAttribute("userId")).get();
+        User user = (User) s.getAttribute("currentUser");
 
-        buyer.setId(user.getId());
+        // Update user fields
+        buyer.setFirstName(user.getFirstName());
+        buyer.setLastName(user.getLastName());
+        buyer.setPassword(user.getPassword());
+        buyer.setEmail(user.getEmail());
+        buyer.setUserType(UserType.BUYER);
+
         buyerRepository.save(buyer);
 
-        user.setUserType(UserType.BUYER);
-        userRepository.save(user);
-        return "redirect:/";
+        // Updating session
+        s.setAttribute("currentUser", user);
+        s.setAttribute("userId", user.getId());
+        return "redirect:/animals";
     }
 
 }

@@ -20,12 +20,15 @@
 
 <div class="animalMatchesContainer">
 
-    <div th:each="animal : ${allAnimals}" >
-        <div  class="animalMatchesPicIcon">
-            <img class="animalMatchesPic" src="image/dummyDog.jfif" alt="">
-            <p class="animalMatchesTextStyle" th:text="${animal.name}">Kira</p>
-            <img class="heartIconStyle" src="image/heartOutline.png" alt="">
-        </div>
+    a
+    <div th:each="animal : ${allAnimals}">
+        <a href="/animalProfile">
+            <div class="animalMatchesPicIcon">
+                <img class="animalMatchesPic" src="image/dummyDog.jfif" alt="">
+                <p class="animalMatchesTextStyle" th:text="${animal.name}">Kira</p>
+                <img class="heartIconStyle" src="image/heartOutline.png" alt="">
+            </div>
+        </a>
     </div>
 
 
