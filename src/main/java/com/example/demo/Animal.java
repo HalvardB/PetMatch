@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
@@ -32,24 +31,6 @@ public class Animal {
     public Animal() {
     }
 
-    ;
-
-
-    //    public Animal(AnimalType animalType, String name, Integer age, String bio, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, Boolean isFemale) {
-//        this.animalType = animalType;
-//        this.name = name;
-//        this.age = age;
-//        this.isChipped = isChipped;
-//        this.isVaccinated = isVaccinated;
-//        this.isSterilized = isSterilized;
-//        this.isChildFriendly = isChildFriendly;
-//        this.isActive = isActive;
-//        this.isAvailable = isAvailable;
-//        this.animalSize = animalSize;
-//
-//        this.bio = bio;
-//        this.isFemale = isFemale;
-//    }
     public void setAge(Integer age) {
         this.age = age;
     }
