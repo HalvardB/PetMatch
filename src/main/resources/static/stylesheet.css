@@ -70,13 +70,13 @@ input {
 
 a, a:link:active, a:visited:active {
     text-decoration: none;
-    color: black;
 }
 
 .leftArrowAtag {
     display: inline-block;
     margin-top: 26px;
     margin-left: 40px;
+    color: black;
 }
 
 #arrowPtag {
@@ -298,6 +298,28 @@ a, a:link:active, a:visited:active {
     left: 19px;
     bottom: 24px;
     color: white;
+}
+
+
+
+
+
+/*-------- SellersAnimalLikes/animals -------*/
+
+#animalProfileGallerySeller {
+    position: relative;
+    width: 375px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.leftArrowAtagWhite {
+    position: absolute;
+    color: white;
+    z-index: 1;
+    left: 34px;
+    top: 18px;
+    font-size: 25px;
 }
 
 

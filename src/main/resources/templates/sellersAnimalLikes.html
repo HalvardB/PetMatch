@@ -8,14 +8,53 @@
 </head>
 <body>
 
-<!-------- ANIMAL GALLERY + arrows -------->
-<div id="animalGalleryDiv">
-    <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
-    <img id="animalProfileGallery" src="image/dummyDog.jfif" alt="">
+<!-------- MENU -------->
+<div class="menu" th:include="templates :: menu"></div>
+
+<!-------- ANIMAL GALLERY + arrow -------->
+<div id="sellerAnimalLikesGalleryContainer">
+    <a class="leftArrowAtagWhite" href="/"><p id="arrowPtag">&#60;</p></a>
+    <img id="animalProfileGallerySeller" src="image/dummyDog.jfif" alt="">
 </div>
 
-<div id="redHeartDiv">
-    <a class="leftArrowAtagWhite" href="/"><p id="arrowPtag">&#60;</p></a>
+<!-------- ANIMAL NAME + AGE -------->
+<div class="containerProfiles">
+
+    <div id="animalNameAge">
+        <h1 id="animalName" th:text="${animal.name}">Chico</h1>
+        <h3 id="animalAge" th:text="${animal.age}">0.5 år</h3>
+    </div>
+
+    <!-------- ANIMAL BIO + PREFERENCES -------->
+
+    <div id="animalBio">
+        <p th:text="${animal.bio}">Lorem Ipsum er rett og slett dummytekst fra
+            og for trykkeindustrien. Lorem Ipsum har
+            vært bransjens standard for dummytekst helt
+            siden 1500-tallet, da en ukjent boktrykker
+            stokket en mengde bokstaver
+            for å lage et prøveeksemplar av en bok.
+        </p>
+    </div>
+
+
+    <div class="locationBopelContainer">
+        <img class="prefIcons" src="image/lokasjon.png" alt="Lokasjon">
+        <p th:text="${theAnimalUser.municipality}">Oslo</p>
+    </div>
+
+    <div>
+        <h4 class="prefH4">Preferanser</h4>
+
+        <div class="iconContainer">
+            <img class="prefIcons" src="image/kid.png" alt="">
+            <img class="prefIcons" src="image/male.png" alt="">
+            <img class="prefIcons" src="image/female.png" alt="">
+            <img class="prefIcons" src="image/chip.png" alt="">
+            <img class="prefIcons" src="image/vaksine.png" alt="">
+            <img class="prefIcons" src="image/scissor.png" alt="">
+        </div>
+    </div>
 </div>
 
 

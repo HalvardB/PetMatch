@@ -186,8 +186,15 @@ public class PetMatchController {
 
 
 
-    @GetMapping("/sellersAnimalLikes")
-    public String getsellersAnimalLikes() {
+    @GetMapping("/sellersAnimalLikes/{id}")
+    public String getsellersAnimalLikes(@PathVariable int id, Model m) {
+        Animal animal = animalRepository.findById(id).get();
+        int getOwnerId = animal.getOwnerId();
+
+        User theAnimalUser = userRepository.findById(getOwnerId).get();
+
+        m.addAttribute("animal", animal);
+        m.addAttribute("theAnimalUser", theAnimalUser);
         return "sellersAnimalLikes";
     }
 
