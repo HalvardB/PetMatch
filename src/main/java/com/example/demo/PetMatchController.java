@@ -63,7 +63,6 @@ public class PetMatchController {
 
     @PostMapping("/registrer")
     public String postRegistrer(@ModelAttribute User user, HttpSession s) {
-        userRepository.save(user);
         s.setAttribute("currentUser", user);
         s.setAttribute("userId", user.getId());
         return "redirect:/preferanser";
@@ -81,13 +80,18 @@ public class PetMatchController {
 
     @PostMapping("/nyttdyr")
     public String postNyttDyr(@ModelAttribute Animal animal, HttpSession s) {
-        animal.setOwnerId((Integer) s.getAttribute("userId"));
+        User user = (User) s.getAttribute("currentUser");
+
+        user.setUserType(UserType.SELLER);
+        userRepository.save(user);
+
+        animal.setOwnerId(user.getId());
         animal.setIsAvailable(true);
         animalRepository.save(animal);
 
-        User user = userRepository.findById((Integer) s.getAttribute("userId")).get();
-        user.setUserType(UserType.SELLER);
-        userRepository.save(user);
+        // Updating session
+        s.setAttribute("currentUser", user);
+        s.setAttribute("userId", user.getId());
 
         return("redirect:/");
     }
@@ -130,14 +134,21 @@ public class PetMatchController {
 
     @PostMapping("/kjoper")
     public String postSellerPreferanser(@ModelAttribute Buyer buyer, HttpSession s) {
-        User user = userRepository.findById((Integer) s.getAttribute("userId")).get();
+        User user = (User) s.getAttribute("currentUser");
 
-        buyer.setId(user.getId());
+        // Update user fields
+        buyer.setFirstName(user.getFirstName());
+        buyer.setLastName(user.getLastName());
+        buyer.setPassword(user.getPassword());
+        buyer.setEmail(user.getEmail());
+        buyer.setUserType(UserType.BUYER);
+
         buyerRepository.save(buyer);
 
-        user.setUserType(UserType.BUYER);
-        userRepository.save(user);
-        return "redirect:/";
+        // Updating session
+        s.setAttribute("currentUser", user);
+        s.setAttribute("userId", user.getId());
+        return "redirect:/animals";
     }
 
 }

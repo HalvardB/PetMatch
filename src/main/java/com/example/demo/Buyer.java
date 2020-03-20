@@ -1,11 +1,8 @@
 package com.example.demo;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
-import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn
@@ -14,10 +11,10 @@ public class Buyer extends User {
     @Id
     private int id;
 
-    AnimalType animalType;
-    HomeType homeType;
-    Boolean isPreviousAnimalOwner;
-    Boolean hasChildren;
+    private AnimalType animalType;
+    private HomeType homeType;
+    private Boolean isPreviousAnimalOwner;
+    private Boolean hasChildren;
 
     public Buyer(){};
 
