@@ -31,14 +31,14 @@ public class PetMatchController {
         return "intropage";
     }
 
-    @GetMapping("animal/{id}")
+    @GetMapping("/animal/{id}")
     public String getAnimalProfile(@PathVariable Integer id, Model m) {
         Animal animal = animalRepository.findById(id).get();
         m.addAttribute("animal", animal);
         return "animalProfile";
     }
 
-    @GetMapping("animals")
+    @GetMapping("/animals")
     public String getAnimalProfile(Model m) {
         List<Animal> animals = (List<Animal>) animalRepository.findAll();
         m.addAttribute("animals", animals);
@@ -96,7 +96,7 @@ public class PetMatchController {
     }
 
     @GetMapping("/login")
-    public String getLogin() {
+    public String getLogin(@ModelAttribute User user) {
         return "login";
     }
 
@@ -104,10 +104,12 @@ public class PetMatchController {
     public String postLogin(@ModelAttribute User user, HttpSession s, @RequestParam String email) {
         User logger = userRepository.findByEmail(user.getEmail());
 
-        if (logger.getEmail().equals(user.getEmail()) && logger.getPassword().equals(user.getPassword())) {
-            s.setAttribute("logger", user.getEmail());
+        if (logger != null && logger.getEmail().equals(user.getEmail()) && logger.getPassword().equals(user.getPassword())) {
+            s.setAttribute("currentUser", logger);
+            return "redirect:/";
         }
-        return "/buyerAllAnimalsView";
+        return "login";
+
     }
 
     @GetMapping("/testing")
