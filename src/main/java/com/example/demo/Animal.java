@@ -24,9 +24,6 @@ public class Animal {
     private AnimalSize animalSize;
     private String bio;
     private Integer ownerId;
-    private String animalImage1;
-    private String animalImage2;
-    private String animalImage3;
 
     // vekt, stueren, hundevennlig, kattevenlig
     public Animal() {
@@ -164,30 +161,6 @@ public class Animal {
 
     public void setOwnerId(Integer ownerId) {
         this.ownerId = ownerId;
-    }
-
-    public String getAnimalImage1() {
-        return animalImage1;
-    }
-
-    public void setAnimalImage1(String animalImage1) {
-        this.animalImage1 = animalImage1;
-    }
-
-    public String getAnimalImage2() {
-        return animalImage2;
-    }
-
-    public void setAnimalImage2(String animalImage2) {
-        this.animalImage2 = animalImage2;
-    }
-
-    public String getAnimalImage3() {
-        return animalImage3;
-    }
-
-    public void setAnimalImage3(String animalImage3) {
-        this.animalImage3 = animalImage3;
     }
 
 }

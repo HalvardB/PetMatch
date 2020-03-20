@@ -19,8 +19,6 @@ public class User {
     private Boolean wantNewsletter;
     private UserType userType;
     private String bio;
-    private String userImage;
-//    private List<Picture> pictureList; // Only profile picture? Remove list
 
     public User(){}
 
@@ -33,7 +31,6 @@ public class User {
         this.wantNewsletter = wantNewsletter;
         this.userType = userType;
         this.bio = bio;
-        this.userImage = userImage;
     }
 
     public User(String firstName, String lastName, String password, String email) {
@@ -115,13 +112,6 @@ public class User {
         this.bio = bio;
     }
 
-    public String getUserImage() {
-        return userImage;
-    }
-
-    public void setUserImage(String userImage) {
-        this.userImage = userImage;
-    }
 
 
 }
