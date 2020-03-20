@@ -21,8 +21,8 @@ public class Buyer extends User {
 
     public Buyer(){};
 
-    public Buyer(String firstName, String lastName, String password, String email, Municipality municipality, String bio, Boolean wantNewsletter, UserType userType, AnimalType animalType, HomeType homeType, Boolean isPreviousAnimalOwner, Boolean hasChildren) {
-        super(firstName, lastName, password, email, municipality, bio, wantNewsletter, userType);
+    public Buyer(String firstName, String lastName, String password, String email, Municipality municipality, String bio, Boolean wantNewsletter, UserType userType, String userImage, AnimalType animalType, HomeType homeType, Boolean isPreviousAnimalOwner, Boolean hasChildren) {
+        super(firstName, lastName, password, email, municipality, bio, wantNewsletter, userType, userImage);
         this.animalType = animalType;
         this.homeType = homeType;
         this.isPreviousAnimalOwner = isPreviousAnimalOwner;
