@@ -16,7 +16,7 @@ CREATE TABLE BUYER(
   id BIGINT,
   animal_type ENUM ('DOG', 'CAT'),
   home_type ENUM ('APARTMENT', 'HOUSE'),
-  is_previous_animal_owner BOOLEAN default true,
+  is_previous_animal_owner BOOLEAN,
   has_children BOOLEAN,
   FOREIGN KEY (id) REFERENCES USER(id)
 );

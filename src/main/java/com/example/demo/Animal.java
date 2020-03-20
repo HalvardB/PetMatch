@@ -23,6 +23,7 @@ public class Animal {
     private Boolean isAvailable;
     private AnimalSize animalSize;
     private String bio;
+    private Integer ownerId;
 
     // vekt, stueren, hundevennlig, kattevenlig
 
@@ -150,5 +151,13 @@ public class Animal {
 
     public void setAnimalSize(AnimalSize animalSize) {
         this.animalSize = animalSize;
+    }
+
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 }

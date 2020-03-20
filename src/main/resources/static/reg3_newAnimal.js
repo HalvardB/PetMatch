@@ -5,6 +5,7 @@ const childFriendlyOption = document.getElementById("childFriendlyOption");
 const isSterilizedOption = document.getElementById("isSterilizedOption");
 const isFemaleOption = document.getElementById("isFemaleOption");
 
+animalTypeOption.value = "DOG";
 chippedOption.value = true;
 vaccinatedOption.value = true;
 childFriendlyOption.value = true;
@@ -14,7 +15,6 @@ isFemaleOption.value = true;
 function editImgClass(item){
     item.className = "optionImg option";
 }
-animalTypeOption.value = "cat";
 
 // SELLER OPTIONS
 const dog = document.getElementById("DOG");
