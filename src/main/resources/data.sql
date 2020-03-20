@@ -1,6 +1,6 @@
-INSERT INTO USER(first_name, last_name, password, email, want_newsletter, municipality, user_type, bio, userImg)
+INSERT INTO USER(first_name, last_name, password, email, want_newsletter, municipality, user_type, bio, user_img)
 VALUES ('Christer', 'Falck', 'Chris123', 'Falcken@gmail.com', true, 'TRONDELAG', 'SELLER', 'Etter jeg flyttet til Trondheim for å åpne platesjappe har jeg ikke tid til hund lenger.
-Derfor leter jeg etter et nytt hjem for min kjære følgesvenn de siste årene.', 'Christer_falck.jpg'),
+Derfor leter jeg etter et nytt hjem for min kjære følgesvenn de siste årene.', 'Christer_Falck.jpg'),
 ('Eduardo', 'Martinez', 'Eddi1712', 'eduardo_12@gmail.com', false, 'OSLO', 'SELLER', 'Ved siden av jobben min hjelper jeg personer å distribuere sine kattunger og hunder.
 Derfor har jeg lagt ut et par annonser her. Ta kontakt om du finner noen av de interessante:)', 'Eduardo_Martinez.jpg'),
 ('Geir', 'Pettersen', 'Geir123', 'geir.p@gmail.com', true, 'VIKEN', 'SELLER', 'Jeg og kona har noen katter som har fått unger. Disse ønsker vi oss et nytt hjem til,
@@ -66,7 +66,7 @@ INSERT INTO CAT (id, breed)
 VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON'), (17, 'NEVA_MASQUERADE'), (18, 'NORSK_SKOGKATT'),
 (19, 'PERSER'), (20, 'RAGDOLL'), (21, 'SCOTTISH_STRAIGHT'), (22, 'SHENGO_SIDDIS'), (23, 'SIBIRKATT'), (24, 'SPHYNX');
 
- 
+
 
 
 
