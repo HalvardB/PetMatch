@@ -2,11 +2,14 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @Controller
@@ -26,6 +29,20 @@ public class PetMatchController {
 //        User newUser = new User("Halvard", "Bastiansen", "123", "h@lvard.com");
 //        userRepository.save(newUser);
         return "intropage";
+    }
+
+    @GetMapping("animal/{id}")
+    public String getAnimalProfile(@PathVariable Integer id, Model m){
+        Animal animal = animalRepository.findById(id).get();
+        m.addAttribute("animal", animal);
+        return "animalProfile";
+    }
+
+    @GetMapping("animals")
+    public String getAnimalProfile(Model m){
+        List<Animal> animals = (List<Animal>) animalRepository.findAll();
+        m.addAttribute("animals", animals);
+        return "buyersAllAnimalsView";
     }
 
     @GetMapping("/animalProfile")
