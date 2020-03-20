@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,29 @@
     <title>Pet Match | Matcher</title>
 </head>
 <body>
+<!-------- HEADER -------->
+<div class="dyrMatchHeaderDiv">
+    <a class="NotActive" href="/buyerAllAnimalsView"><p class="textInActiveNotActive">Dyr</p></a>
+    <a class="Active" href="/buyerMatches"><p class="textInActiveNotActive">Matches</p></a>
+</div>
+
+<!-------- MENU -------->
+<div class="menu" th:include="templates :: menu"></div>
+
+<!-------- MAIN -------->
+<div class="animalMatchesContainer">
+    <div>
+        <div class="animalMatchesPicIcon">
+            <img class="animalMatchesPic" src="image/dummyDog.jfif" alt="">
+            <!-- <p><span th:text="${animal.getName}"></span></p>-->
+            <p class="animalMatchesTextStyle">Kira</p>
+            <img class="heartIconStyle" src="image/redHeart.png" alt="">
+        </div>
+    </div>
+
+</div>
+
+
 
 </body>
 </html>

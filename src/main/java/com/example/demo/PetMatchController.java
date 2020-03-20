@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
@@ -66,17 +67,35 @@ public class PetMatchController {
         return("redirect:/nyttdyr");
     }
 
-    @GetMapping("/loggInn")
-    public String getLoggInn(@ModelAttribute User user) {
-        User userEmail = userRepository.findByEmail(user.getEmail());
+    @GetMapping("/login")
+    public String getLogin() {
         return "login";
+    }
+
+    @PostMapping("/login")
+    public String postLogin(@ModelAttribute User user, HttpSession s) {
+        User logger = userRepository.findByEmail(user.getEmail());
+
+        if (logger.equals(user.getEmail()) && logger.getPassword().equals(user.getPassword())){
+    s.setAttribute("logger", user.getEmail());
+        }
+        return "/buyerAllAnimalsView";
     }
 
 
     @GetMapping("/testing")
     public String getTesting() {
         return "testing";
+    }
 
+    @GetMapping("/buyerMatches")
+    public String getBuyerMatches() {
+        return "buyerMatches";
+    }
+
+    @GetMapping("/buyerAllAnimalsView")
+    public String getBuyerAllAnimalsView() {
+        return "buyerAllAnimalsView";
     }
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -20,17 +20,13 @@
     </header>
 
     <!-------- FORM LOGIN -------->
+    <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
 
-
-    <form action="" method="post">
+    <form action="/login" method="post" th:object="${user}">
         <div class="formContainer">
-            
-                <input id="epost" type="text" placeholder="E-post" required autofocus>
-           
-                <input id="passord" type="password" placeholder="Passord" required>
-          
+                <input id="epost" th:field="*{email}" type="email" placeholder="E-post" required autofocus>
+                <input id="passord" name="password" type="password" placeholder="Passord" required>
                 <input id="orangeButton" type="submit" value="Logg inn">
-           
         </div>
     </form>
 

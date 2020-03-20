@@ -20,11 +20,12 @@
 </header>
 
 <!-------- FORM NEW USER -------->
-<div class="arrow"¨>
-    <a href="/intropage"><p>&#8826</p></a>
-</div>
+
+
+
 
 <form th:object="${user}" action="/registrer" method="post">
+    <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
 
         <div class="formContainer">
             <div class="tekst">
@@ -41,7 +42,7 @@
             <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
             
             <div id="submitBox">
-                <input id="loginButton" type="submit" value="Registrer  →">
+                <input id="orangeButton" type="submit" value="Registrer  →">
             </div>
         </div>
     </form>
