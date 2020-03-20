@@ -18,7 +18,7 @@ class PetmatchApplicationTests {
 
     @Test
     void canLoadEmptyH2db(){
-        assertEquals(false, userRepository.findAll().iterator().hasNext());
+        assertEquals(true, userRepository.findAll().iterator().hasNext());
     }
 
     @Test
@@ -27,6 +27,4 @@ class PetmatchApplicationTests {
         userRepository.save(user);
         assertEquals(true, userRepository.findAll().iterator().hasNext());
     }
-
-
 }

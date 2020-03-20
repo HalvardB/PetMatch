@@ -19,12 +19,12 @@ public class User {
     private Boolean wantNewsletter;
     private UserType userType;
     private String bio;
-//    private String userImage;
-//    private List<Picture> pictureList; // Only profile picture? Remove list
+    private String userImg;
+
 
     public User(){}
 
-    public User(String firstName, String lastName, String password, String email, Municipality municipality, String bio, Boolean wantNewsletter, UserType userType, String userImage) {
+    public User(String firstName, String lastName, String password, String email, Municipality municipality, String bio, Boolean wantNewsletter, UserType userType, String userImg) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -33,7 +33,7 @@ public class User {
         this.wantNewsletter = wantNewsletter;
         this.userType = userType;
         this.bio = bio;
-//        this.userImage = userImage;
+        this.userImg = userImg;
     }
 
     public User(String firstName, String lastName, String password, String email) {
@@ -115,13 +115,11 @@ public class User {
         this.bio = bio;
     }
 
- /*   public String getUserImage() {
-        return userImage;
+    public String getUserImg() {
+        return userImg;
     }
 
-    public void setUserImage(String userImage) {
-        this.userImage = userImage;
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
     }
-*/
-
 }

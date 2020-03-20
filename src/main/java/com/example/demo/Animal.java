@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
@@ -24,33 +23,14 @@ public class Animal {
     private AnimalSize animalSize;
     private String bio;
     private Integer ownerId;
-  /*  private String animalImage1;
-    private String animalImage2;
-    private String animalImage3;*/
+
+    private String animalImg1;
+    private String animalImg2;
+    private String animalImg3;
 
     // vekt, stueren, hundevennlig, kattevenlig
     public Animal() {
     }
-
-
-
-
-    //    public Animal(AnimalType animalType, String name, Integer age, String bio, Boolean isChipped, Boolean isVaccinated, Boolean isSterilized, Boolean isChildFriendly, Boolean isActive, Boolean isAvailable, AnimalSize animalSize, Boolean isFemale) {
-//        this.animalType = animalType;
-//        this.name = name;
-//        this.age = age;
-//        this.isChipped = isChipped;
-//        this.isVaccinated = isVaccinated;
-//        this.isSterilized = isSterilized;
-//        this.isChildFriendly = isChildFriendly;
-//        this.isActive = isActive;
-//        this.isAvailable = isAvailable;
-//        this.animalSize = animalSize;
-//
-//        this.bio = bio;
-//        this.isFemale = isFemale;
-//    }
-
 
     public int getId() {
         return id;
@@ -176,28 +156,31 @@ public class Animal {
         this.ownerId = ownerId;
     }
 
-   /* public String getAnimalImage1() {
-        return animalImage1;
+
+    public String getAnimalImg1() {
+        return animalImg1;
     }
 
-    public void setAnimalImage1(String animalImage1) {
-        this.animalImage1 = animalImage1;
+    public void setAnimalImg1(String animalImg1) {
+        this.animalImg1 = animalImg1;
     }
 
-    public String getAnimalImage2() {
-        return animalImage2;
+    public String getAnimalImg2() {
+        return animalImg2;
     }
 
-    public void setAnimalImage2(String animalImage2) {
-        this.animalImage2 = animalImage2;
+    public void setAnimalImg2(String animalImg2) {
+        this.animalImg2 = animalImg2;
     }
 
-    public String getAnimalImage3() {
-        return animalImage3;
+    public String getAnimalImg3() {
+        return animalImg3;
     }
 
-    public void setAnimalImage3(String animalImage3) {
-        this.animalImage3 = animalImage3;
-    }*/
+    public void setAnimalImg3(String animalImg3) {
+        this.animalImg3 = animalImg3;
+    }
+
+
 
 }

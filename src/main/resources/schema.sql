@@ -9,7 +9,8 @@ CREATE TABLE USER(
   'OSLO', 'ROGALAND', 'VESTFOLD_OG_TELEMARK', 'TROMS_OG_FINNMARK', 'TRONDELAG',
   'VESTLAND', 'VIKEN'),
   user_type ENUM ('BUYER', 'SELLER'),
-  bio VARCHAR(500)
+  bio VARCHAR(500),
+  user_img VARCHAR(100)
 );
 
 CREATE TABLE BUYER(
@@ -37,6 +38,9 @@ CREATE TABLE ANIMAL(
   is_female BOOLEAN,
   owner_id BIGINT,
   bio VARCHAR(500),
+  animal_img1 VARCHAR(100) default null,
+  animal_img2 VARCHAR(100) default null,
+  animal_img3 VARCHAR(100) default null,
   FOREIGN KEY (owner_id) REFERENCES USER(id)
 );
 

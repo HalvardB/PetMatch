@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
-
 @Controller
 public class PetMatchController {
 
@@ -33,11 +32,11 @@ public class PetMatchController {
         return "intropage";
     }
 
+
     @GetMapping("/animalProfile/{id}")
     public String getAnimalProfile(@PathVariable int id, Model m) {
         Animal animal = animalRepository.findById(id).get();
         int getOwnerId = animal.getOwnerId();
-
         User theAnimalUser = userRepository.findById(getOwnerId).get();
 
         m.addAttribute("animal", animal);
@@ -92,7 +91,7 @@ public class PetMatchController {
     }
 
     @GetMapping("/login")
-    public String getLogin() {
+    public String getLogin(@ModelAttribute User user) {
         return "login";
     }
 
@@ -100,10 +99,12 @@ public class PetMatchController {
     public String postLogin(@ModelAttribute User user, HttpSession s, @RequestParam String email) {
         User logger = userRepository.findByEmail(user.getEmail());
 
-        if (logger.getEmail().equals(user.getEmail()) && logger.getPassword().equals(user.getPassword())) {
-            s.setAttribute("logger", user.getEmail());
+        if (logger != null && logger.getEmail().equals(user.getEmail()) && logger.getPassword().equals(user.getPassword())) {
+            s.setAttribute("currentUser", logger);
+            return "redirect:/";
         }
-        return "/buyerAllAnimalsView";
+        return "login";
+
     }
 
     @GetMapping("/testing")
@@ -147,44 +148,6 @@ public class PetMatchController {
         s.setAttribute("userId", user.getId());
         return "redirect:/animals";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @GetMapping("/sellersAnimalLikes/{id}")
     public String getsellersAnimalLikes(@PathVariable int id, Model m) {
