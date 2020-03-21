@@ -4,6 +4,7 @@
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="indexHB.css">
     <title>Pet Match | Matcher</title>
 </head>
 <body>
@@ -13,23 +14,23 @@
     <a class="Active" href="/buyerMatches"><p class="textInActiveNotActive">Matches</p></a>
 </div>
 
-<!-------- MENU -------->
-<div class="menu" th:include="templates :: menu"></div>
+
 
 <!-------- MAIN -------->
 <div class="animalMatchesContainer">
-    <div>
+    <div th:each="eachAnimal : ${matchedAnimals}">
         <div class="animalMatchesPicIcon">
-            <img class="animalMatchesPic" src="image/dummyDog.jfif" alt="">
-            <!-- <p><span th:text="${animal.getName}"></span></p>-->
-            <p class="animalMatchesTextStyle">Kira</p>
-            <img class="heartIconStyle" src="image/redHeart.png" alt="">
+            <a th:href="'/animalProfile/' + ${eachAnimal.id}">
+                <img class="animalMatchesPic" th:src="${eachAnimal.getAnimalImg1()}" alt="">
+                <p class="animalMatchesTextStyle" th:text="${eachAnimal.name}">Kira</p>
+                <img class="heartIconStyle" src="image/redHeart.png" alt="">
+            </a>
         </div>
     </div>
-
 </div>
 
-
+<!-------- MENU -------->
+<div class="menu" th:include="templates :: menu"></div>
 
 </body>
 </html>

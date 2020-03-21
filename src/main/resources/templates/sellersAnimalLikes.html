@@ -4,12 +4,12 @@
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../indexHB.css">
     <title>Pet Match | Ditt dyr</title>
 </head>
 <body>
 
-<!-------- MENU -------->
-<div class="menu" th:include="templates :: menu"></div>
+
 
 <!-------- ANIMAL GALLERY + arrow -------->
 <div id="sellerAnimalLikesGalleryContainer">
@@ -57,6 +57,18 @@
     </div>
 </div>
 
+<div th:each="user : ${matchedUsers}">
+    <a th:href="'/userProfile/' + ${user.getId()}">
+        <img id="sellerViewAnimalPic" th:src="${user.getUserImg()}" alt="">
+    </a>
+    <a th:href="'/'">
+        <img class="heartIconStyle" src="image/heartOutline.png" alt="">
+    </a>
+    <a th:href="'/approve/' + ${animal.id} + '/' + ${user.id}"><p>Approve this person</p></a>
+</div>
+
+<!-------- MENU -------->
+<div class="menu" th:include="templates :: menu"></div>
 
 </body>
 </html>

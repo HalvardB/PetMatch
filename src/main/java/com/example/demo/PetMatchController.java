@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,9 @@ public class PetMatchController {
 
     @Autowired
     BuyerRepository buyerRepository;
+
+    @Autowired
+    MatchRepository matchRepository;
 
     @GetMapping("/")
     public String getHome() {
@@ -45,8 +49,10 @@ public class PetMatchController {
     }
 
 
-    @GetMapping("/userProfile")
-    public String getUserProfile(@ModelAttribute User user) {
+    @GetMapping("/userProfile/{userId}")
+    public String getUserProfile(@PathVariable int userId, Model m) {
+        User user = userRepository.findById(userId).get();
+        m.addAttribute("user", user);
         return "userProfile";
     }
 
@@ -113,15 +119,34 @@ public class PetMatchController {
     }
 
     @GetMapping("/buyerMatches")
-    public String getBuyerMatches() {
+    public String getBuyerMatches(HttpSession s, Model m) {
+        // User user = (User) s.getAttribute("currentUser");
+        User user = (User) userRepository.findById(2).get();
+        s.setAttribute("currentUser", user);
+
+        List<Match> allMatches = matchRepository.findAllApprovedMatches(user.getId());
+        List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
+        m.addAttribute("matchedAnimals", matchedAnimals);
+
         return "buyerMatches";
     }
 
     @GetMapping("/buyerAllAnimalsView")
-    public String getBuyerAllAnimalsView(Model m) {
+    public String getBuyerAllAnimalsView(Model m, HttpSession s) {
+        // User user = (User) s.getAttribute("currentUser");
+        User user = (User) userRepository.findById(2).get();
+        s.setAttribute("currentUser", user);
+
+        List<Match> allMatches = matchRepository.findAllByUserId(user.getId());
+        List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
 
         List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
+        Boolean isMatch = false;
+
         m.addAttribute("allAnimals", allAnimals);
+        m.addAttribute("matchedAnimals", matchedAnimals);
+        m.addAttribute("user", user);
+
         return "buyerAllAnimalsView";
     }
 
@@ -149,24 +174,76 @@ public class PetMatchController {
         return "redirect:/animals";
     }
 
-    @GetMapping("/sellersAnimalLikes/{id}")
-    public String getsellersAnimalLikes(@PathVariable int id, Model m) {
-        Animal animal = animalRepository.findById(id).get();
-        int getOwnerId = animal.getOwnerId();
+    @GetMapping("/sellersAnimalLikes/{animalId}")
+    public String getsellersAnimalLikes(@PathVariable int animalId, Model m, HttpSession s) {
+        // User user = (User) s.getAttribute("currentUser");
+        User user = (User) userRepository.findById(3).get();
+        s.setAttribute("currentUser", user);
 
-        User theAnimalUser = userRepository.findById(getOwnerId).get();
+        Animal animal = animalRepository.findById(animalId).get();
+        List<Match> allMatches = matchRepository.findAllByAnimalId(animal.getId());
+        List<User> matchedUsers = getUsersFromMatches(allMatches);
 
         m.addAttribute("animal", animal);
-        m.addAttribute("theAnimalUser", theAnimalUser);
+        m.addAttribute("theAnimalUser", user);
+        m.addAttribute("matchedUsers", matchedUsers);
         return "sellersAnimalLikes";
     }
 
     @GetMapping("/sellersAnimalsView")
-    public String getsellersAnimalsView(Model m) {
-
-        List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
-        m.addAttribute("allAnimals", allAnimals);
+    public String getsellersAnimalsView(Model m, HttpSession s) {
+        // User user = (User) s.getAttribute("currentUser");
+        User user = (User) userRepository.findById(3).get();
+        s.setAttribute("currentUser", user);
+        List<Animal> myAnimals = animalRepository.findAllByOwnerId(user.getId());
+        m.addAttribute("myAnimals", myAnimals);
         return "sellersAnimalsView";
+    }
+
+    @GetMapping("/match/{animalId}/{userId}")
+    public String getMatch(@PathVariable int animalId, @PathVariable int userId){
+        Match match = new Match(animalId, userId, false);
+        matchRepository.save(match);
+        return "redirect:/buyerAllAnimalsView";
+    }
+
+    @GetMapping("/approve/{animalId}/{userId}")
+    public String approveMatch(@PathVariable int animalId, @PathVariable int userId){
+
+        Match match = matchRepository.findByAnimalIdAndUserId(animalId, userId);
+        approveMatch(match.getId());
+        System.out.println("Match id: " + match.getId());
+
+        return "redirect:/sellersAnimalLikes/" + animalId;
+    }
+
+
+    public List<Animal> getAnimalsFromMatches(List<Match> matchList){
+        List<Animal> matchedAnimals = new ArrayList<>();
+
+        for(Match match : matchList){
+            Animal animal = animalRepository.findById(match.getAnimalId()).get();
+            matchedAnimals.add(animal);
+        }
+
+        return matchedAnimals;
+    }
+
+    public List<User> getUsersFromMatches(List<Match> matchList){
+        List<User> matchedUsers = new ArrayList<>();
+
+        for(Match match : matchList){
+            User user  = userRepository.findById(match.getUserId()).get();
+            matchedUsers.add(user);
+        }
+
+        return matchedUsers;
+    }
+
+    public void approveMatch(int matchId){
+        Match match = matchRepository.findById(matchId).get();
+        match.setApproved(Boolean.TRUE);
+        matchRepository.save(match);
     }
 
 }

@@ -4,6 +4,7 @@
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="indexHB.css">
     <title>Pet Match | Alle dyr</title>
 </head>
 <body>
@@ -13,8 +14,7 @@
     <a class="NotActive" href="/buyerMatches"><p class="textInActiveNotActive">Matches</p></a>
 </div>
 
-<!-------- MENU -------->
-<div class="menu" th:include="templates :: menu"></div>
+
 
 <!-------- MAIN -------->
 
@@ -24,10 +24,20 @@
             <a th:href="'/animalProfile/' + ${eachAnimal.id}">
                 <img class="animalMatchesPic" th:src="${eachAnimal.getAnimalImg1()}" alt="">
                 <p class="animalMatchesTextStyle" th:text="${eachAnimal.name}">Kira</p>
-                <img class="heartIconStyle" src="image/heartOutline.png" alt="">
             </a>
+            <div th:if="${matchedAnimals.contains(eachAnimal)}">
+                <img class="heartIconStyle" src="image/redHeart.png" alt="">
+            </div>
+            <div th:unless="${matchedAnimals.contains(eachAnimal)}">
+                <a th:href="'/match/' + ${eachAnimal.getId()} + '/' + ${user.getId()}">
+                    <img class="heartIconStyle" src="image/heartOutline.png" alt="">
+                </a>
+            </div>
         </div>
     </div>
 </div>
+
+<!-------- MENU -------->
+<div class="menu" th:include="templates :: menu"></div>
 </body>
 </html>

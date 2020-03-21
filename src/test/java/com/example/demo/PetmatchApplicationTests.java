@@ -12,6 +12,9 @@ class PetmatchApplicationTests {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    MatchRepository matchRepository;
+
     @Test
     void contextLoads() {
     }
@@ -26,5 +29,10 @@ class PetmatchApplicationTests {
         User user = new User("Robin", "Dalboy", "Secret", "robin@dalboy.com");
         userRepository.save(user);
         assertEquals(true, userRepository.findAll().iterator().hasNext());
+    }
+
+    @Test
+    void testMatches() {
+
     }
 }

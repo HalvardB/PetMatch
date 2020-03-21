@@ -22,20 +22,17 @@
 
 <div class="animalsViewContainer">
 
-    <div th:each="eachAnimal : ${allAnimals}">
+    <div th:each="eachAnimal : ${myAnimals}">
 
         <a th:href="'/sellersAnimalLikes/' + ${eachAnimal.id}">
             <img id="sellerViewAnimalPic" th:src="${eachAnimal.getAnimalImg1()}" alt="">
         </a>
 
         <div id="textIconContainer">
-            <p>Kira</p>
-            <img class="heartIconStyle" src="image/redHeart.png" alt="">
-        </div>
-
-
+        <p th:text="${eachAnimal.name}">Kira</p>
+        <img class="heartIconStyle" src="image/redHeart.png" alt="">
     </div>
-
+    </div>
 </div>
 
 
