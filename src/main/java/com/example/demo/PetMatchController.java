@@ -161,4 +161,12 @@ public class PetMatchController {
         return "sellersAnimalLikes";
     }
 
+    @GetMapping("/sellersAnimalsView")
+    public String getsellersAnimalsView(Model m) {
+
+        List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
+        m.addAttribute("allAnimals", allAnimals);
+        return "sellersAnimalsView";
+    }
+
 }
