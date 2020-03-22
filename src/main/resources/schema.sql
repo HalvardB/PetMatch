@@ -10,7 +10,7 @@ CREATE TABLE USER(
   'VESTLAND', 'VIKEN'),
   user_type ENUM ('BUYER', 'SELLER'),
   bio VARCHAR(500),
-  user_img VARCHAR(100) default 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
+  user_img VARCHAR(100)
 );
 
 CREATE TABLE BUYER(

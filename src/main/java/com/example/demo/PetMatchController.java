@@ -83,10 +83,12 @@ public class PetMatchController {
         User user = (User) s.getAttribute("currentUser");
 
         user.setUserType(UserType.SELLER);
+        user.setUserImg("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
         userRepository.save(user);
 
         animal.setOwnerId(user.getId());
         animal.setIsAvailable(true);
+        animal.setAnimalImg1("https://cdn.pixabay.com/photo/2015/06/12/18/44/fox-807315_1280.png");
         animalRepository.save(animal);
 
         // Updating session
@@ -165,6 +167,7 @@ public class PetMatchController {
         buyer.setPassword(user.getPassword());
         buyer.setEmail(user.getEmail());
         buyer.setUserType(UserType.BUYER);
+        buyer.setUserImg("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
 
         buyerRepository.save(buyer);
         user = userRepository.findById(buyer.getId()).get();
