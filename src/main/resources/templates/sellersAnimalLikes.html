@@ -10,25 +10,26 @@
 <body>
 
 
-
 <!-------- ANIMAL GALLERY + arrow -------->
 <div id="sellerAnimalLikesGalleryContainer">
     <a class="leftArrowAtagWhite" th:href="'/sellersAnimalsView'"><p id="arrowPtag">&#60;</p></a>
     <img id="animalProfileGallerySeller" th:src="${animal.getAnimalImg1()}" alt="">
 </div>
 
+
+
 <!-------- ANIMAL NAME + AGE -------->
 <div class="containerProfiles">
 
     <div id="animalNameAge">
         <h1 id="animalName" th:text="${animal.name}">Chico</h1>
-        <h3 id="animalAge" th:text="${animal.age}">0.5 år</h3>
+        <h3 id="animalAge" th:text="${animal.age} + 'år'">0.5 år</h3>
     </div>
-
+    <hr class="userProfileLine">
     <!-------- ANIMAL BIO + PREFERENCES -------->
 
     <div id="animalBio">
-        <p th:text="${animal.bio}">Lorem Ipsum er rett og slett dummytekst fra
+        <p class="bioText" th:text="${animal.bio}">Lorem Ipsum er rett og slett dummytekst fra
             og for trykkeindustrien. Lorem Ipsum har
             vært bransjens standard for dummytekst helt
             siden 1500-tallet, da en ukjent boktrykker
@@ -40,7 +41,7 @@
 
     <div class="locationBopelContainer">
         <img class="prefIcons" src="../image/lokasjon.png" alt="Lokasjon">
-        <p th:text="${theAnimalUser.municipality}">Oslo</p>
+        <p class="bioText" th:text="${theAnimalUser.municipality}">Oslo</p>
     </div>
 
     <div>
@@ -57,27 +58,41 @@
     </div>
 </div>
 
+<hr class="userProfileLine">
 
 <!-------- BUYER INFO -------->
+<div class="buyerInfoContainer">
+    <div th:each="user : ${matchedUsers}">
+        <div class="buyerIconContainer">
 
-<div th:each="user : ${matchedUsers}">
-    <a th:href="'/userProfile/' + ${user.getId()}">
-        <img id="buyerPicInSellerView" th:src="${user.getUserImg()}" alt="">
-    </a>
+            <p class="userBioName" th:text="${user.getFirstName() + ' ' + user.getLastName() +
+            ' liker ' +  animal.name}"></p>
 
-    <div th:if="${matchedUsers.contains(user)}">
-        <img class="heartIconStyle" src="../image/redHeart.png" alt="">
+            <a th:href="'/userProfile/' + ${user.getId()} + '/' + ${animal.id}">
+                <img id="buyerPicInSellerView" th:src="${user.getUserImg()}" alt="">
+            </a>
+
+            <div th:if="${approvedUsers.contains(user)}">
+                <img class="heartIconRed" src="../image/redHeart.png" alt="">
+            </div>
+
+            <div id="heartOutlinedBlackDiv" th:unless="${approvedUsers.contains(user)}">
+                <a th:href="'/approve/' + ${animal.id} + '/' + ${user.id}">
+                    <img class="heartIconWhite" src="../image/whiteHeart.png" alt="">
+                </a>
+            </div>
+
+
+                <img class="buyerIconLocation" src="../image/lokasjon.png" alt="">
+            <p class="iconText" th:text="${user.municipality}"></p>
+                <img class="buyerIconBopel" src="../image/bopel.png" alt="">
+
+
+
+        </div>
+        <hr class="userProfileLine">
     </div>
 
-    <div th:unless="${matchedUsers.contains(user)}">
-        <a th:href="'/approve/' + ${animal.id} + '/' + ${user.id}">
-            <img class="heartIconStyle" src="../image/heartOutlineBlack.png" alt="">
-        </a>
-    </div>
-
-
-
-<!--    <a  th:href="'/approve/' + ${animal.id} + '/' + ${user.id}"><p>Approve this person</p></a>-->
 </div>
 
 <!-------- MENU -------->

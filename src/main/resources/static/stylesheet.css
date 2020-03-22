@@ -158,12 +158,11 @@ a, a:link:active, a:visited:active {
 
 /*-------- animalProfile STYLING ---------*/
 
-#animalGalleryDiv {
-    /*Posisjonering av match hjertet*/
-    position: absolute;
-    top: 0;
+/*#animalGalleryDiv {
+    !*Posisjonering av match hjertet*!
 
-}
+
+}*/
 
 #redHeartDiv {
     /*Posisjonering av match hjertet*/
@@ -203,9 +202,15 @@ a, a:link:active, a:visited:active {
 /*-------- USER PROFILE STYLING ---------*/
 
 #userPicNameDiv {
-    position: absolute;
-    top: 100px;
-    left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 375px;
+}
+
+.centerDivs {
+    display: flex;
+    justify-content: center;
 }
 
 #userPic {
@@ -215,19 +220,14 @@ a, a:link:active, a:visited:active {
     border-radius: 100px;
 }
 
-#userProfileLine {
-    position: absolute;
-    top: 320px;
+.userProfileLine {
     width: 300px;
-    left: 35px;
     border: 0.5px ridge;
 }
 
-#userBioContainer {
-    position: absolute;
-    top: 340px;
-    margin: 0 30px;
-    width: 85%;
+.userBioContainer {
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 /*-------- buyerAllAnimalsView/Matches STYLING ---------*/
@@ -302,10 +302,11 @@ a, a:link:active, a:visited:active {
 
 /*-------- SellersAnimalLikes/animalsView -------*/
 
+/*AnimalView*/
 #animalProfileGallerySeller {
     position: relative;
     width: 375px;
-    height: 400px;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -318,22 +319,77 @@ a, a:link:active, a:visited:active {
     font-size: 25px;
 }
 
-
-
-
-
-
-.animalsViewContainer {
+.buyerInfoContainer {
     display: flex;
     flex-wrap: wrap;
+}
+
+.buyerIconContainer {
+    position: relative;
     width: 375px;
+    padding: 20px;
 }
 
 #buyerPicInSellerView {
     object-fit: cover;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 100px;
+    margin-left: 20px;
+}
+
+.heartIconRed {
+    position: absolute;
+    width: 110px;
+    bottom: -10px;
+    left: 98px;
+}
+
+.heartIconWhite {
+    position: absolute;
+    width: 61px;
+    bottom: 13px;
+    left: 123px;
+}
+
+.userBioName {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.bioText {
+    font-size: 15px;
+}
+
+.buyerIconLocation {
+    position: absolute;
+    top: 56px;
+    left: 190px;
+    width: 50px;
+}
+.buyerIconBopel {
+    position: absolute;
+    top: 98px;
+    left: 190px;
+    width: 50px;
+}
+.iconText {
+    position: absolute;
+    top: 57px;
+    left: 241px;
+    font-size: 15px;
+
+}
+
+
+/*SellersViewOverAllAnimals*/
+.animalsViewContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 375px;
 }
 
 #sellerViewAnimalPic {
@@ -342,12 +398,16 @@ a, a:link:active, a:visited:active {
     height: 250px;
 }
 
-
 #textIconContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
+.heartAmount {
+    width: 50px;
+
+}
 
 
 /*-------- FOOTER  STYLING ---------*/

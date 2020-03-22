@@ -13,10 +13,16 @@ public interface MatchRepository extends CrudRepository<Match, Integer> {
     @Query("SELECT m FROM Match m WHERE m.userId = ?1 and m.approved = TRUE")
     List<Match> findAllApprovedMatches(Integer userId);
 
+    @Query("SELECT m FROM Match m WHERE m.animalId = ?1 and m.approved = TRUE")
+    List<Match> findAllApprovedMatchesByAnimalId(Integer animalId);
+
     @Query("SELECT m FROM Match m WHERE m.animalId = ?1")
     List<Match> findAllByAnimalId(Integer animalId);
 
     @Query("SELECT m FROM Match m WHERE m.animalId = ?1 and m.userId = ?2")
     Match findByAnimalIdAndUserId(Integer animalId, Integer userId);
+
+
+
 
 }
