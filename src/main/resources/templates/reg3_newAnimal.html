@@ -16,6 +16,8 @@
         </div>
     </header>
 
+    <a class="leftArrowAtag" href="/preferanser"><p id="arrowPtag">&#60;</p></a>
+
     <!-------- FORM NEW USER -------->
     <form action="/nyttdyr" method="post" th:object="${animal}">
         <!-------- BUYER OPTIONS -------->
@@ -35,6 +37,11 @@
             <div class="optionType">
                 <input type="text" th:field="*{name}" placeholder="Navn">
             </div>
+
+            <div class="optionType">
+                <input type="number" th:field="*{age}" placeholder="Alder">
+            </div>
+
 
             <div class="optionType">
                 <textarea type="text" th:field="*{bio}" placeholder="Skriv litt om dyret"></textarea>
@@ -71,7 +78,7 @@
             </div>
         </div>
 
-        <input type="submit" value="Fortsett">
+        <input class="orangeButton" type="submit" value="Fortsett">
     </form>
 
     <script src="reg3_newAnimal.js"></script>

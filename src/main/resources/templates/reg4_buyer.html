@@ -16,6 +16,8 @@
     </div>
 </header>
 
+<a class="leftArrowAtag" href="/preferanser"><p id="arrowPtag">&#60;</p></a>
+
     <!-------- FORM NEW USER -------->
     <form action="/kjoper" method="post" th:object="${buyer}">
         <!-------- BUYER OPTIONS -------->
@@ -48,7 +50,7 @@
                 <p id="noChildren" class="option">Nei</p>
             </div>
         </div>
-        <input type="submit" value="Fortsett">
+        <input class="orangeButton" type="submit" value="Fortsett">
 
         <script src="reg4_buyer.js"></script>
     </form>

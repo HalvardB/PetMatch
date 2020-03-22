@@ -19,14 +19,15 @@
         </div>
     </header>
 
-    <!-------- FORM LOGIN -------->
     <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
+    <!-------- FORM LOGIN -------->
 
-    <form action="/login" method="post" >
-        <div class="formContainer">
-                <input id="epost" name="email" type="email" placeholder="E-post" required autofocus>
-                <input id="passord" name="password" type="text" placeholder="Passord" required>
-                <input id="orangeButton" type="submit" value="Logg inn">
+
+    <form action="/login" method="post" th:object="${user}" >
+        <div class="formContainer" >
+                <input id="epost" th:field="*{email}" type="email" placeholder="E-post" required autofocus>
+                <input id="passord" th:field="*{password}" type="password" placeholder="Passord" required>
+                <input class="orangeButton" type="submit" value="Logg inn">
         </div>
     </form>
 
