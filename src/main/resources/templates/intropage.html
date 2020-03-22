@@ -38,9 +38,7 @@
 
 </div>
 <div class="introTekst">
-    <p>Lorem Ipsum er rett og slett
-        dummytekst fra og for
-        trykkeindustrien.
+    <p>PetMatch er en tjeneste som knytter nye eier opp mot dyr som av ulike grunner har behov for omplassering
     </p>
 </div>
 <!-------- LOGIN/SIGNUP -------->
@@ -53,6 +51,33 @@
     <div class="NyBruker">
         <a class="loginSignupButtonAtag" href="/registrer">Ny bruker</a>
     </div>
+
+</div>
+
+<div class="containerFaqAbout">
+
+   <button class="faqAboutButtonAtag" onclick="faq()">FAQ
+   </button>
+
+    <button class="faqAboutButtonAtag" onclick="about()">About
+    </button>
+
+<script>
+
+    function faq() {
+        alert("Er denne tjenesten gratis å bruke?\n " +
+            "Ja, den er gratis å bruke foreløpig\n" +
+            "Hvilke dyr finnes på PetMatch?\n " +
+        "Hund og katt\n" + "Kan dyrevernsorganisasjoner bruke PetMatch?\n" +
+        "Ja");
+    }
+
+    function about() {
+        alert("PetMatch er en foreløpig gratis tjeneste for omplassering av dyr.\n " +
+            "Her kan eiere og organisasjoner legge ut dyr med omplaasseringsbehov så disse kan få nye eiere.\n");
+    }
+
+</script>
 
 </div>
 
