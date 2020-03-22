@@ -15,7 +15,6 @@
 </div>
 
 
-
 <!-------- MAIN -------->
 
 <div class="animalMatchesContainer">
@@ -25,14 +24,17 @@
                 <img class="animalMatchesPic" th:src="${eachAnimal.getAnimalImg1()}" alt="">
                 <p class="animalMatchesTextStyle" th:text="${eachAnimal.name}">Kira</p>
             </a>
+
             <div th:if="${matchedAnimals.contains(eachAnimal)}">
                 <img class="heartIconStyle" src="image/redHeart.png" alt="">
             </div>
+
             <div th:unless="${matchedAnimals.contains(eachAnimal)}">
                 <a th:href="'/match/' + ${eachAnimal.getId()} + '/' + ${user.getId()}">
                     <img class="heartIconStyle" src="image/heartOutline.png" alt="">
                 </a>
             </div>
+
         </div>
     </div>
 </div>

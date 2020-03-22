@@ -5,6 +5,7 @@
 }
 
 body {
+    position: relative;
     width: 375px;
     height: 812px;
     margin: auto;
@@ -95,8 +96,7 @@ a, a:link:active, a:visited:active {
     margin: 0 30px;
     width: 85%;
     /*Posisjonering av match hjertet*/
-    position: absolute;
-    top: 410px;
+
 }
 
 .prefH4 {
@@ -329,11 +329,19 @@ a, a:link:active, a:visited:active {
     width: 375px;
 }
 
+#buyerPicInSellerView {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+
 #sellerViewAnimalPic {
     object-fit: cover;
     width: 375px;
-    height: 150px;
+    height: 250px;
 }
+
 
 #textIconContainer {
     display: flex;

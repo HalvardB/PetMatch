@@ -57,18 +57,31 @@
     </div>
 </div>
 
+
+<!-------- BUYER INFO -------->
+
 <div th:each="user : ${matchedUsers}">
     <a th:href="'/userProfile/' + ${user.getId()}">
-        <img id="sellerViewAnimalPic" th:src="${user.getUserImg()}" alt="">
+        <img id="buyerPicInSellerView" th:src="${user.getUserImg()}" alt="">
     </a>
-    <a th:href="'/'">
-        <img class="heartIconStyle" src="image/heartOutline.png" alt="">
-    </a>
-    <a th:href="'/approve/' + ${animal.id} + '/' + ${user.id}"><p>Approve this person</p></a>
+
+    <div th:if="${matchedUsers.contains(user)}">
+        <img class="heartIconStyle" src="../image/redHeart.png" alt="">
+    </div>
+
+    <div th:unless="${matchedUsers.contains(user)}">
+        <a th:href="'/approve/' + ${animal.id} + '/' + ${user.id}">
+            <img class="heartIconStyle" src="../image/heartOutlineBlack.png" alt="">
+        </a>
+    </div>
+
+
+
+<!--    <a  th:href="'/approve/' + ${animal.id} + '/' + ${user.id}"><p>Approve this person</p></a>-->
 </div>
 
 <!-------- MENU -------->
-<div class="menu" th:include="templates :: menu"></div>
+<!--<div class="menu" th:include="templates :: menu"></div>-->
 
 </body>
 </html>
