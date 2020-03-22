@@ -40,6 +40,21 @@ public class PetMatchController {
         return "animalProfile";
     }
 
+    @GetMapping("/animalProfile/{animalId}/bilde")
+    public String getAnimalPicture(HttpSession s, @PathVariable int animalId, Model m) {
+        Animal animal = animalRepository.findById(animalId).get();
+        m.addAttribute("animal", animal);
+        return "reg6_animalPicture";
+    }
+
+    @PostMapping("/animalProfile/{id}/bilde")
+    public String postAnimalPicture(@RequestParam String imageUrl, HttpSession s, @PathVariable int id) {
+        Animal animal = animalRepository.findById(id).get();
+        animal.setAnimalImg1(imageUrl);
+        animalRepository.save(animal);
+        return "redirect:/animalProfile/" + id;
+    }
+
     @GetMapping("/userProfile/{userId}")
     public String getUserProfile(@PathVariable int userId, Model m) {
         User user = userRepository.findById(userId).get();
@@ -47,17 +62,17 @@ public class PetMatchController {
         return "userProfile";
     }
 
-    @GetMapping("/profilBilde")
-    public String getProfilePicture(HttpSession s) {
-        User user = userRepository.findById(1).get();
-        s.setAttribute("currentUser", user);
 
+    @GetMapping("/userProfile/{userId}/bilde")
+    public String getProfilePicture(HttpSession s, Model m, @PathVariable int userId) {
+        User user = userRepository.findById(userId).get();
+        m.addAttribute("user", user);
         return "reg5_profilePicture";
     }
 
-    @PostMapping("/profilBilde")
-    public String postProfilePicture(@RequestParam String imageUrl, HttpSession s) {
-        User user = (User) s.getAttribute("currentUser");
+    @PostMapping("/userProfile/{userId}/bilde")
+    public String postProfilePicture(@RequestParam String imageUrl, HttpSession s, @PathVariable int userId) {
+        User user = userRepository.findById(userId).get();
         user.setUserImg(imageUrl);
         userRepository.save(user);
         s.setAttribute("currentUser", user);
@@ -99,11 +114,31 @@ public class PetMatchController {
         animal.setAnimalImg1("https://cdn.pixabay.com/photo/2015/06/12/18/44/fox-807315_1280.png");
         animalRepository.save(animal);
 
-        // Updating session
         s.setAttribute("currentUser", user);
-        s.setAttribute("userId", user.getId());
-
         return("redirect:/sellersAnimalsView");
+    }
+
+    @GetMapping("/kjoper")
+    public String getSellerPreferanser(@ModelAttribute Buyer buyer) {
+        return "reg4_buyer";
+    }
+
+    @PostMapping("/kjoper")
+    public String postSellerPreferanser(@ModelAttribute Buyer buyer, HttpSession s) {
+        User user = (User) s.getAttribute("currentUser");
+
+        // Update user fields
+        buyer.setFirstName(user.getFirstName());
+        buyer.setLastName(user.getLastName());
+        buyer.setPassword(user.getPassword());
+        buyer.setEmail(user.getEmail());
+        buyer.setUserType(UserType.BUYER);
+        buyer.setUserImg("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
+        buyerRepository.save(buyer);
+
+        user = userRepository.findById(buyer.getId()).get();
+        s.setAttribute("currentUser", user);
+        return "redirect:/buyerAllAnimalsView";
     }
 
     @GetMapping("/login")
@@ -126,11 +161,6 @@ public class PetMatchController {
         }
         return "login";
 
-    }
-
-    @GetMapping("/testing")
-    public String getTesting() {
-        return "reg5_profilePicture";
     }
 
     @GetMapping("/buyerMatches")
@@ -158,32 +188,6 @@ public class PetMatchController {
         m.addAttribute("user", user);
 
         return "buyerAllAnimalsView";
-    }
-
-    @GetMapping("/kjoper")
-    public String getSellerPreferanser(@ModelAttribute Buyer buyer) {
-        return "reg4_buyer";
-    }
-
-    @PostMapping("/kjoper")
-    public String postSellerPreferanser(@ModelAttribute Buyer buyer, HttpSession s) {
-        User user = (User) s.getAttribute("currentUser");
-
-        // Update user fields
-        buyer.setFirstName(user.getFirstName());
-        buyer.setLastName(user.getLastName());
-        buyer.setPassword(user.getPassword());
-        buyer.setEmail(user.getEmail());
-        buyer.setUserType(UserType.BUYER);
-        buyer.setUserImg("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
-
-        buyerRepository.save(buyer);
-        user = userRepository.findById(buyer.getId()).get();
-
-        // Updating session
-        s.setAttribute("currentUser", user);
-        s.setAttribute("userId", user.getId());
-        return "redirect:/buyerAllAnimalsView";
     }
 
     @GetMapping("/sellersAnimalLikes/{animalId}")
