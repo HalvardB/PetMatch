@@ -162,6 +162,7 @@ a, a:link:active, a:visited:active {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 10px;
 }
 
 
