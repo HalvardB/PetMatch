@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PetMatch | Last opp profilbilde</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script>
+        UPLOADCARE_PUBLIC_KEY = '3a73fb11eb76a50c3d05';
+    </script>
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+    <style>
+        .uploader-button .uploadcare--widget__button_type_open {
+            background-color: #efab5b;
+        }
+    </style>
+    <script>
+        UPLOADCARE_LOCALE_TRANSLATIONS = {
+            buttons: {
+                choose: {
+                    files: {
+                        one: 'Upload image'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-------- HEADER -------->
+
+    <header>
+        <div class="headerNyBruker">
+            <p id="headerLoginTekst">Last opp profilbilde</p>
+        </div>
+    </header>
+
+    <span class="uploader-button">
+      <input
+              type="hidden"
+              role="uploadcare-uploader"
+              data-tabs="file camera facebook instagram" />
+    </span>
+
+    <script>
+        (function(src, cb) {
+            var s = document.createElement('script'); s.setAttribute('src', src);
+            s.onload = cb; (document.head || document.body).appendChild(s);
+        })('https://ucarecdn.com/libs/blinkloader/3.x/blinkloader.min.js', function() {
+            window.Blinkloader.optimize({
+                pubkey:'3a73fb11eb76a50c3d05',
+                fadeIn:true
+            });
+        });
+        const widget = uploadcare.Widget('[role=uploadcare-uploader]');
+        widget.onUploadComplete(function(info) {
+           console.log(info);
+           document.querySelector("input[name='imageUrl']").value=info.cdnUrl;
+        })
+    </script>
+
+    <form method="post" action="/profilBilde">
+        <input name="imageUrl" type="hidden">
+        <input type="submit">
+    </form>
+
+
+</body>
+</html>
