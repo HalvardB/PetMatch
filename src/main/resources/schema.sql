@@ -10,7 +10,7 @@ CREATE TABLE USER(
   'VESTLAND', 'VIKEN'),
   user_type ENUM ('BUYER', 'SELLER'),
   bio VARCHAR(500),
-  user_img VARCHAR(100)
+  user_img VARCHAR(100) default 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
 );
 
 CREATE TABLE BUYER(
@@ -38,8 +38,8 @@ CREATE TABLE ANIMAL(
   is_female BOOLEAN,
   owner_id BIGINT,
   bio VARCHAR(500),
-  animal_img1 VARCHAR(100) default null,
-  animal_img2 VARCHAR(100) default null,
+  animal_img1 VARCHAR(100) default 'https://cdn.pixabay.com/photo/2015/06/12/18/44/fox-807315_1280.png',
+  animal_img2 VARCHAR(100) default 'https://cdn.pixabay.com/photo/2017/08/29/07/44/cat-2692346_1280.png',
   animal_img3 VARCHAR(100) default null,
   FOREIGN KEY (owner_id) REFERENCES USER(id)
 );
