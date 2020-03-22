@@ -45,6 +45,14 @@ header {
     justify-content: center;
 }
 
+.containerFaqAbout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 12px;
+}
+
+
 .buttonNoColor {
     border-radius: 20px;
     border: 0;

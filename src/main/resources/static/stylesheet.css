@@ -70,6 +70,21 @@ input {
     margin: 8px;
 }
 
+.faqAboutButtonAtag {
+    border-radius: 15px;
+    border: 0;
+    padding: 10px;
+    width: 80px;
+    height: 36px;
+    background-color: #ff914d;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 8px;
+
+}
+
+
 a, a:link:active, a:visited:active {
     text-decoration: none;
 }
@@ -134,12 +149,20 @@ a, a:link:active, a:visited:active {
 .introTekst {
     text-align: center;
     width: 170px;
+    margin: auto;
 }
 
 .containerLoginSignup {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.containerFaqAbout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 
