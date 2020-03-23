@@ -237,6 +237,13 @@ public class PetMatchController {
         return "buyerAllAnimalsView";
     }
 
+    @GetMapping("/allAnimals")
+    public String getAllAnimals(Model m, HttpSession s) {
+        List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
+        m.addAttribute("allAnimals", allAnimals);
+        return "allAnimals";
+    }
+
     @GetMapping("/sellersAnimalLikes/{animalId}")
     public String getsellersAnimalLikes(@PathVariable int animalId, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
