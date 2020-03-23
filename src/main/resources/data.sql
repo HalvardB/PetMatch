@@ -59,17 +59,17 @@ Men hun må også ha mulighet til å være inne så mye hun vil.', 'https://petm
 ('CAT', 'Gunnar', 2, false, false, false, true, false, true, 'SMALL', false, 3, 'Han er litt over et år, og vurderes gi bort om jeg finner rett hjem. Lyder navnet Gunnar ikke kastrert eller stamtavle.
 Kjempe kosete og skal helst følge deg overalt.', 'https://petmatch-academy.herokuapp.com/Cats/Sphynx_1.jpg', 'https://petmatch-academy.herokuapp.com/Cats/Sphynx_2.jpg', '');
 
--- INSERT INTO Dog (id, breed)
--- VALUES (1, 'ALASKA_HUSKY'), (2, 'BEAGLE'), (3, 'BORDER_COLLIE'), (4, 'CHINESE_CRESTED'), (5, 'DALMATINER'), (6, 'DVERGPINCHER'),
--- (7, 'JACK_RUSSEL'), (8, 'NORSK_ELGHUND'), (9, 'SCHAFER'), (10, 'STAFFORDSHIRE_BULL_TERRIER'), (11, 'TIBETANSK_SPANIEL'), (12, 'WHIPPET');
---
--- INSERT INTO Cat (id, breed)
--- VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON'), (17, 'NEVA_MASQUERADE'), (18, 'NORSK_SKOGKATT'),
--- (19, 'PERSER'), (20, 'RAGDOLL'), (21, 'SCOTTISH_STRAIGHT'), (22, 'SHENGO_SIDDIS'), (23, 'SIBIRKATT'), (24, 'SPHYNX');
---
--- INSERT INTO Matches(animal_id, user_id)
--- VALUES (1,2), (2,3), (3,1), (4,2), (1,3), (13, 1), (13, 5), (13,4);
---
--- INSERT INTO Buyer(id, animal_type, home_type, is_previous_animal_owner, has_children)
--- VALUES (1,'DOG', 'HOUSE', TRUE, FALSE);
+INSERT INTO Dog (id, breed)
+VALUES (1, 'ALASKA_HUSKY'), (2, 'BEAGLE'), (3, 'BORDER_COLLIE'), (4, 'CHINESE_CRESTED'), (5, 'DALMATINER'), (6, 'DVERGPINCHER'),
+(7, 'JACK_RUSSEL'), (8, 'NORSK_ELGHUND'), (9, 'SCHAFER'), (10, 'STAFFORDSHIRE_BULL_TERRIER'), (11, 'TIBETANSK_SPANIEL'), (12, 'WHIPPET');
+
+INSERT INTO Cat (id, breed)
+VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON'), (17, 'NEVA_MASQUERADE'), (18, 'NORSK_SKOGKATT'),
+(19, 'PERSER'), (20, 'RAGDOLL'), (21, 'SCOTTISH_STRAIGHT'), (22, 'SHENGO_SIDDIS'), (23, 'SIBIRKATT'), (24, 'SPHYNX');
+
+INSERT INTO Matches(animal_id, user_id)
+VALUES (1,2), (2,3), (3,1), (4,2), (1,3), (13, 1), (13, 5), (13,4);
+
+INSERT INTO Buyer(id, animal_type, home_type, is_previous_animal_owner, has_children)
+VALUES (1,'DOG', 'HOUSE', TRUE, FALSE);
 

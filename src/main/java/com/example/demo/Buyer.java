@@ -1,8 +1,6 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 
 @Entity
 @PrimaryKeyJoinColumn
@@ -11,7 +9,9 @@ public class Buyer extends User {
     @Id
     private int id;
 
+    @Enumerated(EnumType.STRING)
     private AnimalType animalType;
+    @Enumerated(EnumType.STRING)
     private HomeType homeType;
     private Boolean isPreviousAnimalOwner;
     private Boolean hasChildren;
