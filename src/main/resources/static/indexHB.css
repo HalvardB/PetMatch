@@ -61,3 +61,72 @@
     border: 1px solid orange;
     border-radius: 20px;
 }
+
+.preferanceOptions {
+    margin-top: 80px;
+}
+
+.continueButtons {
+    border-radius: 15px;
+    border: 0;
+    padding: 10px;
+    width: 160px;
+    height: 40px;
+    background-color: #ff914d;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.buyerOptions {
+    margin-left: 40px;
+}
+
+.imageDiv {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+.optionItem {
+    display: inline-block;
+}
+
+textarea {
+    width: 269px;
+    display: block;
+    padding: 9px;
+    margin-bottom: 27px;
+    margin-left: 50px;
+    height: 100px;
+}
+
+#sellerForm input {
+    margin: 0px;
+    width: 88%;
+}
+
+#sellerForm textarea {
+    margin-left: 0px;
+}
+
+#sellerForm .continueButtons {
+    margin-bottom: 40px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 9px;
+    width: 270px;
+    display: block;
+    border-radius: 0px;
+    margin-bottom: 5px;
+    border-color: rgb(238, 238, 238);
+    background-color: white;
+    border-width: 2px;
+    margin-left: 50px;
+}

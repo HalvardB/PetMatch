@@ -145,27 +145,29 @@ public class PetMatchController {
     }
 
     @GetMapping("/nyttdyr")
-    public String getNyttDyr(@ModelAttribute Animal animal) {
+    public String getNyttDyr(@ModelAttribute Animal animal, HttpSession s, Model m) {
+        User user = (User) s.getAttribute("currentUser");
+        m.addAttribute("user", user);
         return "reg3_newAnimal";
     }
 
     @PostMapping("/nyttdyr")
-    public String postNyttDyr(@ModelAttribute Animal animal, HttpSession s) {
-        User user = (User) s.getAttribute("currentUser");
+    public String postNyttDyr(@ModelAttribute Animal animal, HttpSession s, @ModelAttribute User user) {
 
-        user.setUserType(UserType.SELLER);
-        user.setUserImg("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
-        userRepository.save(user);
+        // Create user
+        User currentUser = (User) s.getAttribute("currentUser");
+        currentUser.setMunicipality(user.getMunicipality());
+        currentUser.setUserType(UserType.SELLER);
+        currentUser.setUserImg("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
+        userRepository.save(currentUser);
 
-        animal.setOwnerId(user.getId());
+        // Create animal
+        animal.setOwnerId(currentUser.getId());
         animal.setIsAvailable(true);
         animal.setAnimalImg1("https://cdn.pixabay.com/photo/2015/06/12/18/44/fox-807315_1280.png");
         animalRepository.save(animal);
 
-        s.setAttribute("currentUser", user);
-
-    //    s.setAttribute("userId", user.getId());
-
+        s.setAttribute("currentUser", currentUser);
         return("redirect:/sellersAnimalsView");
 
     }
@@ -179,12 +181,15 @@ public class PetMatchController {
     public String postSellerPreferanser(@ModelAttribute Buyer buyer, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
 
-        // Update user fields
+        // Update buyer fields
         buyer.setFirstName(user.getFirstName());
         buyer.setLastName(user.getLastName());
         buyer.setPassword(user.getPassword());
         buyer.setEmail(user.getEmail());
+        buyer.setBio(buyer.getBio());
+        buyer.setMunicipality(buyer.getMunicipality());
         buyer.setUserType(UserType.BUYER);
+        buyer.setIsPreviousAnimalOwner(buyer.getIsPreviousAnimalOwner());
         buyer.setUserImg("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
         buyerRepository.save(buyer);
 

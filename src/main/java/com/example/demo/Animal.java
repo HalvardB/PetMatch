@@ -92,7 +92,7 @@ public class Animal {
     }
 
     public void setIsVaccinated(Boolean vaccinated) {
-        isVaccinated = vaccinated;
+        this.isVaccinated = vaccinated;
     }
 
     public Boolean getIsSterilized() {
@@ -100,7 +100,7 @@ public class Animal {
     }
 
     public void setIsSterilized(Boolean sterilized) {
-        isSterilized = sterilized;
+        this.isSterilized = sterilized;
     }
 
     public Boolean getIsChildFriendly() {
@@ -108,7 +108,7 @@ public class Animal {
     }
 
     public void setIsChildFriendly(Boolean childFriendly) {
-        isChildFriendly = childFriendly;
+        this.isChildFriendly = childFriendly;
     }
 
     public Boolean getIsActive() {
@@ -116,7 +116,7 @@ public class Animal {
     }
 
     public void setIsActive(Boolean active) {
-        isActive = active;
+        this.isActive = active;
     }
 
     public Boolean getIsAvailable() {
@@ -124,7 +124,7 @@ public class Animal {
     }
 
     public void setIsAvailable(Boolean available) {
-        isAvailable = available;
+        this.isAvailable = available;
     }
 
     public AnimalSize getAnimalSize() {
@@ -144,7 +144,7 @@ public class Animal {
     }
 
     public void setFemale(Boolean female) {
-        isFemale = female;
+        this.isFemale = female;
     }
 
     public void setAnimalSize(AnimalSize animalSize) {
