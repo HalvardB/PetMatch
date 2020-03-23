@@ -15,8 +15,10 @@ public class User {
     private String lastName;
     private String password;
     private String email;
+    @Enumerated(EnumType.STRING)
     private Municipality municipality;
     private Boolean wantNewsletter;
+    @Enumerated(EnumType.STRING)
     private UserType userType;
     private String bio;
     private String userImg;
