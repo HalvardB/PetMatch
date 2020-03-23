@@ -1,4 +1,4 @@
-INSERT INTO user(first_name, last_name, password, email, want_newsletter, municipality, user_type, bio, user_img)
+INSERT INTO User(first_name, last_name, password, email, want_newsletter, municipality, user_type, bio, user_img)
 VALUES ('Christer', 'Falck', 'Chris123', 'Falcken@gmail.com', true, 'TRONDELAG', 'SELLER', 'Etter jeg flyttet til Trondheim for å åpne platesjappe har jeg ikke tid til hund lenger.
 Derfor leter jeg etter et nytt hjem for min kjære følgesvenn de siste årene.', 'https://petmatch-academy.herokuapp.com/Sellers/Christer_Falck.jpg'),
 ('Eduardo', 'Martinez', 'Eddi1712', 'eduardo_12@gmail.com', false, 'OSLO', 'SELLER', 'Ved siden av jobben min hjelper jeg personer å distribuere sine kattunger og hunder.
@@ -9,7 +9,7 @@ da vi ikke har så god kapasitet for gi alle ungene like mye kjærlighet og omso
 ('William', 'Stange', 'Will123', 'william.s@gmail.com', true, 'OSLO', 'SELLER', 'Jeg jobber ved Dyrebeskyttelsen i Norge og vi har et par hunder og katter som trenger et nytt hjem:)', 'https://petmatch-academy.herokuapp.com/Sellers/William_Stange.jpg'),
 ('William', 'Stange', 'Will123', 'will@gmail.com', true, 'OSLO', 'BUYER', 'Jeg jobber ved Dyrebeskyttelsen i Norge og vi har et par hunder og katter som trenger et nytt hjem:)', 'https://petmatch-academy.herokuapp.com/Sellers/William_Stange.jpg');
 
-INSERT INTO animal (animal_type, name, age, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_active, is_available, animal_size, is_female, owner_id, bio, animal_img1, animal_img2, animal_img3)
+INSERT INTO Animal (animal_type, name, age, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_active, is_available, animal_size, is_female, owner_id, bio, animal_img1, animal_img2, animal_img3)
 VAlUES ('DOG', 'Kafka', 1, true, true, true, true, false, true, 'MEDIUM', false, 1, 'Kafka ble funnet på gata i Spania, nå ser han etter et nytt hjem i Norge.', 'https://petmatch-academy.herokuapp.com/Dogs/Alaska_Husky_1.jpg', 'https://petmatch-academy.herokuapp.com/Dogs/Alaska_husky_2.jpg', 'https://petmatch-academy.herokuapp.com/Dogs/Alaska_Husky_3.jpg'),
 ('DOG', 'Ask', 4, false, true, false, true, true, true, 'SMALL', false, 2, 'Vi ser oss nødt til og få omplassert gogutten vår «ASK» på grunn av jobbsituasjonen vår.
 Han er 4 år gammel. Vi ønsker å finne ett hjem som er i aktivitet rundt ham om dagene.
@@ -36,7 +36,7 @@ Han er vandt til å være alene hjemme på dagtid mens jeg er på jobb.', 'https
 ('DOG', 'Prins', 3, true, true, true, true, true, true, 'SMALL', true, 5, 'Den er forholdsvis aktiv, og har et særdeles godt gemytt. Hunden er svært sosial og er veldig glad i mennesker, særlig barn.
 Den er godt oppdratt og reagerer fint på andre hunder og ukjente mennesker. Hunden har aldri vist tegn til aggresjon og er neppe en god vakthund.', 'https://petmatch-academy.herokuapp.com/Dogs/Whippet_1.jpg', 'https://petmatch-academy.herokuapp.com/Dogs/Whippet_2.jpg', '');
 
-INSERT INTO animal (animal_type, name, age, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_active, is_available, animal_size, is_female, owner_id, bio, animal_img1, animal_img2, animal_img3)
+INSERT INTO Animal (animal_type, name, age, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_active, is_available, animal_size, is_female, owner_id, bio, animal_img1, animal_img2, animal_img3)
 VAlUES ('CAT', 'Kitty', 3, true, true, true, true, false, true, 'Large', false, 3, 'Kan ikke ha katten lenger på grun av familiendring skriv og spør om det er noe..', 'https://petmatch-academy.herokuapp.com/Cats/Bengal_1.jpg', 'https://petmatch-academy.herokuapp.com/Cats/Bengal_2.jpg', 'https://petmatch-academy.herokuapp.com/Cats/Bengal_1.jpg'),
 ('CAT', 'Nusse', 2, false, true, false, false, true, true, 'LARGE', false, 2, 'Nusse (katten) 2 år gammel søker en kjærlig familie.Han er kjælen, trygg og god. Fantastisk gemytt, fin med barn. Fanger gjerne mus og jordrotter.
 Han er sterilisert men ikke chippet, har fått alle vaksiner.', 'https://petmatch-academy.herokuapp.com/Cats/Devon_Rex_1.jpg', 'https://petmatch-academy.herokuapp.com/Cats/Devon_Rex_2.jpg', 'https://petmatch-academy.herokuapp.com/Cats/Devon_Rex_3.jpg'),
@@ -59,17 +59,17 @@ Men hun må også ha mulighet til å være inne så mye hun vil.', 'https://petm
 ('CAT', 'Gunnar', 2, false, false, false, true, false, true, 'SMALL', false, 3, 'Han er litt over et år, og vurderes gi bort om jeg finner rett hjem. Lyder navnet Gunnar ikke kastrert eller stamtavle.
 Kjempe kosete og skal helst følge deg overalt.', 'https://petmatch-academy.herokuapp.com/Cats/Sphynx_1.jpg', 'https://petmatch-academy.herokuapp.com/Cats/Sphynx_2.jpg', '');
 
-INSERT INTO dog (id, breed)
+INSERT INTO Dog (id, breed)
 VALUES (1, 'ALASKA_HUSKY'), (2, 'BEAGLE'), (3, 'BORDER_COLLIE'), (4, 'CHINESE_CRESTED'), (5, 'DALMATINER'), (6, 'DVERGPINCHER'),
 (7, 'JACK_RUSSEL'), (8, 'NORSK_ELGHUND'), (9, 'SCHAFER'), (10, 'STAFFORDSHIRE_BULL_TERRIER'), (11, 'TIBETANSK_SPANIEL'), (12, 'WHIPPET');
 
-INSERT INTO cat (id, breed)
+INSERT INTO Cat (id, breed)
 VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON'), (17, 'NEVA_MASQUERADE'), (18, 'NORSK_SKOGKATT'),
 (19, 'PERSER'), (20, 'RAGDOLL'), (21, 'SCOTTISH_STRAIGHT'), (22, 'SHENGO_SIDDIS'), (23, 'SIBIRKATT'), (24, 'SPHYNX');
 
-INSERT INTO matches(animal_id, user_id)
+INSERT INTO Matches(animal_id, user_id)
 VALUES (1,2), (2,3), (3,1), (4,2), (1,3), (13, 1), (13, 5), (13,4);
 
-INSERT INTO BUYER(id, animal_type, home_type, is_previous_animal_owner, has_children)
+INSERT INTO Buyer(id, animal_type, home_type, is_previous_animal_owner, has_children)
 VALUES (1,'DOG', 'HOUSE', TRUE, FALSE);
 
