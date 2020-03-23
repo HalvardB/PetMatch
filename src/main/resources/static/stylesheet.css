@@ -181,11 +181,6 @@ a, a:link:active, a:visited:active {
 
 /*-------- animalProfile STYLING ---------*/
 
-/*#animalGalleryDiv {
-    !*Posisjonering av match hjertet*!
-
-
-}*/
 
 #redHeartDiv {
     /*Posisjonering av match hjertet*/
@@ -220,6 +215,10 @@ a, a:link:active, a:visited:active {
     margin-top: 15px;
     margin-bottom: 0;
     font-weight: 400;
+}
+
+.iconContainer {
+    display: flex;
 }
 
 /*-------- USER PROFILE STYLING ---------*/
@@ -316,6 +315,13 @@ a, a:link:active, a:visited:active {
     top: 174px;
 }
 
+.heartIconStyleRed {
+    position: absolute;
+    width: 75px;
+    left: 114px;
+    top: 162px;
+}
+
 .animalMatchesTextStyle {
     position: absolute;
     margin: 0;
@@ -347,6 +353,7 @@ a, a:link:active, a:visited:active {
 .buyerInfoContainer {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 60px;
 }
 
 .buyerIconContainer {
