@@ -67,7 +67,7 @@ public class PetMatchController {
 
 
     @GetMapping("/userProfile/{userId}/{animalId}")
-    public String getUserProfile(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
+    public String getUserProfileAndAnimal(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
 
         m.addAttribute("animalId", animalId);
@@ -88,6 +88,38 @@ public class PetMatchController {
         User user = userRepository.findById(userId).get();
         user.setUserImg(imageUrl);
         userRepository.save(user);
+        s.setAttribute("currentUser", user);
+        return "redirect:/userProfile/" + user.getId();
+    }
+
+    @GetMapping("/userProfile/{userId}/edit")
+    public String getEditProfile(HttpSession s, Model m, @PathVariable int userId, @ModelAttribute Buyer buyer) {
+        User user = userRepository.findById(userId).get();
+        m.addAttribute("user", user);
+        return "edit_user";
+    }
+
+    @PostMapping("/userProfile/{userId}/edit")
+    public String postEditProfile(HttpSession s, @PathVariable int userId, @ModelAttribute Buyer buyer) {
+
+        // Updating user
+        User user = userRepository.findById(userId).get();
+        user.setBio(buyer.getBio());
+        user.setMunicipality(buyer.getMunicipality());
+        user.setFirstName(buyer.getFirstName());
+        user.setLastName(buyer.getLastName());
+        user.setEmail(buyer.getEmail());
+        user.setPassword(buyer.getPassword());
+        userRepository.save(user);
+
+        // Updating buyer
+        Buyer currentBuyer = buyerRepository.findById(userId).get();
+        currentBuyer.setAnimalType(buyer.getAnimalType());
+        currentBuyer.setHomeType(buyer.getHomeType());
+        currentBuyer.setIsPreviousAnimalOwner(buyer.getIsPreviousAnimalOwner());
+        currentBuyer.setHasChildren(buyer.getHasChildren());
+        buyerRepository.save(currentBuyer);
+
         s.setAttribute("currentUser", user);
         return "redirect:/userProfile/" + user.getId();
     }
@@ -184,8 +216,8 @@ public class PetMatchController {
     public String getBuyerMatches(HttpSession s, Model m) {
         User user = (User) s.getAttribute("currentUser");
 
+        List<Matches> allMatches = matchRepository.findAllApprovedMatches(user.getId());
 
-        List<Match> allMatches = matchRepository.findAllApprovedMatches(user.getId());
         List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
         m.addAttribute("matchedAnimals", matchedAnimals);
 
@@ -196,7 +228,7 @@ public class PetMatchController {
     public String getBuyerAllAnimalsView(Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
 
-        List<Match> allMatches = matchRepository.findAllByUserId(user.getId());
+        List<Matches> allMatches = matchRepository.findAllByUserId(user.getId());
         List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
 
         List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
@@ -208,16 +240,23 @@ public class PetMatchController {
         return "buyerAllAnimalsView";
     }
 
+    @GetMapping("/allAnimals")
+    public String getAllAnimals(Model m, HttpSession s) {
+        List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
+        m.addAttribute("allAnimals", allAnimals);
+        return "allAnimals";
+    }
+
     @GetMapping("/sellersAnimalLikes/{animalId}")
     public String getsellersAnimalLikes(@PathVariable int animalId, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
 
 
         Animal animal = animalRepository.findById(animalId).get();
-        List<Match> allMatches = matchRepository.findAllByAnimalId(animal.getId());
+        List<Matches> allMatches = matchRepository.findAllByAnimalId(animal.getId());
         List<User> matchedUsers = getUsersFromMatches(allMatches);
 
-        List<Match> allApprovedMatches = matchRepository.findAllApprovedMatchesByAnimalId(animalId);
+        List<Matches> allApprovedMatches = matchRepository.findAllApprovedMatchesByAnimalId(animalId);
         List<User> approvedUsers = getUsersFromMatches(allApprovedMatches);
 
 
@@ -243,7 +282,7 @@ public class PetMatchController {
 
     @GetMapping("/match/{animalId}/{userId}")
     public String getMatch(@PathVariable int animalId, @PathVariable int userId) {
-        Match match = new Match(animalId, userId, false);
+        Matches match = new Matches(animalId, userId, false);
         matchRepository.save(match);
         return "redirect:/buyerAllAnimalsView";
     }
@@ -251,27 +290,18 @@ public class PetMatchController {
     @GetMapping("/approve/{animalId}/{userId}")
     public String approveMatch(@PathVariable int animalId, @PathVariable int userId) {
 
-        Match match = matchRepository.findByAnimalIdAndUserId(animalId, userId);
+        Matches match = matchRepository.findByAnimalIdAndUserId(animalId, userId);
         approveMatch(match.getId());
         System.out.println("Match id: " + match.getId());
 
         return "redirect:/sellersAnimalLikes/" + animalId;
     }
 
- /*   @GetMapping("/templates")
-    public String getUser(HttpSession s, Model m) {
-        User user = (User) s.getAttribute("currentUser");
-        m.addAttribute("user", user);
 
-        return "templates";
-    }
-*/
-
-
-    public List<Animal> getAnimalsFromMatches(List<Match> matchList) {
+    public List<Animal> getAnimalsFromMatches(List<Matches> matchList) {
         List<Animal> matchedAnimals = new ArrayList<>();
 
-        for (Match match : matchList) {
+        for (Matches match : matchList) {
             Animal animal = animalRepository.findById(match.getAnimalId()).get();
             matchedAnimals.add(animal);
         }
@@ -279,10 +309,10 @@ public class PetMatchController {
         return matchedAnimals;
     }
 
-    public List<User> getUsersFromMatches(List<Match> matchList) {
+    public List<User> getUsersFromMatches(List<Matches> matchList) {
         List<User> matchedUsers = new ArrayList<>();
 
-        for (Match match : matchList) {
+        for (Matches match : matchList) {
             User user = userRepository.findById(match.getUserId()).get();
             matchedUsers.add(user);
         }
@@ -292,7 +322,7 @@ public class PetMatchController {
 
 
     public void approveMatch(int matchId) {
-        Match match = matchRepository.findById(matchId).get();
+        Matches match = matchRepository.findById(matchId).get();
         match.setApproved(Boolean.TRUE);
         matchRepository.save(match);
     }

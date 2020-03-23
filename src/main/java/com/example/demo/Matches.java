@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
-public class Match {
+public class Matches {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,9 +14,9 @@ public class Match {
     private int userId;
     private Boolean approved;
 
-    public Match(){};
+    public Matches(){};
 
-    public Match(int animalId, int userId, boolean approved){
+    public Matches(int animalId, int userId, boolean approved){
         this.animalId = animalId;
         this.userId = userId;
         this.approved = approved;

@@ -32,21 +32,21 @@ class PetmatchApplicationTests {
 
     @Test
     void testGetAnimalsFromMatches(){
-        List<Match> matchList = pmc.matchRepository.findAllByUserId(1);
+        List<Matches> matchList = pmc.matchRepository.findAllByUserId(1);
         List<Animal> animalList = pmc.getAnimalsFromMatches(matchList);
         assertEquals(2, animalList.size());
     }
 
     @Test
     void testGetUsersFromMatches() {
-        List<Match> matchList = pmc.matchRepository.findAllByAnimalId(13);
+        List<Matches> matchList = pmc.matchRepository.findAllByAnimalId(13);
         List<User> userList = pmc.getUsersFromMatches(matchList);
         assertEquals(3, userList.size());
     }
 
     @Test
     void testApproveMatch(){
-        Match match = pmc.matchRepository.findById(1).get();
+        Matches match = pmc.matchRepository.findById(1).get();
         assertEquals(false, match.getApproved());
         pmc.approveMatch(1);
 
