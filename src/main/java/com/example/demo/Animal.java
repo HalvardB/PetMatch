@@ -10,6 +10,7 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Enumerated(EnumType.STRING)
     private AnimalType animalType;
     private String name;
     private Integer age;
@@ -20,6 +21,8 @@ public class Animal {
     private Boolean isChildFriendly;
     private Boolean isActive;
     private Boolean isAvailable;
+
+    @Enumerated(EnumType.STRING)
     private AnimalSize animalSize;
     private String bio;
     private Integer ownerId;
