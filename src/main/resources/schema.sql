@@ -60,7 +60,7 @@ CREATE TABLE cat(
     FOREIGN KEY (id) REFERENCES animal(id)
 );
 
-CREATE TABLE match(
+CREATE TABLE matches(
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
   animal_id BIGINT,
   user_id BIGINT,
