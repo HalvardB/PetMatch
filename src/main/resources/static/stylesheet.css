@@ -291,6 +291,7 @@ a, a:link:active, a:visited:active {
 .animalMatchesContainer {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 60px;
 }
 
 .animalMatchesPicIcon {
@@ -328,6 +329,7 @@ a, a:link:active, a:visited:active {
 /*AnimalView*/
 #animalProfileGallerySeller {
     position: relative;
+    margin-bottom: 60px;
     width: 375px;
     height: 300px;
     object-fit: cover;
