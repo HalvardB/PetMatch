@@ -4,18 +4,22 @@
 <head>
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="/stylesheet.css">
+    <link rel="stylesheet" href="/indexHB.css">
     <title>Pet Match | Brukerprofil</title>
 </head>
 
 <body>
+
 <!-------- HEADER -------->
 <header>
     <div>
         <p>Brukerprofil</p>
     </div>
 </header>
-<a class="leftArrowAtag" th:href="'/sellersAnimalLikes/' + ${animalId}"><p id="arrowPtag">&#60;</p></a>
+
+
+<a th:if="${animalId != null}" class="leftArrowAtag" th:href="'/sellersAnimalLikes/' + ${animalId}"><p id="arrowPtag">&#60;</p></a>
 <!-------- USER PICTURE + NAME -------->
 <div id="userPicNameDiv">
     <div class="centerDivs">
@@ -66,10 +70,7 @@
     </div>
 </div>
 
-
-<!--<footer>
-    <div th:replace="templates :: menu"></div>
-</footer>-->
+<div class="menu" th:include="templates :: menu"></div>
 
 </body>
 

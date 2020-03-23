@@ -55,6 +55,17 @@ public class PetMatchController {
         return "redirect:/animalProfile/" + id;
     }
 
+
+    @GetMapping("/userProfile/{userId}")
+    public String getUserProfile(@PathVariable int userId, Model m) {
+        User user = userRepository.findById(userId).get();
+
+        m.addAttribute("animalId", null);
+        m.addAttribute("user", user);
+        return "userProfile";
+    }
+
+
     @GetMapping("/userProfile/{userId}/{animalId}")
     public String getUserProfile(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
@@ -173,6 +184,7 @@ public class PetMatchController {
     public String getBuyerMatches(HttpSession s, Model m) {
         User user = (User) s.getAttribute("currentUser");
 
+
         List<Match> allMatches = matchRepository.findAllApprovedMatches(user.getId());
         List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
         m.addAttribute("matchedAnimals", matchedAnimals);
@@ -210,7 +222,7 @@ public class PetMatchController {
 
 
         m.addAttribute("animal", animal);
-        m.addAttribute("theAnimalUser", user);
+        m.addAttribute("user", user);
         m.addAttribute("matchedUsers", matchedUsers);
         m.addAttribute("approvedUsers", approvedUsers);
 
@@ -224,6 +236,8 @@ public class PetMatchController {
 
         List<Animal> myAnimals = animalRepository.findAllByOwnerId(user.getId());
         m.addAttribute("myAnimals", myAnimals);
+        m.addAttribute("user", user);
+
         return "sellersAnimalsView";
     }
 
@@ -243,6 +257,15 @@ public class PetMatchController {
 
         return "redirect:/sellersAnimalLikes/" + animalId;
     }
+
+ /*   @GetMapping("/templates")
+    public String getUser(HttpSession s, Model m) {
+        User user = (User) s.getAttribute("currentUser");
+        m.addAttribute("user", user);
+
+        return "templates";
+    }
+*/
 
 
     public List<Animal> getAnimalsFromMatches(List<Match> matchList) {

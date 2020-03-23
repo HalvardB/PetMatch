@@ -3,8 +3,8 @@
 <head>
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="../indexHB.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/indexHB.css">
     <title>Pet Match | Ditt dyr</title>
 </head>
 <body>
@@ -41,7 +41,7 @@
 
     <div class="locationBopelContainer">
         <img class="prefIcons" src="../image/lokasjon.png" alt="Lokasjon">
-        <p class="bioText" th:text="${theAnimalUser.municipality}">Oslo</p>
+        <p class="bioText" th:text="${user.municipality}">Oslo</p>
     </div>
 
     <div>
@@ -96,7 +96,7 @@
 </div>
 
 <!-------- MENU -------->
-<!--<div class="menu" th:include="templates :: menu"></div>-->
+<div class="menu" th:include="templates :: menu"></div>
 
 </body>
 </html>

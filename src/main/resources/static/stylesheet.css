@@ -429,61 +429,6 @@ a, a:link:active, a:visited:active {
 
 .heartAmount {
     width: 50px;
-
 }
 
-
-/*-------- FOOTER  STYLING ---------*/
-
-/*.menu {*/
-/*    position: fixed;*/
-
-/*    top: 760px;*/
-/*    width: 100%;*/
-/*    height: 70px;*/
-/*    z-index: 1;*/
-/*    background-color: white;*/
-
-/*}*/
-
-/*.menuImage {*/
-/*    width: 42px;*/
-/*    margin-left: 40px;*/
-/*}*/
-
-/*.showOptions {*/
-/*    display: block;*/
-/*}*/
-
-/*.hideOptions {*/
-/*    display: none;*/
-/*}*/
-
-/*.optionImg {*/
-/*    width: 50px;*/
-/*}*/
-
-/*.optionType {*/
-/*    display: block;*/
-/*    margin: 20px;*/
-/*    margin-left: 50px;*/
-/*}*/
-
-/*.option {*/
-/*    display: inline-block;*/
-/*    margin: 5px;*/
-/*    padding: 6px;*/
-/*}*/
-
-/*.activeOption {*/
-/*    display: inline-block;*/
-/*    margin: 5px;*/
-/*    padding: 5px;*/
-/*    background-color: bisque;*/
-/*    border: 1px solid orange;*/
-/*    border-radius: 20px;*/
-/*}*/
-
-/*.menu{*/
-/*    position: fixed;*/
-/*}*/
+/*------- FOOTER -------*/

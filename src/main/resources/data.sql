@@ -6,7 +6,8 @@ Derfor har jeg lagt ut et par annonser her. Ta kontakt om du finner noen av de i
 ('Geir', 'Pettersen', 'Geir123', 'geir.p@gmail.com', true, 'VIKEN', 'SELLER', 'Jeg og kona har noen katter som har fått unger. Disse ønsker vi oss et nytt hjem til,
 da vi ikke har så god kapasitet for gi alle ungene like mye kjærlighet og omsorg som en kattunge trenger.', 'https://petmatch-academy.herokuapp.com/Sellers/Geir_Pettersen.jpg'),
 ('Josefine', 'Kristiansen', 'JK12345', 'Yousofine@hotmail.com', true, 'VESTFOLD_OG_TELEMARK', 'SELLER', 'Katten vår hjemme har nettopp fått unger og vi ønsker ny eier for en fin liten kattepus.', 'https://petmatch-academy.herokuapp.com/Sellers/Josefine_Kristiansen.jpg'),
-('William', 'Stange', 'Will123', 'william.s@gmail.com', true, 'OSLO', 'SELLER', 'Jeg jobber ved Dyrebeskyttelsen i Norge og vi har et par hunder og katter som trenger et nytt hjem:)', 'https://petmatch-academy.herokuapp.com/Sellers/William_Stange.jpg');
+('William', 'Stange', 'Will123', 'william.s@gmail.com', true, 'OSLO', 'SELLER', 'Jeg jobber ved Dyrebeskyttelsen i Norge og vi har et par hunder og katter som trenger et nytt hjem:)', 'https://petmatch-academy.herokuapp.com/Sellers/William_Stange.jpg'),
+('William', 'Stange', 'Will123', 'will@gmail.com', true, 'OSLO', 'BUYER', 'Jeg jobber ved Dyrebeskyttelsen i Norge og vi har et par hunder og katter som trenger et nytt hjem:)', 'https://petmatch-academy.herokuapp.com/Sellers/William_Stange.jpg');
 
 INSERT INTO animal (animal_type, name, age, is_chipped, is_vaccinated, is_sterilized, is_child_friendly, is_active, is_available, animal_size, is_female, owner_id, bio, animal_img1, animal_img2, animal_img3)
 VAlUES ('DOG', 'Kafka', 1, true, true, true, true, false, true, 'MEDIUM', false, 1, 'Kafka ble funnet på gata i Spania, nå ser han etter et nytt hjem i Norge.', 'https://petmatch-academy.herokuapp.com/Dogs/Alaska_Husky_1.jpg', 'https://petmatch-academy.herokuapp.com/Dogs/Alaska_husky_2.jpg', 'https://petmatch-academy.herokuapp.com/Dogs/Alaska_Husky_3.jpg'),
@@ -69,5 +70,6 @@ VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON
 INSERT INTO MATCH(animal_id, user_id)
 VALUES (1,2), (2,3), (3,1), (4,2), (1,3), (13, 1), (13, 5), (13,4);
 
-
+INSERT INTO BUYER(id, animal_type, home_type, is_previous_animal_owner, has_children)
+VALUES (1,'DOG', 'HOUSE', TRUE, FALSE);
 

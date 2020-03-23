@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Templates</title>
-    <link rel="stylesheet" type="text/css" href="../static/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="../static/indexHB.css">
+    <link rel="stylesheet" type="text/css" href="indexHB.css">
 
 </head>
 <body>
-    <div th:fragment="menu" class="menu">
-        <img class="menuImage" src="image/paw.png" alt="Back to home">
-        <img class="menuImage" src="image/animalFace.png" alt="Your animals">
-        <img class="menuImage" src="image/hjerte.png" alt="Your matches">
-        <img class="menuImage" src="image/person.png" alt="Your animals">
-    </div>
+
+<div th:fragment="menu" class="menu">
+    <a>
+        <img class="menuImage1" src="/image/paw.png" alt="Back to home">
+    </a>
+
+    <a th:if="${user.getUserType() == T(com.example.demo.UserType).BUYER}" th:href="'/buyerAllAnimalsView'">
+        <img class="menuImage3" src="/image/hjerte.png" alt="Your matches">
+    </a>
+
+    <a th:if="${user.getUserType() == T(com.example.demo.UserType).SELLER}" th:href="'/sellersAnimalsView'">
+        <img class="menuImage2" src="/image/animalFace.png" alt="Your animals">
+    </a>
+
+    <a th:href="'/userProfile/' + ${user.id}">
+        <img class="menuImage4" src="/image/person.png" alt="Your animals">
+    </a>
+</div>
+
 </body>
 </html>

@@ -1,13 +1,34 @@
-   body {
-    font-size: 10px;
+/*----- Menu styling -----*/
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    width: 375px;
+    height: 60px;
 }
 
-.menuImage {
+.menuImage1 {
+    width: 33px;
+}
+
+.menuImage2 {
     width: 42px;
-    margin-top: 756px;
-    margin-left: 40px;
 }
 
+.menuImage3 {
+    width: 50px;
+}
+
+.menuImage4 {
+    width: 54px;
+}
+
+
+/*----- Preference styling -----*/
 .showOptions {
     display: block;
 }
