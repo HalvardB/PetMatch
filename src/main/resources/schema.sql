@@ -22,7 +22,6 @@ CREATE TABLE Buyer(
   FOREIGN KEY (id) REFERENCES user(id)
 );
 
-
 CREATE TABLE Animal(
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
   animal_type ENUM ('DOG', 'CAT'),
