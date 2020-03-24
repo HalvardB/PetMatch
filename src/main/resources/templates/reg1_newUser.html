@@ -22,16 +22,13 @@
 
 <!-------- FORM NEW USER -------->
 
-
-
-
 <form th:object="${user}" action="/registrer" method="post">
     <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
 
         <div class="formContainer">
             <div class="tekst">
                 <p>Fyll ut detaljene nedenfor for å opprette en konto</p>
-                <p>Dine detaljer</p>
+                <p class="dineDet">Dine detaljer</p>
             </div>
            
             <input th:field="*{firstName}" class="inputs" id="first" type="text" placeholder="Fornavn" autofocus>

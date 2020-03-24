@@ -37,7 +37,7 @@ input {
     width: 100%;
     margin: 10% 0;
     border-radius: 15px;
-    border: 0.3px solid grey;
+    border: 0.5px solid grey;
     padding: 10px;
 }
 
@@ -57,34 +57,6 @@ input {
     color: white;
 }
 
-.loginSignupButtonAtag {
-    border-radius: 15px;
-    border: 0;
-    padding: 10px;
-    width: 160px;
-    height: 40px;
-    background-color: #ff914d;
-    color: white;
-    font-size: 15px;
-    text-decoration: none;
-    margin: 8px;
-}
-
-.faqAboutButtonAtag {
-    border-radius: 15px;
-    border: 0;
-    padding: 10px;
-    width: 80px;
-    height: 36px;
-    background-color: #ff914d;
-    color: white;
-    font-size: 15px;
-    text-decoration: none;
-    margin: 8px;
-
-}
-
-
 a, a:link:active, a:visited:active {
     text-decoration: none;
 
@@ -98,7 +70,7 @@ a, a:link:active, a:visited:active {
 }
 
 #arrowPtag {
-    font-weight: bold;
+
 }
 
 /*----------- GENERAL PROFILES ----------*/
@@ -117,7 +89,6 @@ a, a:link:active, a:visited:active {
     width: 85%;
     margin-bottom: 60px;
     /*Posisjonering av match hjertet*/
-
 }
 
 .prefH4 {
@@ -128,7 +99,6 @@ a, a:link:active, a:visited:active {
 .iconContainer {
     display: flex;
     flex-wrap: wrap;
-
 }
 
 /*-------- LOGIN STYLING ---------*/
@@ -149,13 +119,15 @@ a, a:link:active, a:visited:active {
 .introTekst {
     text-align: center;
     width: 250px;
+    font-size: 14px;
     margin: auto;
 }
 
 .containerLoginSignup {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
 }
 
 .containerFaqAbout {
@@ -165,6 +137,33 @@ a, a:link:active, a:visited:active {
     margin-top: 10px;
 }
 
+.orangeButtonLog {
+    border-radius: 15px;
+    border: 0;
+    padding: 10px;
+    margin: 10px 10px;
+    width: 130px;
+    height: 40px;
+    background-color: #ff914d;
+    color: white;
+    text-align: center;
+}
+
+.faqAboutButtonAtag {
+    border-radius: 15px;
+    border: 0;
+    padding: 10px;
+    width: 80px;
+    height: 36px;
+    color: #ff914d;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 8px;
+}
+.textLogNy {
+    color: white;
+    font-size: 14px;
+}
 
 /*--------  reg1_newUser STYLING ---------*/
 
@@ -177,6 +176,14 @@ a, a:link:active, a:visited:active {
 
 #first {
     margin-top: 10px;
+}
+
+.dineDet {
+    text-align: center;
+    color: grey;
+    margin-bottom: 0;
+    margin-top: 35px;
+    font-size: 14px;
 }
 
 /*-------- animalProfile STYLING ---------*/
@@ -226,7 +233,6 @@ a, a:link:active, a:visited:active {
     display: flex;
     flex-direction: column;
 }
-
 
 .userIconTextBox {
     display: inherit;
