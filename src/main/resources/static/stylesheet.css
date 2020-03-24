@@ -370,9 +370,7 @@ a, a:link:active, a:visited:active {
 /*AnimalView*/
 #animalProfileGallerySeller {
     position: relative;
-    margin-bottom: 60px;
     width: 375px;
-    height: 300px;
     object-fit: cover;
 }
 
@@ -454,6 +452,12 @@ a, a:link:active, a:visited:active {
     top: 40px;
     left: 241px;
     font-size: 15px;
+}
+
+.editCameraAnimal{
+    display: flex;
+    color: black;
+    padding-left: 10px;
 }
 
 /*SellersViewOverAllAnimals*/

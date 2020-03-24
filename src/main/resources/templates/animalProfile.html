@@ -13,7 +13,7 @@
 <div id="animalGalleryDiv">
     <a class="leftArrowAtagWhite" th:href="'/buyerAllAnimalsView'"><p id="arrowPtag">&#60;</p></a>
     <img id="animalProfileGallery" th:src="${animal.getAnimalImg1()}" alt="">
-    <a class="editCamera" th:if="${animal}" th:href="'/userProfile/' + ${animal.id}+ '/bilde'">
+    <a class="editCamera" th:if="${animal}" th:href="'/animalProfile/' + ${animal.id}+ '/bilde'">
         <img class="editIcon" src="/image/camera.png" alt="Edit">
     <p class="editCameraText">Oppdater</p>
     </a>

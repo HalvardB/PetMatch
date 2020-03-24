@@ -15,6 +15,11 @@
 <div id="sellerAnimalLikesGalleryContainer">
     <a class="leftArrowAtagWhite" th:href="'/sellersAnimalsView'"><p id="arrowPtag">&#60;</p></a>
     <img id="animalProfileGallerySeller" th:src="${animal.getAnimalImg1()}" alt="">
+
+    <a class="editCameraAnimal" th:if="${user}" th:href="'/animalProfile/' + ${user.id}+ '/bilde'">
+        <img class="editIcon" src="/image/camera.png" alt="Edit">
+        <p class="editCameraText">Oppdater</p>
+    </a>
 </div>
 
 
