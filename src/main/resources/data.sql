@@ -54,7 +54,7 @@ VALUES (6,'DOG', 'APARTMENT', TRUE, FALSE),
 (7,'DOG', 'HOUSE', TRUE, FALSE),
 (8,'CAT', 'HOUSE', TRUE, TRUE),
 (9,'DOG', 'HOUSE', TRUE, FALSE),
-(10,'CAT', 'APARTMENT', TRUE, FALSE),
+(10,'CAT', 'APARTMENT', TRUE, FALSE);
 
 INSERT INTO User (first_name, last_name, email, password, user_img, user_type)
 VALUES ('Hal', 'Bas', 'hb@gmail.com', 123, 'https://petmatch-academy.herokuapp.com/Sellers/William_Stange.jpg', 'BUYER');
