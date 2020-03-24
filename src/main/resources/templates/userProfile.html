@@ -69,6 +69,10 @@
             <img class="prefIcons" src="../image/scissor.png" alt="">
         </div>
     </div>
+
+    <div th:if="${isApprovedMatch}">
+        <p>Her kommer kontakt info..</p>
+    </div>
 </div>
 
 <div class="menu" th:include="templates :: menu"></div>

@@ -60,9 +60,8 @@ public class PetMatchController {
 
 
     @GetMapping("/userProfile/{userId}")
-    public String getUserProfile(@PathVariable int userId, Model m) {
+    public String getUserProfile(@PathVariable int userId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
-
         m.addAttribute("animalId", null);
         m.addAttribute("user", user);
         return "userProfile";
@@ -72,6 +71,9 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}/{animalId}")
     public String getUserProfileAndAnimal(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
+
+        Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
+        m.addAttribute("isApprovedMatch", isApprovedMatch);
 
         m.addAttribute("animalId", animalId);
         m.addAttribute("user", user);
@@ -330,6 +332,16 @@ public class PetMatchController {
         Matches match = matchRepository.findById(matchId).get();
         match.setApproved(Boolean.TRUE);
         matchRepository.save(match);
+    }
+
+    public Boolean isApprovedMatch(int animalId, int userId){
+         Matches match = matchRepository.findApprovedByAnimalIdAndUserId(animalId, userId);
+
+        if(match != null){
+            return true;
+        }
+
+        return false;
     }
 
 }
