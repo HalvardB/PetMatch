@@ -11,22 +11,13 @@
     height: 60px;
 }
 
+.menuImage {
+     width: 27px;
+ }
+
 .menuImage1 {
-    width: 33px;
+    width: 30px;
 }
-
-.menuImage2 {
-    width: 42px;
-}
-
-.menuImage3 {
-    width: 50px;
-}
-
-.menuImage4 {
-    width: 54px;
-}
-
 
 /*----- Preference styling -----*/
 .showOptions {

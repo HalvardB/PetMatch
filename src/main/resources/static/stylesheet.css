@@ -87,6 +87,7 @@ input {
 
 a, a:link:active, a:visited:active {
     text-decoration: none;
+
 }
 
 .leftArrowAtag {
@@ -104,12 +105,17 @@ a, a:link:active, a:visited:active {
 
 .prefIcons {
     width: 50px;
-    height: 50px;
+}
+
+.prefIconsKas {
+    width: 37px;
+    object-fit: contain;
 }
 
 .containerProfiles {
     margin: 0 30px;
     width: 85%;
+    margin-bottom: 60px;
     /*Posisjonering av match hjertet*/
 
 }
@@ -126,14 +132,13 @@ a, a:link:active, a:visited:active {
 }
 
 /*-------- LOGIN STYLING ---------*/
-
-
 #headerLogo {
     height: 35px;
 }
 
 #introimg {
     width: 250px;
+    margin-top: 35px;
 }
 
 .containerIntro {
@@ -143,7 +148,7 @@ a, a:link:active, a:visited:active {
 
 .introTekst {
     text-align: center;
-    width: 170px;
+    width: 250px;
     margin: auto;
 }
 
@@ -230,9 +235,16 @@ a, a:link:active, a:visited:active {
 .editCamera{
     display: flex;
     padding-left: 10px;
+    color: black;
 }
+
+.editCamera:visited:active {
+    color: black;
+}
+
 .editCameraText {
     font-size: 12px;
+    color: black;
 }
 
 /*-------- USER PROFILE STYLING ---------*/
@@ -415,9 +427,9 @@ a, a:link:active, a:visited:active {
 
 .heartIconWhite {
     position: absolute;
-    width: 61px;
-    bottom: 13px;
-    left: 123px;
+    width: 54px;
+    bottom: 20px;
+    left: 125px;
 }
 
 .userBioName {
@@ -496,4 +508,3 @@ a, a:link:active, a:visited:active {
     width: 50px;
 }
 
-/*------- FOOTER -------*/

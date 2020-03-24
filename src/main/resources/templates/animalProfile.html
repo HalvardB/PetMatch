@@ -30,6 +30,7 @@
         <h1 id="animalName" th:text="${animal.name}">Chico</h1>
         <h3 id="animalAge" th:text="${animal.age} + ' ' + 'år'">0.5 år</h3>
     </div>
+    <hr class="userProfileLine">
 
     <!-------- ANIMAL BIO + PREFERENCES -------->
 
@@ -65,12 +66,12 @@
                 <img th:if="${animal.getIsChildFriendly()}" class="prefIcons" src="/image/kid.png" alt="">
                 <img th:if="${animal.getIsChipped()}" class="prefIcons" src="/image/chip.png" alt="">
                 <img th:if="${animal.getIsVaccinated()}" class="prefIcons" src="/image/vaksine.png" alt="">
-                <img th:if="${animal.getIsSterilized()}" class="prefIcons" src="/image/scissor.png" alt="">
+                <img th:if="${animal.getIsSterilized()}" class="prefIconsKas" src="/image/kas.png" alt="">
             </div>
         </div>
     </div>
+</div>
 
-    <div class="menu" th:include="templates :: menu"></div>
-
+<div class="menu" th:include="templates :: menu"></div>
 </body>
 </html>
