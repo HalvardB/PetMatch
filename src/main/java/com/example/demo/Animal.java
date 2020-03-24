@@ -184,6 +184,4 @@ public class Animal {
         this.animalImg3 = animalImg3;
     }
 
-
-
 }

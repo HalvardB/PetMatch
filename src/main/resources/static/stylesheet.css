@@ -224,6 +224,14 @@ a, a:link:active, a:visited:active {
     display: inherit;
 }
 
+.editCamera{
+    display: flex;
+    padding-left: 10px;
+}
+.editCameraText {
+    font-size: 12px;
+}
+
 /*-------- USER PROFILE STYLING ---------*/
 
 #userPicNameDiv {
@@ -252,6 +260,15 @@ a, a:link:active, a:visited:active {
     border: 0.5px ridge;
 }
 
+.kontaktEierText {
+    font-size: 16px;
+    font-weight: 700;
+
+}
+.eierPic {
+    width: 100px;
+}
+
 .userBioContainer {
     display: flex;
     flex-direction: column;
@@ -259,16 +276,15 @@ a, a:link:active, a:visited:active {
     padding-right: 30px;
     padding-left: 30px;
 }
-
-.editIconUserLink {
-    position: absolute;
-    width: 24px;
-    left: 280px;
-    bottom: 15px;
+.editCameraUser{
+    display: flex;
+    justify-content: center;
+    color: black;
 }
 
 .editIcon {
     width: 24px;
+    object-fit: contain;
 }
 
 /*-------- buyerAllAnimalsView/Matches STYLING ---------*/

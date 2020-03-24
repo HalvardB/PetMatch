@@ -26,11 +26,15 @@
     <div class="centerDivs">
         <img id="userPic" th:src="${user.getUserImg()}" alt="">
     </div>
+    <a class="editCameraUser" th:if="${user}" th:href="'/userProfile/' + ${user.id}+ '/bilde'">
+        <img class="editIcon" src="/image/camera.png" alt="Edit">
+        <p class="editCameraText">Oppdater</p>
+    </a>
     <div class="centerDivs">
         <h3 th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">Kristine Hansen</h3>
     </div>
 
-    <a class="editIconUserLink" th:if="${user}" th:href="'/'"> <img class="editIcon" src="/image/editPen.png" alt="Edit"></a>
+
 
 </div>
 
@@ -72,8 +76,13 @@
         <p th:unless="${user.hasChildren}" >Har ikke barn</p>
     </div>
 
+    <hr class="userProfileLine">
+
     <div th:if="${isApprovedMatch}">
-        <p >Her kommer kontakt info..</p>
+        <p class="kontaktEierText">Kontakt eier</p>
+        <p th:text="${owner.getFirstName() + ' ' + owner.getLastName()}">Her kommer kontakt info..</p>
+        <img class="eierPic" th:src="${user.getUserImg()}" alt="">
+        <p th:text="${owner.getEmail()}"></p>
     </div>
 
 </div>

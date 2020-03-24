@@ -70,11 +70,11 @@ VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON
 INSERT INTO Matches(animal_id, user_id)
 VALUES (1,2), (2,3), (3,1), (4,2), (1,3), (13, 1), (13, 5), (13,4);
 
-INSERT INTO Buyer(id, animal_type, home_type, is_previous_animal_owner, has_children)
-VALUES (6,'DOG', 'HOUSE', TRUE, FALSE);
-
 INSERT INTO User (first_name, last_name, email, password, user_img, user_type)
 VALUES ('Hal', 'Bas', 'hb@gmail.com', 123, 'https://petmatch-academy.herokuapp.com/Sellers/William_Stange.jpg', 'BUYER');
+
+INSERT INTO Buyer(id, animal_type, home_type, is_previous_animal_owner, has_children)
+VALUES (6,'DOG', 'HOUSE', TRUE, FALSE),(7,'DOG','APARTMENT', FALSE, TRUE);
 
 INSERT INTO Matches(animal_id, user_id, approved)
 VALUES (1, 7, TRUE);

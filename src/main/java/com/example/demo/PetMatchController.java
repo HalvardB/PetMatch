@@ -31,7 +31,7 @@ public class PetMatchController {
 
     @GetMapping("/animalProfile/{id}")
     public String getAnimalProfile(@PathVariable int id, Model m, HttpSession s) {
-       User user = (User) s.getAttribute("currentUser");
+        User user = (User) s.getAttribute("currentUser");
 
         Animal animal = animalRepository.findById(id).get();
         int getOwnerId = animal.getOwnerId();
@@ -63,6 +63,7 @@ public class PetMatchController {
     public String getUserProfile(@PathVariable int userId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
 
+        m.addAttribute("isApprovedMatch", false);
         m.addAttribute("animalId", null);
         m.addAttribute("user", user);
         return "userProfile";
@@ -74,8 +75,11 @@ public class PetMatchController {
         User user = userRepository.findById(userId).get();
 
         Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
-        m.addAttribute("isApprovedMatch", isApprovedMatch);
 
+        User owner = userRepository.findById(animalId).get();
+
+        m.addAttribute("isApprovedMatch", isApprovedMatch);
+        m.addAttribute("owner", owner);
         m.addAttribute("animalId", animalId);
         m.addAttribute("user", user);
         return "userProfile";
@@ -171,7 +175,7 @@ public class PetMatchController {
         animalRepository.save(animal);
 
         s.setAttribute("currentUser", currentUser);
-        return("redirect:/sellersAnimalsView");
+        return ("redirect:/sellersAnimalsView");
 
     }
 
@@ -335,10 +339,10 @@ public class PetMatchController {
         matchRepository.save(match);
     }
 
-    public Boolean isApprovedMatch(int animalId, int userId){
-         Matches match = matchRepository.findApprovedByAnimalIdAndUserId(animalId, userId);
+    public Boolean isApprovedMatch(int animalId, int userId) {
+        Matches match = matchRepository.findApprovedByAnimalIdAndUserId(animalId, userId);
 
-        if(match != null){
+        if (match != null) {
             return true;
         }
 
