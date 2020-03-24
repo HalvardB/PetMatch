@@ -62,8 +62,11 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}")
     public String getUserProfile(@PathVariable int userId, Model m) {
         User user = userRepository.findById(userId).get();
+     //   Buyer buyer = buyerRepository.findById(userId).get();
+
 
         m.addAttribute("animalId", null);
+       // m.addAttribute("buyer", buyer);
         m.addAttribute("user", user);
         return "userProfile";
     }

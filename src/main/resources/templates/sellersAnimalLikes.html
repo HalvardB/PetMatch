@@ -72,7 +72,7 @@
             </a>
 
             <div th:if="${approvedUsers.contains(user)}">
-                <img class="heartIconRed" src="../image/redHeart.png" alt="">
+                <img class="heartIconRed" src="/image/redHeart.png" alt="">
             </div>
 
             <div id="heartOutlinedBlackDiv" th:unless="${approvedUsers.contains(user)}">
@@ -82,8 +82,11 @@
             </div>
 
             <img class="buyerIconLocation" src="/image/lokasjon.png" alt="">
-            <p class="iconText" th:text="${user.municipality}"></p>
+            <p class="iconTextLoc" th:text="${user.municipality}"></p>
             <img class="buyerIconBopel" src="/image/bopel.png" alt="">
+            <p class="iconTextBo" th:if="${user.homeType == T(com.example.demo.HomeType).HOUSE}" th:text="Hus">Hus</p>
+            <p class="iconTextBo" th:if="${user.homeType == T(com.example.demo.HomeType).APARTMENT}" th:text="Leilighet">Leilighet</p>
+
         </div>
         <hr class="userProfileLine">
     </div>

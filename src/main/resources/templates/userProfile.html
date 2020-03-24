@@ -29,6 +29,9 @@
     <div class="centerDivs">
         <h3 th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">Kristine Hansen</h3>
     </div>
+
+    <a class="editIconUserLink" th:if="${user}" th:href="'/'"> <img class="editIcon" src="/image/editPen.png" alt="Edit"></a>
+
 </div>
 
 <hr class="userProfileLine">
@@ -46,29 +49,29 @@
         </p>
     </div>
 
-    <div class="locationBopelContainer">
-        <img class="prefIcons" src="../image/lokasjon.png" alt="Lokasjon">
-        <p>Oslo</p>
+    <div class="userIconTextBox">
+        <img class="prefIcons" src="/image/lokasjon.png" alt="Lokasjon">
+        <p th:text="${user.municipality}">Oslo</p>
     </div>
 
-    <div class="locationBopelContainer">
-        <img class="prefIcons" src="../image/bopel.png" alt="Bopel">
-        <p>Leilighet</p>
+    <div th:if="${user.getUserType() == T(com.example.demo.UserType).BUYER}" class="userIconTextBox">
+        <img class="prefIcons" src="/image/bopel.png" alt="Bopel">
+        <p th:if="${user.homeType == T(com.example.demo.HomeType).HOUSE}" th:text="Hus">Hus</p>
+        <p th:if="${user.homeType == T(com.example.demo.HomeType).APARTMENT}" th:text="Leilighet">Leilighet</p>
     </div>
 
-
-    <div>
-        <h4 class="prefH4">Preferanser</h4>
-
-        <div class="iconContainer">
-            <img class="prefIcons" src="../image/kid.png" alt="">
-            <img class="prefIcons" src="../image/male.png" alt="">
-            <img class="prefIcons" src="../image/female.png" alt="">
-            <img class="prefIcons" src="../image/chip.png" alt="">
-            <img class="prefIcons" src="../image/vaksine.png" alt="">
-            <img class="prefIcons" src="../image/scissor.png" alt="">
-        </div>
+    <div th:if="${user.getUserType() == T(com.example.demo.UserType).BUYER}" class="userIconTextBox">
+        <img class="prefIcons" src="/image/dogCat.png" alt="Har dyr">
+        <p th:if="${user.isPreviousAnimalOwner}">Har/hatt dyr</p>
+        <p th:unless="${user.isPreviousAnimalOwner}" >Har ikke hatt dyr</p>
     </div>
+
+    <div th:if="${user.getUserType() == T(com.example.demo.UserType).BUYER}" class="userIconTextBox">
+        <img class="prefIcons" src="/image/kid.png" alt="kids">
+        <p th:if="${user.hasChildren}">Har barn</p>
+        <p th:unless="${user.hasChildren}" >Har ikke barn</p>
+    </div>
+
 </div>
 
 <div class="menu" th:include="templates :: menu"></div>

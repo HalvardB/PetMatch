@@ -71,5 +71,5 @@ INSERT INTO Matches(animal_id, user_id)
 VALUES (1,2), (2,3), (3,1), (4,2), (1,3), (13, 1), (13, 5), (13,4);
 
 INSERT INTO Buyer(id, animal_type, home_type, is_previous_animal_owner, has_children)
-VALUES (1,'DOG', 'HOUSE', TRUE, FALSE);
+VALUES (6,'DOG', 'HOUSE', TRUE, FALSE);
 

@@ -124,12 +124,6 @@ a, a:link:active, a:visited:active {
     flex-wrap: wrap;
 }
 
-.locationBopelContainer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
 /*-------- LOGIN STYLING ---------*/
 
 
@@ -221,13 +215,24 @@ a, a:link:active, a:visited:active {
     display: flex;
 }
 
+.locationBopelContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+.userIconTextBox {
+    display: inherit;
+}
+
 /*-------- USER PROFILE STYLING ---------*/
 
 #userPicNameDiv {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     width: 375px;
+    margin-top: 40px;
 }
 
 .centerDivs {
@@ -248,8 +253,22 @@ a, a:link:active, a:visited:active {
 }
 
 .userBioContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
     padding-right: 30px;
     padding-left: 30px;
+}
+
+.editIconUserLink {
+    position: absolute;
+    width: 24px;
+    left: 280px;
+    bottom: 15px;
+}
+
+.editIcon {
+    width: 24px;
 }
 
 /*-------- buyerAllAnimalsView/Matches STYLING ---------*/
@@ -408,14 +427,18 @@ a, a:link:active, a:visited:active {
     left: 190px;
     width: 50px;
 }
-.iconText {
+.iconTextLoc {
     position: absolute;
     top: 57px;
     left: 241px;
     font-size: 15px;
-
 }
-
+.iconTextBo{
+    position: absolute;
+    top: 40px;
+    left: 241px;
+    font-size: 15px;
+}
 
 /*SellersViewOverAllAnimals*/
 .animalsViewContainer {
