@@ -29,6 +29,7 @@ public class PetMatchController {
         return "intropage";
     }
 
+
     @GetMapping("/animalProfile/{id}")
     public String getAnimalProfile(@PathVariable int id, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
@@ -58,7 +59,6 @@ public class PetMatchController {
         return "redirect:/animalProfile/" + id;
     }
 
-
     @GetMapping("/userProfile/{userId}")
     public String getUserProfile(@PathVariable int userId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
@@ -68,7 +68,6 @@ public class PetMatchController {
         m.addAttribute("user", user);
         return "userProfile";
     }
-
 
     @GetMapping("/userProfile/{userId}/{animalId}")
     public String getUserProfileAndAnimal(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
@@ -171,7 +170,12 @@ public class PetMatchController {
         // Create animal
         animal.setOwnerId(currentUser.getId());
         animal.setIsAvailable(true);
-        animal.setAnimalImg1("https://cdn.pixabay.com/photo/2015/06/12/18/44/fox-807315_1280.png");
+
+        if(animal.getAnimalType() == AnimalType.CAT){
+            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/cat.png");
+        } else {
+            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/dog.png");
+        }
         animalRepository.save(animal);
 
         s.setAttribute("currentUser", currentUser);
