@@ -171,9 +171,9 @@ public class PetMatchController {
         animal.setIsAvailable(true);
 
         if(animal.getAnimalType() == AnimalType.CAT){
-            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/cat");
+            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/cat.png");
         } else {
-            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/dog");
+            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/dog.png");
         }
         animalRepository.save(animal);
 
