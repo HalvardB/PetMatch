@@ -4,6 +4,7 @@ const vaccinatedOption = document.getElementById("vaccinatedOption");
 const childFriendlyOption = document.getElementById("childFriendlyOption");
 const isSterilizedOption = document.getElementById("isSterilizedOption");
 const isFemaleOption = document.getElementById("isFemaleOption");
+// const isActiveOption = document.getElementById("isActiveOption");
 
 animalTypeOption.value = "DOG";
 chippedOption.value = true;
@@ -11,6 +12,8 @@ vaccinatedOption.value = true;
 childFriendlyOption.value = true;
 isSterilizedOption.value = true;
 isFemaleOption.value = true;
+// isActiveOption.value = true;
+
 
 function editImgClass(item){
     item.className = "optionImg option";
@@ -120,4 +123,20 @@ male.addEventListener("click", (event) => {
     isFemaleOption.value = false;
     female.className = "option";
 });
-
+//
+// // Active
+// const yesActive = document.getElementById("yesActive");
+// const noActive = document.getElementById("noActive");
+//
+// yesActive.addEventListener("click", (event) => {
+//     event.target.className = "activeOption";
+//     isActiveOption.value = true;
+//     noActive.className = "option";
+// });
+//
+// noActive.addEventListener("click", (event) => {
+//     event.target.className = "activeOption";
+//     isActiveOption.value = false;
+//     yesActive.className = "option";
+// });
+//

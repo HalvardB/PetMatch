@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Preferanser</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="indexHB.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/indexHB.css">
     <link rel="icon" type="image/png" href="image/paw.png">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <a class="leftArrowAtag" href="/preferanser"><p id="arrowPtag">&#60;</p></a>
 
     <!-------- FORM NEW USER -------->
-    <form action="/nyttdyr" method="post" th:object="${animal}">
+    <form action="/nyttdyr" method="post" th:object="${animal}" id="sellerForm">
         <!-------- BUYER OPTIONS -------->
         <input type="hidden" id="animalTypeOption" th:field="*{animalType}">
         <input type="hidden" id="chippedOption" th:field="*{isChipped}">
@@ -28,11 +28,15 @@
         <input type="hidden" id="childFriendlyOption" th:field="*{isChildFriendly}">
         <input type="hidden" id="isSterilizedOption" th:field="*{isSterilized}">
         <input type="hidden" id="isFemaleOption" th:field="*{isFemale}">
+<!--        <input type="hidden" id="isActiveOption" th:field="*{isActive}">-->
 
         <div id="sellerOptions" class="showOptions">
             <div class="optionType" id="animalOption">
-                <img id="DOG" src="image/dogIcon.png" alt="Hund" class="activeOption optionImg">
-                <img id="CAT" src="image/catIconGrey.png" alt="Katt" class="optionImg">
+                <p class="optionItem">Hvordan dyr er det?</p>
+                <div class="imageDiv">
+                    <img id="DOG" src="image/dogIcon.png" alt="Hund" class="activeOption optionImg">
+                    <img id="CAT" src="image/catIconGrey.png" alt="Katt" class="optionImg">
+                </div>
             </div>
 
             <div class="optionType">
@@ -43,43 +47,64 @@
                 <input type="number" th:field="*{age}" placeholder="Alder">
             </div>
 
-
             <div class="optionType">
                 <textarea type="text" th:field="*{bio}" placeholder="Skriv litt om dyret"></textarea>
             </div>
 
+            <select name="municipality">
+                <option value="" selected disabled hidden>Beliggenhet</option>
+                <option th:each="municipality : ${T(com.example.demo.Municipality).values()}"
+                        th:value="${municipality}"
+                        th:text="${municipality}">
+                </option>
+            </select>
+
+            <select name="animalSize">
+                <option value="" selected disabled hidden>Størrelse</option>
+                <option th:each="animalSize : ${T(com.example.demo.AnimalSize).values()}"
+                        th:value="${animalSize}"
+                        th:text="${animalSize}">
+                </option>
+            </select>
+
             <div class="optionType">
-                <p>Chip</p>
-                <p id="yesChipped" class="activeOption">Ja</p>
-                <p id="noChipped" class="option">Nei</p>
+                <p class="optionItem">Chip:</p>
+                <p id="yesChipped" class="activeOption optionItem">Ja</p>
+                <p id="noChipped" class="option optionItem">Nei</p>
             </div>
 
             <div class="optionType">
-                <p>Vaksinert</p>
-                <p id="yesVaccinated" class="activeOption">Ja</p>
-                <p id="noVaccinated" class="option">Nei</p>
+                <p class="optionItem">Vaksinert:</p>
+                <p id="yesVaccinated" class="activeOption optionItem">Ja</p>
+                <p id="noVaccinated" class="option optionItem">Nei</p>
+            </div>
+
+<!--            <div class="optionType">-->
+<!--                <p>Aktiv</p>-->
+<!--                <p id="yesActive" class="activeOption">Ja</p>-->
+<!--                <p id="noActive" class="option">Nei</p>-->
+<!--            </div>-->
+
+            <div class="optionType">
+                <p class="optionItem">Barnevennlig:</p>
+                <p id="yesChildfriendly" class="activeOption optionItem">Ja</p>
+                <p id="noChildfriendly" class="option optionItem">Nei</p>
             </div>
 
             <div class="optionType">
-                <p>Barnevennlig</p>
-                <p id="yesChildfriendly" class="activeOption">Ja</p>
-                <p id="noChildfriendly" class="option">Nei</p>
+                <p class="optionItem">Sterilisert/Kastrert:</p>
+                <p id="yesSterilized" class="activeOption optionItem">Ja</p>
+                <p id="noSterilized" class="option optionItem">Nei</p>
             </div>
 
             <div class="optionType">
-                <p>Sterilisert/Kastrert</p>
-                <p id="yesSterilized" class="activeOption">Ja</p>
-                <p id="noSterilized" class="option">Nei</p>
-            </div>
-
-            <div class="optionType">
-                <p>Kjønn</p>
-                <p id="female" class="activeOption">Hunkjønn</p>
-                <p id="male" class="option">Hankjønn</p>
+                <p class="optionItem">Kjønn:</p>
+                <p id="female" class="activeOption optionItem">Hunkjønn</p>
+                <p id="male" class="option optionItem">Hankjønn</p>
             </div>
         </div>
 
-        <input class="orangeButton" type="submit" value="Fortsett">
+        <input class="continueButtons" type="submit" value="Fortsett">
     </form>
 
     <script src="reg3_newAnimal.js"></script>

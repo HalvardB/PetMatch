@@ -57,7 +57,7 @@ public class Buyer extends User {
     }
 
     public void setIsPreviousAnimalOwner(Boolean isPreviousAnimalOwner) {
-        isPreviousAnimalOwner = isPreviousAnimalOwner;
+        this.isPreviousAnimalOwner = isPreviousAnimalOwner;
     }
 
     public Boolean getHasChildren() {

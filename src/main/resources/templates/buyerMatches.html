@@ -23,6 +23,7 @@
 
 <!-------- MAIN -------->
 <div class="animalMatchesContainer">
+    <p th:if="${matchedAnimals.size() == 0}">Beklager, du har ingen matcher enda..</p>
     <div th:each="eachAnimal : ${matchedAnimals}">
         <div class="animalMatchesPicIcon">
             <a th:href="'/animalProfile/' + ${eachAnimal.id}">
