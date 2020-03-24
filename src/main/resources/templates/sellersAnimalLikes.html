@@ -44,7 +44,7 @@
     </div>
 
 
-    <div class="locationBopelContainer">
+    <div class="locationBopelContainerSeller">
         <img class="prefIcons" src="/image/lokasjon.png" alt="Lokasjon">
         <p class="bioText" th:text="${user.municipality}">Oslo</p>
     </div>
@@ -63,6 +63,7 @@
     </div>
 </div>
 
+<p th:if="${matchedUsers}" class="textSeller" th:text="'Personer som liker ' + ${animal.name}"> </p>
 <hr class="userProfileLine">
 
 <!-------- BUYER INFO -------->

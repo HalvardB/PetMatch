@@ -28,7 +28,7 @@
 
     <div id="animalNameAge">
         <h1 id="animalName" th:text="${animal.name}">Chico</h1>
-        <h3 id="animalAge" th:text="${animal.age}">0.5 år</h3>
+        <h3 id="animalAge" th:text="${animal.age} + ' ' + 'år'">0.5 år</h3>
     </div>
 
     <!-------- ANIMAL BIO + PREFERENCES -------->
