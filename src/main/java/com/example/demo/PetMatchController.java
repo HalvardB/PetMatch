@@ -29,6 +29,7 @@ public class PetMatchController {
         return "intropage";
     }
 
+
     @GetMapping("/animalProfile/{id}")
     public String getAnimalProfile(@PathVariable int id, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
