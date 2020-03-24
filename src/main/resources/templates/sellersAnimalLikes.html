@@ -3,8 +3,8 @@
 <head>
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="indexHB.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/indexHB.css">
     <title>Pet Match | Ditt dyr</title>
     <link rel="icon" type="image/png" href="image/paw.png">
 </head>
@@ -16,7 +16,6 @@
     <a class="leftArrowAtagWhite" th:href="'/sellersAnimalsView'"><p id="arrowPtag">&#60;</p></a>
     <img id="animalProfileGallerySeller" th:src="${animal.getAnimalImg1()}" alt="">
 </div>
-
 
 
 <!-------- ANIMAL NAME + AGE -------->
@@ -41,7 +40,7 @@
 
 
     <div class="locationBopelContainer">
-        <img class="prefIcons" src="../image/lokasjon.png" alt="Lokasjon">
+        <img class="prefIcons" src="/image/lokasjon.png" alt="Lokasjon">
         <p class="bioText" th:text="${user.municipality}">Oslo</p>
     </div>
 
@@ -49,12 +48,12 @@
         <h4 class="prefH4">Preferanser</h4>
 
         <div class="iconContainer">
-            <img class="prefIcons" src="../image/kid.png" alt="">
-            <img class="prefIcons" src="../image/male.png" alt="">
-            <img class="prefIcons" src="../image/female.png" alt="">
-            <img class="prefIcons" src="../image/chip.png" alt="">
-            <img class="prefIcons" src="../image/vaksine.png" alt="">
-            <img class="prefIcons" src="../image/scissor.png" alt="">
+            <img th:if="${animal.getFemale()}" class="prefIcons" src="/image/female.png" alt="">
+            <img th:unless="${animal.getFemale()}" class="prefIcons" src="/image/male.png" alt="">
+            <img th:if="${animal.getIsChildFriendly()}" class="prefIcons" src="/image/kid.png" alt="">
+            <img th:if="${animal.getIsChipped()}" class="prefIcons" src="/image/chip.png" alt="">
+            <img th:if="${animal.getIsVaccinated()}" class="prefIcons" src="/image/vaksine.png" alt="">
+            <img th:if="${animal.getIsSterilized()}" class="prefIcons" src="/image/scissor.png" alt="">
         </div>
     </div>
 </div>
@@ -65,7 +64,6 @@
 <div class="buyerInfoContainer">
     <div th:each="user : ${matchedUsers}">
         <div class="buyerIconContainer">
-
             <p class="userBioName" th:text="${user.getFirstName() + ' ' + user.getLastName() +
             ' liker ' +  animal.name}"></p>
 
@@ -79,21 +77,16 @@
 
             <div id="heartOutlinedBlackDiv" th:unless="${approvedUsers.contains(user)}">
                 <a th:href="'/approve/' + ${animal.id} + '/' + ${user.id}">
-                    <img class="heartIconWhite" src="../image/whiteHeart.png" alt="">
+                    <img class="heartIconWhite" src="/image/whiteHeart.png" alt="">
                 </a>
             </div>
 
-
-                <img class="buyerIconLocation" src="../image/lokasjon.png" alt="">
+            <img class="buyerIconLocation" src="/image/lokasjon.png" alt="">
             <p class="iconText" th:text="${user.municipality}"></p>
-                <img class="buyerIconBopel" src="../image/bopel.png" alt="">
-
-
-
+            <img class="buyerIconBopel" src="/image/bopel.png" alt="">
         </div>
         <hr class="userProfileLine">
     </div>
-
 </div>
 
 <!-------- MENU -------->

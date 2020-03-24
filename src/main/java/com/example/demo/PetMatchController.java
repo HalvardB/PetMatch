@@ -256,14 +256,12 @@ public class PetMatchController {
     public String getsellersAnimalLikes(@PathVariable int animalId, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
 
-
         Animal animal = animalRepository.findById(animalId).get();
         List<Matches> allMatches = matchRepository.findAllByAnimalId(animal.getId());
         List<User> matchedUsers = getUsersFromMatches(allMatches);
 
         List<Matches> allApprovedMatches = matchRepository.findAllApprovedMatchesByAnimalId(animalId);
         List<User> approvedUsers = getUsersFromMatches(allApprovedMatches);
-
 
         m.addAttribute("animal", animal);
         m.addAttribute("user", user);
@@ -320,10 +318,8 @@ public class PetMatchController {
             User user = userRepository.findById(match.getUserId()).get();
             matchedUsers.add(user);
         }
-
         return matchedUsers;
     }
-
 
     public void approveMatch(int matchId) {
         Matches match = matchRepository.findById(matchId).get();
