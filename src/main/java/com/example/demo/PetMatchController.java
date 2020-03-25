@@ -114,22 +114,6 @@ public class PetMatchController {
         return "reg1_newUser";
     }
 
-    /*
-        @PostMapping("/registrer")
-        public String postRegistrer(@ModelAttribute User user, HttpSession s, Model m, BindingResult result) {
-            LoginValidator loginValidator = new LoginValidator();
-            if (loginValidator.supports(user.getClass())) {
-                loginValidator.validate(user, result);
-            }
-            if (result.hasErrors()) {
-                m.addAttribute("errorMsg", "Feil i utfylling av skjema!");
-                return "reg1_newUser";
-            }
-            s.setAttribute("currentUser", user);
-            s.setAttribute("userId", user.getId());
-            return "redirect:/preferanser";
-        }
-    */
     @PostMapping("/registrer")
     public String postRegistrer(@Valid User user, BindingResult result, HttpSession s) {
         if (result.hasErrors()) {
@@ -217,7 +201,11 @@ public class PetMatchController {
     }
 
     @PostMapping("/kjoper")
-    public String postSellerPreferanser(@ModelAttribute Buyer buyer, HttpSession s) {
+    public String postSellerPreferanser(@Valid Buyer buyer, BindingResult result, HttpSession s) {
+        if (result.hasErrors()) {
+            return "reg4_buyer";
+        }
+
         User user = (User) s.getAttribute("currentUser");
 
         // Update buyer fields
