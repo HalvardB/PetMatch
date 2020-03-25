@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -139,7 +140,15 @@ public class PetMatchController {
     }
 
     @PostMapping("/registrer")
-    public String postRegistrer(@ModelAttribute User user, HttpSession s) {
+    public String postRegistrer(@ModelAttribute User user, HttpSession s, Model m, BindingResult result) {
+        LoginValidator loginValidator = new LoginValidator();
+        if (loginValidator.supports(user.getClass())) {
+            loginValidator.validate(user, result);
+        }
+        if (result.hasErrors()) {
+            m.addAttribute("errorMsg", "Testbeskjed feilmelding!");
+            return "reg1_newUser";
+        }
         s.setAttribute("currentUser", user);
         s.setAttribute("userId", user.getId());
         return "redirect:/preferanser";

@@ -21,6 +21,7 @@
 </header>
 
 <!-------- FORM NEW USER -------->
+<p th:if="${errorMsg != null}" th:text="${errorMsg}"></p>
 
 <form th:object="${user}" action="/registrer" method="post">
     <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
