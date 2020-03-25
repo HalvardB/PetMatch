@@ -41,14 +41,14 @@
             </div>
 
             <div>
-                <select name="municipality" style="text-transform: capitalize">
+
+                <select name="municipality">
                     <label>Hvor bor du?</label>
                     <option value="" selected disabled hidden>Velg fylke</option>
                     <option th:each="municipality : ${T(com.example.demo.Municipality).values()}"
-                            th:value="${municipality}"
-                            th:text="${municipality}" style="text-transform: capitalize">
-                    </option>
+                            th:value="${municipality}" th:text="${municipality.displayValue}"></option>
                 </select>
+
             </div>
 
             <div class="optionType" id="homeType">

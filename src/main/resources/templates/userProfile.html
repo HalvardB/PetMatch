@@ -55,7 +55,7 @@
 
     <div class="userIconTextBox">
         <img class="prefIcons" src="/image/lokasjon.png" alt="Lokasjon">
-        <p th:text="${user.municipality}">Oslo</p>
+        <p th:text="${user.municipality.getDisplayValue()}">Oslo</p>
     </div>
 
     <div th:if="${user.getUserType() == T(com.example.demo.UserType).BUYER}" class="userIconTextBox">

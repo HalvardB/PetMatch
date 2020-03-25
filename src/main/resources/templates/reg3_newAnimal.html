@@ -54,17 +54,16 @@
             <select name="municipality">
                 <option value="" selected disabled hidden>Beliggenhet</option>
                 <option th:each="municipality : ${T(com.example.demo.Municipality).values()}"
-                        th:value="${municipality}"
-                        th:text="${municipality}">
-                </option>
+                        th:value="${municipality}" th:text="${municipality.displayValue}"></option>
             </select>
+
 
             <select name="animalSize">
                 <option value="" selected disabled hidden>Størrelse</option>
                 <option th:each="animalSize : ${T(com.example.demo.AnimalSize).values()}"
-                        th:value="${animalSize}" th:text="${animalSize}">
-                </option>
+                        th:value="${animalSize}" th:text="${animalSize.displayValuet}"></option>
             </select>
+
 
             <div class="optionType">
                 <p class="optionItem">Chip:</p>
