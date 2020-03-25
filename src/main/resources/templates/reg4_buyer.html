@@ -31,8 +31,8 @@
             <div class="optionType" id="animalOption">
                 <p class="optionItem">Hvordan dyr er du på utkikk etter?</p>
                 <div class="imageDiv">
-                    <img id="DOG" src="image/dogIcon.png" alt="Hund" class="activeOption optionImg">
-                    <img id="CAT" src="image/catIconGrey.png" alt="Katt" class="optionImg">
+                    <img id="DOG" src="image/dogIcon.png" alt="Hund" class="imgActiveOption optionImg">
+                    <img id="CAT" src="image/catIconGrey.png" alt="Katt" class="optionImg imgOption">
                 </div>
             </div>
 
@@ -41,12 +41,12 @@
             </div>
 
             <div>
-                <select name="municipality">
+                <select name="municipality" style="text-transform: capitalize">
                     <label>Hvor bor du?</label>
                     <option value="" selected disabled hidden>Velg fylke</option>
                     <option th:each="municipality : ${T(com.example.demo.Municipality).values()}"
                             th:value="${municipality}"
-                            th:text="${municipality}">
+                            th:text="${municipality}" style="text-transform: capitalize">
                     </option>
                 </select>
             </div>

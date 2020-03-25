@@ -9,7 +9,7 @@ previousAnimalOption.value = true;
 hasChildrenOption.value = true;
 
 function editImgClass(item){
-    item.className = "optionImg option";
+    item.className = "optionImg imgOption";
 }
 
 
@@ -24,14 +24,14 @@ animalOption.addEventListener("click", (event) => {
 });
 
 dog.addEventListener("click", (event) => {
-    event.target.className = "optionImg activeOption";
+    event.target.className = "optionImg imgActiveOption";
     event.target.src = "image/dogIcon.png";
     cat.src = "image/catIconGrey.png";
     editImgClass(cat);
 });
 
 cat.addEventListener("click", (event) => {
-    event.target.className = "optionImg activeOption";
+    event.target.className = "optionImg imgActiveOption";
     event.target.src = "image/catIcon.png";
     dog.src = "image/dogIconGrey.png";
     editImgClass(dog);
@@ -49,13 +49,13 @@ homeType.addEventListener("click", (event) => {
 });
 
 apartment.addEventListener("click", (event) => {
-    event.target.className = "optionImg activeOption";
-    house.className = "option";
+    event.target.className = "optionItem activeOption";
+    house.className = "option optionItem";
 });
 
 house.addEventListener("click", (event) => {
-    event.target.className = "optionImg activeOption";
-    apartment.className = "option";
+    event.target.className = "optionItem activeOption";
+    apartment.className = "option optionItem";
 });
 
 

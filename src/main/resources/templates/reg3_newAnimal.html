@@ -34,8 +34,8 @@
             <div class="optionType" id="animalOption">
                 <p class="optionItem">Hvordan dyr er det?</p>
                 <div class="imageDiv">
-                    <img id="DOG" src="image/dogIcon.png" alt="Hund" class="activeOption optionImg">
-                    <img id="CAT" src="image/catIconGrey.png" alt="Katt" class="optionImg">
+                    <img id="DOG" src="image/dogIcon.png" alt="Hund" class="imgActiveOption optionImg">
+                    <img id="CAT" src="image/catIconGrey.png" alt="Katt" class="imgOption optionImg">
                 </div>
             </div>
 
@@ -62,8 +62,7 @@
             <select name="animalSize">
                 <option value="" selected disabled hidden>Størrelse</option>
                 <option th:each="animalSize : ${T(com.example.demo.AnimalSize).values()}"
-                        th:value="${animalSize}"
-                        th:text="${animalSize}">
+                        th:value="${animalSize}" th:text="${animalSize}">
                 </option>
             </select>
 
