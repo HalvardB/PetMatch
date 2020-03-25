@@ -30,7 +30,6 @@ public class PetMatchController {
         return "intropage";
     }
 
-
     @GetMapping("/animalProfile/{id}")
     public String getAnimalProfile(@PathVariable int id, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
@@ -63,7 +62,6 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}")
     public String getUserProfile(@PathVariable int userId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
-
         m.addAttribute("isApprovedMatch", false);
         m.addAttribute("animalId", null);
         m.addAttribute("user", user);
@@ -73,18 +71,14 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}/{animalId}")
     public String getUserProfileAndAnimal(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
-
         Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
-
         User owner = userRepository.findById(animalId).get();
-
         m.addAttribute("isApprovedMatch", isApprovedMatch);
         m.addAttribute("owner", owner);
         m.addAttribute("animalId", animalId);
         m.addAttribute("user", user);
         return "userProfile";
     }
-
 
     @GetMapping("/userProfile/{userId}/bilde")
     public String getProfilePicture(HttpSession s, Model m, @PathVariable int userId) {
@@ -98,38 +92,6 @@ public class PetMatchController {
         User user = userRepository.findById(userId).get();
         user.setUserImg(imageUrl);
         userRepository.save(user);
-        s.setAttribute("currentUser", user);
-        return "redirect:/userProfile/" + user.getId();
-    }
-
-    @GetMapping("/userProfile/{userId}/edit")
-    public String getEditProfile(HttpSession s, Model m, @PathVariable int userId, @ModelAttribute Buyer buyer) {
-        User user = userRepository.findById(userId).get();
-        m.addAttribute("user", user);
-        return "edit_user";
-    }
-
-    @PostMapping("/userProfile/{userId}/edit")
-    public String postEditProfile(HttpSession s, @PathVariable int userId, @ModelAttribute Buyer buyer) {
-
-        // Updating user
-        User user = userRepository.findById(userId).get();
-        user.setBio(buyer.getBio());
-        user.setMunicipality(buyer.getMunicipality());
-        user.setFirstName(buyer.getFirstName());
-        user.setLastName(buyer.getLastName());
-        user.setEmail(buyer.getEmail());
-        user.setPassword(buyer.getPassword());
-        userRepository.save(user);
-
-        // Updating buyer
-        Buyer currentBuyer = buyerRepository.findById(userId).get();
-        currentBuyer.setAnimalType(buyer.getAnimalType());
-        currentBuyer.setHomeType(buyer.getHomeType());
-        currentBuyer.setIsPreviousAnimalOwner(buyer.getIsPreviousAnimalOwner());
-        currentBuyer.setHasChildren(buyer.getHasChildren());
-        buyerRepository.save(currentBuyer);
-
         s.setAttribute("currentUser", user);
         return "redirect:/userProfile/" + user.getId();
     }
