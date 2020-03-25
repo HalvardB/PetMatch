@@ -16,13 +16,16 @@
     <a th:if="${user.getUserType() == T(com.example.demo.UserType).SELLER}" th:href="'/sellersAnimalsView'">
         <img class="menuImage1" src="/image/pawMeny.png" alt="Back to home" >
     </a>
-    <a th:if="${user.getUserType() == T(com.example.demo.UserType).BUYER}" th:href="'/buyerMatches'">
+    <a th:if="${user.getUserType() == T(com.example.demo.UserType).BUYER and user.id == currentUser.id}" th:href="'/buyerMatches'">
         <img class="menuImage" src="/image/heartMeny.png" alt="Your matches">
     </a>
-    <a th:if="${user.getUserType() == T(com.example.demo.UserType).SELLER}" th:href="'/sellersAnimalsView'">
+    <a th:if="${user.getUserType() == T(com.example.demo.UserType).SELLER or !(user.id == currentUser.id) }" th:href="'/sellersAnimalsView'">
         <img class="menuImage" src="/image/animalFaceMeny.png" alt="Your animals">
     </a>
-    <a th:href="'/userProfile/' + ${user.id}">
+    <a th:if="${!(user.id == currentUser.id)}" th:href="'/userProfile/' + ${currentUser.id}">
+        <img class="menuImage" src="/image/personMeny.png" alt="Your animals">
+    </a>
+    <a th:unless="${!(user.id == currentUser.id)}" th:href="'/userProfile/' + ${user.id}">
         <img class="menuImage" src="/image/personMeny.png" alt="Your animals">
     </a>
 </div>

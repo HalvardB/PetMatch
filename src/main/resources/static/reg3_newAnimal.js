@@ -16,7 +16,7 @@ isFemaleOption.value = true;
 
 
 function editImgClass(item){
-    item.className = "optionImg option";
+    item.className = "optionImg imgOption";
 }
 
 // SELLER OPTIONS
@@ -30,14 +30,14 @@ animalOption.addEventListener("click", (event) => {
 });
 
 dog.addEventListener("click", (event) => {
-    event.target.className = "optionImg activeOption";
+    event.target.className = "optionImg imgActiveOption";
     event.target.src = "image/dogIcon.png";
     cat.src = "image/catIconGrey.png";
     editImgClass(cat);
 });
 
 cat.addEventListener("click", (event) => {
-    event.target.className = "optionImg activeOption";
+    event.target.className = "optionImg imgActiveOption";
     event.target.src = "image/catIcon.png";
     dog.src = "image/dogIconGrey.png";
     editImgClass(dog);

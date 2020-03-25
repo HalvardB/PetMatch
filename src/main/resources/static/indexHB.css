@@ -38,16 +38,35 @@
     margin-left: 50px;
 }
 
+.imgOption {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+
+.imgActiveOption {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    background-color: bisque;
+    border: 1px solid orange;
+    border-radius: 20px;
+}
+
 .option {
     display: inline-block;
     margin: 5px;
-    padding: 6px;
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 20px;
 }
 
 .activeOption {
     display: inline-block;
     margin: 5px;
-    padding: 5px;
+    padding: 15px;
     background-color: bisque;
     border: 1px solid orange;
     border-radius: 20px;
@@ -76,8 +95,7 @@
 }
 
 .imageDiv {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 26%;
     display: table;
 }
 
@@ -92,6 +110,8 @@ textarea {
     margin-bottom: 27px;
     margin-left: 50px;
     height: 100px;
+    border: 0.5px solid grey;
+    border-radius: 15px;
 }
 
 #sellerForm input {
@@ -101,10 +121,13 @@ textarea {
 
 #sellerForm textarea {
     margin-left: 0px;
+    border-radius: 15px;
+    border: 0.5px solid grey;
 }
 
 #sellerForm .continueButtons {
     margin-bottom: 40px;
+    margin-left: 40px;
 }
 
 select {
@@ -114,10 +137,24 @@ select {
     padding: 9px;
     width: 270px;
     display: block;
-    border-radius: 0px;
+    border-radius: 15px;
     margin-bottom: 5px;
-    border-color: rgb(238, 238, 238);
     background-color: white;
-    border-width: 2px;
     margin-left: 50px;
+    border: 0.5px solid grey;
+}
+
+.preferanceImg {
+    margin-top: 426px;
+    display: inline-block;
+    margin-left: 44%;
+}
+
+.preferanceImg img {
+    width: 40px;
+}
+
+
+.optionItem:hover, .optionImg:hover, input:hover, textarea:hover, select:hover {
+    cursor: pointer;
 }

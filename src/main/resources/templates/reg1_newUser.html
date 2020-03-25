@@ -42,9 +42,18 @@
             <p class="errorText" th:if="${#fields.hasErrors('email')}">Ikke gyldig e-post adresse</p>
             <input th:field="*{email}" th:errorclass="error" type="text" placeholder="E-post">
 
+            <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
+
             <p class="errorText" th:if="${#fields.hasErrors('password')}">Passord må inneholde minst 6 tegn</p>
             <input th:field="*{password}" th:errorclass="error" class="inputs" type="password" placeholder="Passord">
-            
+
+            <div class="checkboxRegistration">
+               <input type="checkbox" required id="ToS" name="brukervilkaar" value="tos">
+               <label for="tos"> Jeg godkjenner  <a href="#" onclick="alert('Din persondata er vår til evig tid, hahaha');">vilkårene</a> for å bruke PetMatch</label><br>
+            <input type="checkbox" id="NL" name="newsletter" value="nl">
+            <label for="nl"> Jeg vil ha nyhetsbrev</label><br>
+           </div>
+
             <div id="submitBox">
                 <input class="orangeButton" type="submit" value="Fortsett">
             </div>
