@@ -231,7 +231,7 @@ public class PetMatchController {
     }
 
     @PostMapping("/login")
-    public String postLogin(@ModelAttribute User user, HttpSession s) {
+    public String postLogin(@ModelAttribute User user, HttpSession s, Model m) {
         User logger = userRepository.findByEmail(user.getEmail());
 
         if (logger != null && logger.getEmail().equals(user.getEmail()) && logger.getPassword().equals(user.getPassword())) {
@@ -243,6 +243,9 @@ public class PetMatchController {
 
             return "redirect:/sellersAnimalsView";
         }
+
+        String errorMsg = "Feil e-post eller passord";
+        m.addAttribute("errorMsg", errorMsg);
         return "login";
 
     }

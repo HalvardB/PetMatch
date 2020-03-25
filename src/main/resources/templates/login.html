@@ -25,6 +25,7 @@
 
     <form action="/login" method="post" th:object="${user}" >
         <div class="formContainer" >
+                <p th:if="${errorMsg}" th:text="${errorMsg}" class="errorText"></p>
                 <input id="epost" th:field="*{email}" type="email" placeholder="E-post" required autofocus>
                 <input id="passord" th:field="*{password}" type="password" placeholder="Passord" required>
                 <input class="orangeButton" type="submit" value="Logg inn">
