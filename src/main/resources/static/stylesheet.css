@@ -42,12 +42,17 @@ input {
     padding: 10px;
 }
 
-
-
 ::placeholder {
-    color: #ff914d;
-    text-align: center;
-    opacity: 0.7;
+    color: black;
+    opacity: 80%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+select{
+    color: black;
+    opacity: 80%;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .orangeButton {
@@ -170,23 +175,13 @@ a, a:link:active, a:visited:active {
 
 /*--------  reg1_newUser STYLING ---------*/
 
-#dineDetaljer {
-    font-size: 15px;
-    opacity: 0.6;
-    margin-top: 30px;
-    margin-bottom: 0;
-}
-
-#first {
-    margin-top: 10px;
-}
 
 .dineDet {
     text-align: center;
     color: grey;
     margin-bottom: 0;
     margin-top: 35px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .checkboxRegistration {
