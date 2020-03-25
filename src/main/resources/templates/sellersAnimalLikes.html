@@ -46,7 +46,7 @@
 
     <div class="locationBopelContainerSeller">
         <img class="prefIcons" src="/image/lokasjon.png" alt="Lokasjon">
-        <p class="bioText" th:text="${user.municipality}">Oslo</p>
+        <p class="bioText" th:text="${user.municipality.getDisplayValue()}">Oslo</p>
     </div>
 
     <div>
@@ -92,7 +92,7 @@
             </div>
 
             <img class="buyerIconLocation" src="/image/lokasjon.png" alt="">
-            <p class="iconTextLoc" th:text="${owner.municipality}"></p>
+            <p class="iconTextLoc" th:text="${owner.municipality.getDisplayValue()}"></p>
             <img class="buyerIconBopel" src="/image/bopel.png" alt="">
             <p class="iconTextBo" th:if="${owner.homeType == T(com.example.demo.HomeType).HOUSE}" th:text="Hus">Hus</p>
             <p class="iconTextBo" th:if="${owner.homeType == T(com.example.demo.HomeType).APARTMENT}" th:text="Leilighet">Leilighet</p>

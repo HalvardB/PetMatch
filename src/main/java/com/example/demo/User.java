@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -10,10 +12,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
+    @Column(name="FIRST_NAME")
+    @Size(min=3, max=20)
     private String firstName;
+    @Column(name="LAST_NAME")
+    @Size(min=3, max=30)
     private String lastName;
+    @Size(min=6, max=50)
     private String password;
+    @Column(name = "EMAIL")
+    @Email
     private String email;
     @Enumerated(EnumType.STRING)
     private Municipality municipality;

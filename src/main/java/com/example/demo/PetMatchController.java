@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,14 +114,25 @@ public class PetMatchController {
         return "reg1_newUser";
     }
 
-    @PostMapping("/registrer")
-    public String postRegistrer(@ModelAttribute User user, HttpSession s, Model m, BindingResult result) {
-        LoginValidator loginValidator = new LoginValidator();
-        if (loginValidator.supports(user.getClass())) {
-            loginValidator.validate(user, result);
+    /*
+        @PostMapping("/registrer")
+        public String postRegistrer(@ModelAttribute User user, HttpSession s, Model m, BindingResult result) {
+            LoginValidator loginValidator = new LoginValidator();
+            if (loginValidator.supports(user.getClass())) {
+                loginValidator.validate(user, result);
+            }
+            if (result.hasErrors()) {
+                m.addAttribute("errorMsg", "Feil i utfylling av skjema!");
+                return "reg1_newUser";
+            }
+            s.setAttribute("currentUser", user);
+            s.setAttribute("userId", user.getId());
+            return "redirect:/preferanser";
         }
+    */
+    @PostMapping("/registrer")
+    public String postRegistrer(@Valid User user, BindingResult result, HttpSession s) {
         if (result.hasErrors()) {
-            m.addAttribute("errorMsg", "Testbeskjed feilmelding!");
             return "reg1_newUser";
         }
         s.setAttribute("currentUser", user);
@@ -154,7 +166,7 @@ public class PetMatchController {
         animal.setOwnerId(currentUser.getId());
         animal.setIsAvailable(true);
 
-        if(animal.getAnimalType() == AnimalType.CAT){
+        if (animal.getAnimalType() == AnimalType.CAT) {
             animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/cat.png");
         } else {
             animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/dog.png");

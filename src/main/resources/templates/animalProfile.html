@@ -48,7 +48,7 @@
     <div class="locationBopelContainer">
         <div class="userIconTextBox">
             <img class="prefIcons" src="/image/lokasjon.png" alt="Lokasjon">
-            <p th:text="${theAnimalUser.municipality}">Oslo</p>
+            <p th:text="${theAnimalUser.municipality.getDisplayValue()}">Oslo</p>
         </div>
 
         <div>
