@@ -24,6 +24,7 @@
 <p th:if="${errorMsg != null}" th:text="${errorMsg}"></p>
 
 <form th:object="${user}" action="/registrer" method="post">
+    <p th:if="${#fields.hasErrors('firstName')}">Thymeleaf FEILMELDING</p>
     <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
 
         <div class="formContainer">
