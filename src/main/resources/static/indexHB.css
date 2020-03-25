@@ -144,6 +144,16 @@ select {
     border: 0.5px solid grey;
 }
 
+.preferanceImg {
+    margin-top: 426px;
+    display: inline-block;
+    margin-left: 44%;
+}
+
+.preferanceImg img {
+    width: 40px;
+}
+
 
 .optionItem:hover, .optionImg:hover, input:hover, textarea:hover, select:hover {
     cursor: pointer;
