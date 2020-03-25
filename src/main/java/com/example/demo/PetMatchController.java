@@ -279,7 +279,9 @@ public class PetMatchController {
     public String getsellersAnimalsView(Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
 
+
         List<Animal> myAnimals = animalRepository.findAllByOwnerId(user.getId());
+
         m.addAttribute("myAnimals", myAnimals);
         m.addAttribute("user", user);
         m.addAttribute("currentUser", user);
