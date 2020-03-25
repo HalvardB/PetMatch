@@ -1,4 +1,21 @@
 package com.example.demo;
+
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
+
+public class LoginValidator implements Validator {
+
+    @Override
+    public boolean supports(Class aClass) {
+        return User.class.equals(aClass);
+    }
+
+    @Override
+    public void validate (Object object, Errors e) {
+        ValidationUtils.rejectIfEmptyOrWhitespace(e, "firstName", "firsName.empty");
+    }
+}
 /*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

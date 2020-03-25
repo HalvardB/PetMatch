@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -28,7 +29,6 @@ public class PetMatchController {
     public String getHome() {
         return "intropage";
     }
-
 
     @GetMapping("/animalProfile/{id}")
     public String getAnimalProfile(@PathVariable int id, Model m, HttpSession s) {
@@ -63,6 +63,7 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}")
     public String getUserProfile(@PathVariable int userId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
+
         User currentUser = (User) s.getAttribute("currentUser");
 
         m.addAttribute("isApprovedMatch", false);
@@ -76,12 +77,11 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}/{animalId}")
     public String getUserProfileAndAnimal(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
+
         User currentUser = (User) s.getAttribute("currentUser");
 
         Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
-
         User owner = userRepository.findById(animalId).get();
-
         m.addAttribute("isApprovedMatch", isApprovedMatch);
         m.addAttribute("owner", owner);
         m.addAttribute("animalId", animalId);
@@ -108,45 +108,21 @@ public class PetMatchController {
         return "redirect:/userProfile/" + user.getId();
     }
 
-    @GetMapping("/userProfile/{userId}/edit")
-    public String getEditProfile(HttpSession s, Model m, @PathVariable int userId, @ModelAttribute Buyer buyer) {
-        User user = userRepository.findById(userId).get();
-        m.addAttribute("user", user);
-        return "edit_user";
-    }
-
-    @PostMapping("/userProfile/{userId}/edit")
-    public String postEditProfile(HttpSession s, @PathVariable int userId, @ModelAttribute Buyer buyer) {
-
-        // Updating user
-        User user = userRepository.findById(userId).get();
-        user.setBio(buyer.getBio());
-        user.setMunicipality(buyer.getMunicipality());
-        user.setFirstName(buyer.getFirstName());
-        user.setLastName(buyer.getLastName());
-        user.setEmail(buyer.getEmail());
-        user.setPassword(buyer.getPassword());
-        userRepository.save(user);
-
-        // Updating buyer
-        Buyer currentBuyer = buyerRepository.findById(userId).get();
-        currentBuyer.setAnimalType(buyer.getAnimalType());
-        currentBuyer.setHomeType(buyer.getHomeType());
-        currentBuyer.setIsPreviousAnimalOwner(buyer.getIsPreviousAnimalOwner());
-        currentBuyer.setHasChildren(buyer.getHasChildren());
-        buyerRepository.save(currentBuyer);
-
-        s.setAttribute("currentUser", user);
-        return "redirect:/userProfile/" + user.getId();
-    }
-
     @GetMapping("/registrer")
     public String getRegistrer(@ModelAttribute User user) {
         return "reg1_newUser";
     }
 
     @PostMapping("/registrer")
-    public String postRegistrer(@ModelAttribute User user, HttpSession s) {
+    public String postRegistrer(@ModelAttribute User user, HttpSession s, Model m, BindingResult result) {
+        LoginValidator loginValidator = new LoginValidator();
+        if (loginValidator.supports(user.getClass())) {
+            loginValidator.validate(user, result);
+        }
+        if (result.hasErrors()) {
+            m.addAttribute("errorMsg", "Testbeskjed feilmelding!");
+            return "reg1_newUser";
+        }
         s.setAttribute("currentUser", user);
         s.setAttribute("userId", user.getId());
         return "redirect:/preferanser";

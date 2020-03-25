@@ -57,6 +57,5 @@ VALUES (6,'DOG', 'APARTMENT', FALSE, FALSE),
 (10,'CAT', 'APARTMENT', TRUE, FALSE);
 
 
-
 INSERT INTO Matches(animal_id, user_id, approved)
 VALUES (1, 7, TRUE);
