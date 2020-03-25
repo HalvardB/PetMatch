@@ -153,7 +153,11 @@ public class PetMatchController {
     }
 
     @PostMapping("/nyttdyr")
-    public String postNyttDyr(@ModelAttribute Animal animal, HttpSession s, @ModelAttribute User user) {
+    public String postNyttDyr(@Valid User user, @Valid Animal animal, BindingResult result, HttpSession s) {
+
+        if (result.hasErrors()) {
+            return "reg3_newAnimal";
+        }
 
         // Create user
         User currentUser = (User) s.getAttribute("currentUser");
@@ -174,6 +178,35 @@ public class PetMatchController {
         animalRepository.save(animal);
 
         s.setAttribute("currentUser", currentUser);
+        return ("redirect:/sellersAnimalsView");
+
+    }
+
+    @GetMapping("/leggtil")
+    public String getLeggtil(@ModelAttribute Animal animal, HttpSession s, Model m) {
+        User user = (User) s.getAttribute("currentUser");
+        m.addAttribute("user", user);
+        return "reg3_newAnimal2";
+    }
+
+    @PostMapping("/leggtil")
+    public String postLeggtil(@Valid Animal animal, BindingResult result, HttpSession s) {
+
+        if (result.hasErrors()) {
+            return "reg3_newAnimal2";
+        }
+
+        // Create animal
+        User currentUser = (User) s.getAttribute("currentUser");
+        animal.setOwnerId(currentUser.getId());
+        animal.setIsAvailable(true);
+
+        if (animal.getAnimalType() == AnimalType.CAT) {
+            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/cat.png");
+        } else {
+            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/dog.png");
+        }
+        animalRepository.save(animal);
         return ("redirect:/sellersAnimalsView");
 
     }

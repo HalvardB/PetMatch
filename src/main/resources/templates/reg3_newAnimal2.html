@@ -13,14 +13,12 @@
     <!-------- HEADER -------->
     <header>
         <div class="headerNyBruker">
-            <p id="headerLoginTekst">Preferanser</p>
+            <p id="headerLoginTekst">Legg til et nytt dyr</p>
         </div>
     </header>
 
-    <a class="leftArrowAtag" href="/preferanser"><p id="arrowPtag">&#60;</p></a>
-
     <!-------- FORM NEW USER -------->
-    <form action="/nyttdyr" method="post" th:object="${animal}" id="sellerForm">
+    <form action="/leggtil" method="post" th:object="${animal}" id="sellerForm">
         <!-------- BUYER OPTIONS -------->
         <input type="hidden" id="animalTypeOption" th:field="*{animalType}">
         <input type="hidden" id="chippedOption" th:field="*{isChipped}">
@@ -46,27 +44,19 @@
 
             <div class="optionType">
                 <p class="errorText" th:if="${#fields.hasErrors('age')}">Alder må være mellom 0-20 år</p>
-                <input th:errorclass="error" type="number" min="0" max="20" th:field="*{age}" placeholder="Alder" required>
+                <input type="number" th:errorclass="error" min="0" max="20" th:field="*{age}" placeholder="Alder" required>
             </div>
 
             <div class="optionType">
-                <p class="errorText" th:if="${#fields.hasErrors('bio')}">Bio kan maks innehold 500 tegn</p>
-                <textarea th:errorclass="error" type="text" th:field="*{bio}" placeholder="Skriv litt om dyret"></textarea>
+                <p class="errorText" th:if="${#fields.hasErrors('bio')}">Bio kan ikke være lengre enn 500 tegn</p>
+                <textarea type="text" th:errorclass="error" th:field="*{bio}" placeholder="Skriv litt om dyret"></textarea>
             </div>
-
-            <select name="municipality" required>
-                <option value="" selected disabled hidden>Beliggenhet</option>
-                <option th:each="municipality : ${T(com.example.demo.Municipality).values()}"
-                        th:value="${municipality}" th:text="${municipality.displayValue}"></option>
-            </select>
-
 
             <select name="animalSize" required>
                 <option value="" selected disabled hidden>Størrelse</option>
                 <option th:each="animalSize : ${T(com.example.demo.AnimalSize).values()}"
                         th:value="${animalSize}" th:text="${animalSize.displayValuet}"></option>
             </select>
-
 
             <div class="optionType">
                 <p class="optionItem">Chip:</p>

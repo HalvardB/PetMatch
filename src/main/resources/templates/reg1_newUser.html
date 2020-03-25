@@ -43,7 +43,7 @@
             <input th:field="*{email}" th:errorclass="error" type="text" placeholder="E-post">
 
             <p class="errorText" th:if="${#fields.hasErrors('password')}">Passord må inneholde minst 6 tegn</p>
-            <input th:field="*{password}" th:errorclass="error" class="inputs" type="text" placeholder="Passord">
+            <input th:field="*{password}" th:errorclass="error" class="inputs" type="password" placeholder="Passord">
 
             <div class="checkboxRegistration">
                <input type="checkbox" required id="ToS" name="brukervilkaar" value="tos">
