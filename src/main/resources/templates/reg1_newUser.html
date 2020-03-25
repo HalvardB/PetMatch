@@ -5,7 +5,7 @@
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pet Match | Logg inn</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" th:href="'stylesheet.css'">
     <link rel="icon" type="image/png" href="image/paw.png">
 </head>
 
@@ -21,10 +21,10 @@
 </header>
 
 <!-------- FORM NEW USER -------->
-<p th:if="${errorMsg != null}" th:text="${errorMsg}"></p>
+<!--<p th:if="${errorMsg != null}" th:text="${errorMsg}"></p>-->
 
 <form th:object="${user}" action="/registrer" method="post">
-    <p th:if="${#fields.hasErrors('firstName')}">Thymeleaf FEILMELDING</p>
+
     <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
 
         <div class="formContainer">
@@ -32,14 +32,18 @@
                 <p>Fyll ut detaljene nedenfor for å opprette en konto</p>
                 <p class="dineDet">Dine detaljer</p>
             </div>
-           
-            <input th:field="*{firstName}" class="inputs" id="first" type="text" placeholder="Fornavn" autofocus>
 
-            <input th:field="*{lastName}" class="inputs" id="last" type="text" placeholder="Etternavn">
+            <p class="errorText" th:if="${#fields.hasErrors('firstName')}">Fornavn må være mellom 3-20 tegn</p>
+            <input th:field="*{firstName}" th:errorclass="error" class="inputs" id="first" type="text" placeholder="Fornavn" autofocus>
 
-            <input th:field="*{email}" type="email" placeholder="E-post">
+            <p class="errorText" th:if="${#fields.hasErrors('lastName')}">Etternavn må være mellom 3-30 tegn</p>
+            <input th:field="*{lastName}" th:errorclass="error" class="inputs" id="last" type="text" placeholder="Etternavn">
 
-            <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
+            <p class="errorText" th:if="${#fields.hasErrors('email')}">Ikke gyldig e-post adresse</p>
+            <input th:field="*{email}" th:errorclass="error" type="text" placeholder="E-post">
+
+            <p class="errorText" th:if="${#fields.hasErrors('password')}">Passord må inneholde minst 6 tegn</p>
+            <input th:field="*{password}" th:errorclass="error" class="inputs" type="password" placeholder="Passord">
             
             <div id="submitBox">
                 <input class="orangeButton" type="submit" value="Fortsett">

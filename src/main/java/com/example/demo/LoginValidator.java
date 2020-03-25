@@ -1,5 +1,5 @@
 package com.example.demo;
-
+/*
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -16,7 +16,7 @@ public class LoginValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(e, "firstName", "firsName.empty");
     }
 }
-/*
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
