@@ -26,7 +26,7 @@
     <div class="centerDivs">
         <img id="userPic" th:src="${user.getUserImg()}" alt="">
     </div>
-    <a th:if="${user == currentUser}" class="editCameraUser" th:href="'/userProfile/' + ${user.id}+ '/bilde'">
+    <a th:if="${user.id == currentUser.id}" class="editCameraUser" th:href="'/userProfile/' + ${user.id}+ '/bilde'">
         <img class="editIcon" src="/image/camera.png" alt="Edit">
         <p class="editCameraText">Oppdater</p>
     </a>

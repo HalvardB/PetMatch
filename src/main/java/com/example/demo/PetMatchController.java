@@ -41,6 +41,7 @@ public class PetMatchController {
         m.addAttribute("animal", animal);
         m.addAttribute("user", user);
         m.addAttribute("theAnimalUser", theAnimalUser);
+        m.addAttribute("currentUser", user);
         return "animalProfile";
     }
 
