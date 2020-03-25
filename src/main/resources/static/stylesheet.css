@@ -10,7 +10,7 @@ body {
     height: 812px;
     margin: auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /*Posisjonering av match hjertet*/
+    font-size: 15px;
 }
 
 header {
@@ -21,6 +21,8 @@ header {
     color: white;
     width: 375px;
     height: 60px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 .formContainer {
@@ -41,6 +43,7 @@ input {
     border: 0.5px solid grey;
     padding: 10px;
 }
+
 
 ::placeholder {
     color: black;
@@ -170,7 +173,7 @@ a, a:link:active, a:visited:active {
 }
 .textLogNy {
     color: white;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 /*--------  reg1_newUser STYLING ---------*/
