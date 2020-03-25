@@ -62,16 +62,20 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}")
     public String getUserProfile(@PathVariable int userId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
+        User currentUser = (User) s.getAttribute("currentUser");
 
         m.addAttribute("isApprovedMatch", false);
         m.addAttribute("animalId", null);
         m.addAttribute("user", user);
+        m.addAttribute("currentUser", currentUser);
+
         return "userProfile";
     }
 
     @GetMapping("/userProfile/{userId}/{animalId}")
     public String getUserProfileAndAnimal(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
+        User currentUser = (User) s.getAttribute("currentUser");
 
         Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
 
@@ -81,9 +85,11 @@ public class PetMatchController {
         m.addAttribute("owner", owner);
         m.addAttribute("animalId", animalId);
         m.addAttribute("user", user);
+        m.addAttribute("currentUser", currentUser);
+
+
         return "userProfile";
     }
-
 
     @GetMapping("/userProfile/{userId}/bilde")
     public String getProfilePicture(HttpSession s, Model m, @PathVariable int userId) {
@@ -234,6 +240,7 @@ public class PetMatchController {
     @GetMapping("/buyerMatches")
     public String getBuyerMatches(HttpSession s, Model m) {
         User user = (User) s.getAttribute("currentUser");
+        User currentUser = (User) s.getAttribute("currentUser");
 
         List<Matches> allMatches = matchRepository.findAllApprovedMatches(user.getId());
 
@@ -241,6 +248,7 @@ public class PetMatchController {
 
         m.addAttribute("user", user);
         m.addAttribute("matchedAnimals", matchedAnimals);
+        m.addAttribute("currentUser", currentUser);
 
         return "buyerMatches";
     }
@@ -248,6 +256,7 @@ public class PetMatchController {
     @GetMapping("/buyerAllAnimalsView")
     public String getBuyerAllAnimalsView(Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
+        User currentUser = (User) s.getAttribute("currentUser");
 
         List<Matches> allMatches = matchRepository.findAllByUserId(user.getId());
         List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
@@ -257,6 +266,7 @@ public class PetMatchController {
         m.addAttribute("allAnimals", allAnimals);
         m.addAttribute("matchedAnimals", matchedAnimals);
         m.addAttribute("user", user);
+        m.addAttribute("currentUser", currentUser);
 
         return "buyerAllAnimalsView";
     }
@@ -283,6 +293,7 @@ public class PetMatchController {
         m.addAttribute("user", user);
         m.addAttribute("matchedUsers", matchedUsers);
         m.addAttribute("approvedUsers", approvedUsers);
+        m.addAttribute("currentUser", user);
 
         return "sellersAnimalLikes";
     }
@@ -294,6 +305,8 @@ public class PetMatchController {
         List<Animal> myAnimals = animalRepository.findAllByOwnerId(user.getId());
         m.addAttribute("myAnimals", myAnimals);
         m.addAttribute("user", user);
+        m.addAttribute("currentUser", user);
+
 
         return "sellersAnimalsView";
     }
