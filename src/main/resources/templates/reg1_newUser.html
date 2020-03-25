@@ -42,10 +42,8 @@
             <p class="errorText" th:if="${#fields.hasErrors('email')}">Ikke gyldig e-post adresse</p>
             <input th:field="*{email}" th:errorclass="error" type="text" placeholder="E-post">
 
-            <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
-
             <p class="errorText" th:if="${#fields.hasErrors('password')}">Passord må inneholde minst 6 tegn</p>
-            <input th:field="*{password}" th:errorclass="error" class="inputs" type="password" placeholder="Passord">
+            <input th:field="*{password}" th:errorclass="error" class="inputs" type="text" placeholder="Passord">
 
             <div class="checkboxRegistration">
                <input type="checkbox" required id="ToS" name="brukervilkaar" value="tos">
