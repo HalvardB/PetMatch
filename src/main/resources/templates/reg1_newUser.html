@@ -40,7 +40,14 @@
             <input th:field="*{email}" type="email" placeholder="E-post">
 
             <input th:field="*{password}" class="inputs" type="password" placeholder="Passord">
-            
+
+           <div class="checkboxRegistration">
+               <input type="checkbox" required id="ToS" name="brukervilkaar" value="tos">
+               <label for="tos"> Jeg godkjenner  <a href="#" onclick="alert('Din persondata er vår til evig tid, hahaha');">vilkårene</a> for å bruke PetMatch</label><br>
+            <input type="checkbox" id="NL" name="newsletter" value="nl">
+            <label for="nl"> Jeg vil ha nyhetsbrev</label><br>
+           </div>
+
             <div id="submitBox">
                 <input class="orangeButton" type="submit" value="Fortsett">
             </div>
