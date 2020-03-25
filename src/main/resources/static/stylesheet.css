@@ -68,6 +68,13 @@ select{
     color: white;
 }
 
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 a, a:link:active, a:visited:active {
     text-decoration: none;
 
@@ -100,6 +107,10 @@ a, a:link:active, a:visited:active {
     width: 85%;
     margin-bottom: 60px;
     /*Posisjonering av match hjertet*/
+}
+.containerProfilesSeller {
+    margin: 0 30px;
+    width: 85%;
 }
 
 .prefH4 {
@@ -229,6 +240,7 @@ input#ToS {
 #animalAge {
     margin: 5px 20px;
     font-weight: 400;
+    font-size: 18px;
 }
 
 #animalName {
@@ -405,6 +417,7 @@ input#ToS {
 #animalProfileGallerySeller {
     position: relative;
     width: 375px;
+    height: 350px;
     object-fit: cover;
 }
 
@@ -515,16 +528,28 @@ input#ToS {
     object-fit: cover;
     width: 375px;
     height: 250px;
+    border-radius: 5px;
 }
 
 #textIconContainer {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
-    justify-content: space-around;
+    width: 375px;
+    height: 46px;
+}
+
+.sellerViewText {
+    padding-left: 50px;
+    padding-top: 7px;
+    margin: 0;
 }
 
 .heartAmount {
     width: 50px;
+    position: absolute;
+    right: 85px;
+    bottom: 3px;
 }
 
 .error {

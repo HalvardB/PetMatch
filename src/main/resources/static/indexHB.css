@@ -9,6 +9,7 @@
     background-color: white;
     width: 375px;
     height: 60px;
+    border-top: 0.1px solid lightgrey;
 }
 
 .menuImage {

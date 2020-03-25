@@ -24,7 +24,7 @@
 
 
 <!-------- ANIMAL NAME + AGE -------->
-<div class="containerProfiles">
+<div class="containerProfilesSeller">
 
     <div id="animalNameAge">
         <h1 id="animalName" th:text="${animal.name}">Chico</h1>
@@ -58,21 +58,20 @@
             <img th:if="${animal.getIsChildFriendly()}" class="prefIcons" src="/image/kid.png" alt="">
             <img th:if="${animal.getIsChipped()}" class="prefIcons" src="/image/chip.png" alt="">
             <img th:if="${animal.getIsVaccinated()}" class="prefIcons" src="/image/vaksine.png" alt="">
-            <img th:if="${animal.getIsSterilized()}" class="prefIcons" src="/image/scissor.png" alt="">
+            <img th:if="${animal.getIsSterilized()}" class="prefIconsKas" src="/image/kas.png" alt="">
         </div>
     </div>
 </div>
 
 <p th:if="${matchedUsers.isEmpty()}" class="textSeller" th:text="'Venter på matcher... '"></p>
-<p th:unless="${matchedUsers.isEmpty()}" class="textSeller" th:text="${matchedUsers.size()}' personer liker ' + ${animal.name}"></p>
+<p th:unless="${matchedUsers.isEmpty()}" class="textSeller" th:text="'personer liker ' + ${animal.name}"></p>
 
-<hr class="userProfileLine">
 
 <!-------- BUYER INFO -------->
 <div class="buyerInfoContainer">
     <div th:each="owner : ${matchedUsers}">
 
-
+        <hr class="userProfileLine">
         <div class="buyerIconContainer">
             <p class="userBioName" th:text="${owner.getFirstName() + ' ' + owner.getLastName() +
             ' liker ' +  animal.name}"></p>
@@ -97,7 +96,7 @@
             <p class="iconTextBo" th:if="${owner.homeType == T(com.example.demo.HomeType).HOUSE}" th:text="Hus">Hus</p>
             <p class="iconTextBo" th:if="${owner.homeType == T(com.example.demo.HomeType).APARTMENT}" th:text="Leilighet">Leilighet</p>
         </div>
-        <hr class="userProfileLine">
+
     </div>
 </div>
 
