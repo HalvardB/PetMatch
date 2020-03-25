@@ -47,7 +47,7 @@ VALUES (13, 'BENGAL'), (14, 'DEVON_REX'), (15, 'HELLIG_BIRMA'), (16, 'MAINE_COON
 (19, 'PERSER'), (20, 'RAGDOLL'), (21, 'SCOTTISH_STRAIGHT'), (22, 'SHENGO_SIDDIS'), (23, 'SIBIRKATT'), (24, 'SPHYNX');
 
 INSERT INTO Matches(animal_id, user_id)
-VALUES (1,2), (2,3), (3,1), (4,2), (1,3), (13, 1), (13, 5), (13,4);
+VALUES (2,8), (3,9), (4,10), (1,10), (13, 8), (13, 9), (13,10), (1,6);
 
 INSERT INTO Buyer(id, animal_type, home_type, is_previous_animal_owner, has_children)
 VALUES (6,'DOG', 'APARTMENT', TRUE, FALSE),
@@ -56,8 +56,6 @@ VALUES (6,'DOG', 'APARTMENT', TRUE, FALSE),
 (9,'DOG', 'HOUSE', TRUE, FALSE),
 (10,'CAT', 'APARTMENT', TRUE, FALSE);
 
-INSERT INTO User (first_name, last_name, email, password, user_img, user_type)
-VALUES ('Hal', 'Bas', 'hb@gmail.com', 123, 'https://petmatch-academy.herokuapp.com/Sellers/William_Stange.jpg', 'BUYER');
 
 
 INSERT INTO Matches(animal_id, user_id, approved)

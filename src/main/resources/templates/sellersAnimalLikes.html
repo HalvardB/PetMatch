@@ -28,7 +28,7 @@
 
     <div id="animalNameAge">
         <h1 id="animalName" th:text="${animal.name}">Chico</h1>
-        <h3 id="animalAge" th:text="${animal.age} + 'år'">0.5 år</h3>
+        <h3 id="animalAge" th:text="${animal.age} + ' år'">0.5 år</h3>
     </div>
     <hr class="userProfileLine">
     <!-------- ANIMAL BIO + PREFERENCES -------->
@@ -63,35 +63,39 @@
     </div>
 </div>
 
-<p th:if="${matchedUsers}" class="textSeller" th:text="'Personer som liker ' + ${animal.name}"> </p>
+<p th:if="${matchedUsers.isEmpty()}" class="textSeller" th:text="'Venter på matcher... '"></p>
+<p th:unless="${matchedUsers.isEmpty()}" class="textSeller" th:text="'Personer som liker ' + ${animal.name}"></p>
+
 <hr class="userProfileLine">
 
 <!-------- BUYER INFO -------->
 <div class="buyerInfoContainer">
-    <div th:each="user : ${matchedUsers}">
+    <div th:each="owner : ${matchedUsers}">
+
+
         <div class="buyerIconContainer">
-            <p class="userBioName" th:text="${user.getFirstName() + ' ' + user.getLastName() +
+            <p class="userBioName" th:text="${owner.getFirstName() + ' ' + owner.getLastName() +
             ' liker ' +  animal.name}"></p>
 
-            <a th:href="'/userProfile/' + ${user.getId()} + '/' + ${animal.id}">
-                <img id="buyerPicInSellerView" th:src="${user.getUserImg()}" alt="">
+            <a th:href="'/userProfile/' + ${owner.getId()} + '/' + ${animal.id}">
+                <img id="buyerPicInSellerView" th:src="${owner.getUserImg()}" alt="">
             </a>
 
-            <div th:if="${approvedUsers.contains(user)}">
+            <div th:if="${approvedUsers.contains(owner)}">
                 <img class="heartIconRed" src="/image/redHeart.png" alt="">
             </div>
 
-            <div id="heartOutlinedBlackDiv" th:unless="${approvedUsers.contains(user)}">
-                <a th:href="'/approve/' + ${animal.id} + '/' + ${user.id}">
+            <div id="heartOutlinedBlackDiv" th:unless="${approvedUsers.contains(owner)}">
+                <a th:href="'/approve/' + ${animal.id} + '/' + ${owner.id}">
                     <img class="heartIconWhite" src="/image/heartOutlinedWhite.png" alt="">
                 </a>
             </div>
 
             <img class="buyerIconLocation" src="/image/lokasjon.png" alt="">
-            <p class="iconTextLoc" th:text="${user.municipality}"></p>
+            <p class="iconTextLoc" th:text="${owner.municipality}"></p>
             <img class="buyerIconBopel" src="/image/bopel.png" alt="">
-           <!-- <p class="iconTextBo" th:if="${user.homeType == T(com.example.demo.HomeType).HOUSE}" th:text="Hus">Hus</p>
-            <p class="iconTextBo" th:if="${user.homeType == T(com.example.demo.HomeType).APARTMENT}" th:text="Leilighet">Leilighet</p>-->
+            <p class="iconTextBo" th:if="${owner.homeType == T(com.example.demo.HomeType).HOUSE}" th:text="Hus">Hus</p>
+            <p class="iconTextBo" th:if="${owner.homeType == T(com.example.demo.HomeType).APARTMENT}" th:text="Leilighet">Leilighet</p>
         </div>
         <hr class="userProfileLine">
     </div>
