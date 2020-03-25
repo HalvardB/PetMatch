@@ -37,12 +37,13 @@
             </div>
 
             <div>
-                <textarea type="text" th:field="*{bio}" placeholder="Skriv litt om deg selv"></textarea>
+                <p class="errorText" th:if="${#fields.hasErrors('bio')}">Maks 500 tegn tillatt</p>
+                <textarea type="text" th:field="*{bio}" th:errorclass="error" placeholder="Skriv litt om deg selv"></textarea>
             </div>
 
             <div>
 
-                <select name="municipality">
+                <select name="municipality" required>
                     <label>Hvor bor du?</label>
                     <option class="textInput" value="" selected disabled hidden>Velg fylke</option>
                     <option th:each="municipality : ${T(com.example.demo.Municipality).values()}"

@@ -114,22 +114,6 @@ public class PetMatchController {
         return "reg1_newUser";
     }
 
-    /*
-        @PostMapping("/registrer")
-        public String postRegistrer(@ModelAttribute User user, HttpSession s, Model m, BindingResult result) {
-            LoginValidator loginValidator = new LoginValidator();
-            if (loginValidator.supports(user.getClass())) {
-                loginValidator.validate(user, result);
-            }
-            if (result.hasErrors()) {
-                m.addAttribute("errorMsg", "Feil i utfylling av skjema!");
-                return "reg1_newUser";
-            }
-            s.setAttribute("currentUser", user);
-            s.setAttribute("userId", user.getId());
-            return "redirect:/preferanser";
-        }
-    */
     @PostMapping("/registrer")
     public String postRegistrer(@Valid User user, BindingResult result, HttpSession s) {
         if (result.hasErrors()) {
@@ -153,7 +137,11 @@ public class PetMatchController {
     }
 
     @PostMapping("/nyttdyr")
-    public String postNyttDyr(@ModelAttribute Animal animal, HttpSession s, @ModelAttribute User user) {
+    public String postNyttDyr(@Valid User user, @Valid Animal animal, BindingResult result, HttpSession s) {
+
+        if (result.hasErrors()) {
+            return "reg3_newAnimal";
+        }
 
         // Create user
         User currentUser = (User) s.getAttribute("currentUser");
@@ -178,13 +166,46 @@ public class PetMatchController {
 
     }
 
+    @GetMapping("/leggtil")
+    public String getLeggtil(@ModelAttribute Animal animal, HttpSession s, Model m) {
+        User user = (User) s.getAttribute("currentUser");
+        m.addAttribute("user", user);
+        return "reg3_newAnimal2";
+    }
+
+    @PostMapping("/leggtil")
+    public String postLeggtil(@Valid Animal animal, BindingResult result, HttpSession s) {
+
+        if (result.hasErrors()) {
+            return "reg3_newAnimal2";
+        }
+
+        // Create animal
+        User currentUser = (User) s.getAttribute("currentUser");
+        animal.setOwnerId(currentUser.getId());
+        animal.setIsAvailable(true);
+
+        if (animal.getAnimalType() == AnimalType.CAT) {
+            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/cat.png");
+        } else {
+            animal.setAnimalImg1("https://petmatch-academy.herokuapp.com/image/dog.png");
+        }
+        animalRepository.save(animal);
+        return ("redirect:/sellersAnimalsView");
+
+    }
+
     @GetMapping("/kjoper")
     public String getSellerPreferanser(@ModelAttribute Buyer buyer) {
         return "reg4_buyer";
     }
 
     @PostMapping("/kjoper")
-    public String postSellerPreferanser(@ModelAttribute Buyer buyer, HttpSession s) {
+    public String postSellerPreferanser(@Valid Buyer buyer, BindingResult result, HttpSession s) {
+        if (result.hasErrors()) {
+            return "reg4_buyer";
+        }
+
         User user = (User) s.getAttribute("currentUser");
 
         // Update buyer fields
@@ -210,7 +231,7 @@ public class PetMatchController {
     }
 
     @PostMapping("/login")
-    public String postLogin(@ModelAttribute User user, HttpSession s) {
+    public String postLogin(@ModelAttribute User user, HttpSession s, Model m) {
         User logger = userRepository.findByEmail(user.getEmail());
 
         if (logger != null && logger.getEmail().equals(user.getEmail()) && logger.getPassword().equals(user.getPassword())) {
@@ -222,6 +243,9 @@ public class PetMatchController {
 
             return "redirect:/sellersAnimalsView";
         }
+
+        String errorMsg = "Feil e-post eller passord";
+        m.addAttribute("errorMsg", errorMsg);
         return "login";
 
     }

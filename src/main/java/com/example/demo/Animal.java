@@ -1,6 +1,9 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
@@ -12,8 +15,16 @@ public class Animal {
 
     @Enumerated(EnumType.STRING)
     private AnimalType animalType;
+
+    @Column(name="NAME")
+    @Size(min=3, max=20)
     private String name;
+
+    @Column(name="AGE")
+    @Positive
+    @Max(value = 20)
     private Integer age;
+
     private Boolean isFemale;
     private Boolean isChipped;
     private Boolean isVaccinated;
@@ -24,14 +35,19 @@ public class Animal {
 
     @Enumerated(EnumType.STRING)
     private AnimalSize animalSize;
+
+    @Column(name="BIO")
+    @Size(max = 500)
     private String bio;
+
     private Integer ownerId;
 
+    @Column(name="ANIMAL_IMG1")
+    @Size(max = 100)
     private String animalImg1;
     private String animalImg2;
     private String animalImg3;
 
-    // vekt, stueren, hundevennlig, kattevenlig
     public Animal() {
     }
 

@@ -2,6 +2,7 @@ package com.example.demo;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -28,6 +29,8 @@ public class User {
     private Boolean wantNewsletter;
     @Enumerated(EnumType.STRING)
     private UserType userType;
+    @Column(name = "BIO")
+    @Size(max=500)
     private String bio;
     private String userImg;
 

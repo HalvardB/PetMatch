@@ -64,7 +64,7 @@
 </div>
 
 <p th:if="${matchedUsers.isEmpty()}" class="textSeller" th:text="'Venter på matcher... '"></p>
-<p th:unless="${matchedUsers.isEmpty()}" class="textSeller" th:text="'Personer som liker ' + ${animal.name}"></p>
+<p th:unless="${matchedUsers.isEmpty()}" class="textSeller" th:text="${matchedUsers.size()}' personer liker ' + ${animal.name}"></p>
 
 <hr class="userProfileLine">
 
