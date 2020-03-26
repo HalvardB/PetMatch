@@ -217,15 +217,27 @@ a, a:link:active, a:visited:active {
 }
 
 .checkboxRegistration {
-    text-align: center;
+    font-size: 12px;
+    margin: 25px 0;
+}
+.checkBoxCon{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 12px 0;
+}
+label {
+    width: 190px;
+    text-align: left;
 }
 
-input#NL {
-    margin: 0%;
+#ToS, #NL {
+    width: 30px;
+    margin: 0;
 }
 
-input#ToS {
-    margin: 0%;
+input #ToS, input #NL {
+    width: 20px;
 }
 
 /*-------- animalProfile STYLING ---------*/
