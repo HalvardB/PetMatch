@@ -36,6 +36,10 @@ public class PetMatchController {
     public String getAnimalProfile(@PathVariable int id, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
 
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
+
         Animal animal = animalRepository.findById(id).get();
         int getOwnerId = animal.getOwnerId();
         User theAnimalUser = userRepository.findById(getOwnerId).get();
@@ -70,6 +74,10 @@ public class PetMatchController {
         User user = userRepository.findById(userId).get();
         User currentUser = (User) s.getAttribute("currentUser");
 
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
+
         m.addAttribute("isApprovedMatch", false);
         m.addAttribute("animalId", null);
         m.addAttribute("user", user);
@@ -81,8 +89,10 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}/{animalId}")
     public String getUserProfileAndAnimal(@PathVariable int userId, @PathVariable int animalId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
-
         User currentUser = (User) s.getAttribute("currentUser");
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
 
         Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
         User buyer = userRepository.findById(userId).get();
@@ -100,6 +110,9 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}/bilde")
     public String getProfilePicture(HttpSession s, Model m, @PathVariable int userId) {
         User user = userRepository.findById(userId).get();
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
         m.addAttribute("user", user);
         return "reg5_profilePicture";
     }
@@ -107,6 +120,10 @@ public class PetMatchController {
     @PostMapping("/userProfile/{userId}/bilde")
     public String postProfilePicture(@RequestParam String imageUrl, HttpSession s, @PathVariable int userId) {
         User user = userRepository.findById(userId).get();
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
+
         user.setUserImg(imageUrl);
         userRepository.save(user);
         s.setAttribute("currentUser", user);
@@ -256,7 +273,7 @@ public class PetMatchController {
     @GetMapping("/logout")
     public String getlogout(HttpSession s) {
         s.removeAttribute("currentUser");
-        return "intropage";
+        return "redirect:/";
     }
 
 
@@ -264,6 +281,9 @@ public class PetMatchController {
     public String getBuyerMatches(HttpSession s, Model m) {
         User user = (User) s.getAttribute("currentUser");
         User currentUser = (User) s.getAttribute("currentUser");
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
 
         List<Matches> allMatches = matchRepository.findAllApprovedMatches(user.getId());
 
@@ -280,6 +300,9 @@ public class PetMatchController {
     public String getBuyerAllAnimalsView(Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
         User currentUser = (User) s.getAttribute("currentUser");
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
 
         List<Matches> allMatches = matchRepository.findAllByUserId(user.getId());
         List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
@@ -298,12 +321,16 @@ public class PetMatchController {
     public String getAllAnimals(Model m, HttpSession s) {
         List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
         m.addAttribute("allAnimals", allAnimals);
-        return "allAnimals";
+        return "redirect:/";
     }
 
     @GetMapping("/sellersAnimalLikes/{animalId}")
     public String getsellersAnimalLikes(@PathVariable int animalId, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
+
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
 
         Animal animal = animalRepository.findById(animalId).get();
         List<Matches> allMatches = matchRepository.findAllByAnimalId(animal.getId());
@@ -325,7 +352,9 @@ public class PetMatchController {
     public String getsellersAnimalsView(Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
 
-//        List<Animal> myAnimals = animalRepository.findAllByOwnerId(user.getId());
+        if (s.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
 
         List<AnimalMatches> myMatches = matchRepository.findCountByUserId(user.getId());
 

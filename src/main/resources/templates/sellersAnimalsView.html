@@ -30,8 +30,10 @@
 
         <div id="textIconContainer">
             <p class="sellerViewText" th:text="${eachAnimal.animal.name + ' ' + eachAnimal.animal.age + ' år'}">Kira</p>
+            <div id="countLikesHeartDiv">
             <img class="heartAmount" src="/image/redHeart.png" alt="">
-            <p th:text="${eachAnimal.getLikes() + ' matcher'}"></p>
+            <p style="font-size: 14px" th:text="${eachAnimal.getLikes()}"></p>
+            </div>
         </div>
     </div>
 
