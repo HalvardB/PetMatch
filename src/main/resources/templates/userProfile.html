@@ -27,6 +27,17 @@
     <div class="centerDivs">
         <img id="userPic" th:src="${user.getUserImg()}" alt="">
     </div>
+
+    <div th:if="${
+        currentUser.getUserType() == T(com.example.demo.UserType).SELLER &&
+        user.id != currentUser.id
+    }">
+        <a th:href="${'/approveUser/'+ animalId + '/' + user.getId()}">
+            <img th:if="${animalMatch == null}" class="whiteHeartIcon" src="/image/heartOutlinedWhite.png" alt="White Match heart">
+        </a>
+        <img th:if="${animalMatch != null}" class="redHeartIcon" src="/image/redHeart.png" alt="Red Match heart">
+    </div>
+
     <a th:if="${user.id == currentUser.id}" class="editCameraUser" th:href="'/userProfile/' + ${user.id}+ '/bilde'">
         <img class="editIcon" src="/image/camera.png" alt="Edit">
         <p class="editCameraText">Oppdater</p>

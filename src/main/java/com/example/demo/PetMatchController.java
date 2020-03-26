@@ -106,12 +106,14 @@ public class PetMatchController {
         Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
         User buyer = userRepository.findById(userId).get();
 
+        Matches animalMatch = matchRepository.findApprovedByAnimalIdAndUserId(animalId, userId);
+
+        m.addAttribute("animalMatch", animalMatch);
         m.addAttribute("isApprovedMatch", isApprovedMatch);
         m.addAttribute("owner", buyer);
         m.addAttribute("animalId", animalId);
         m.addAttribute("user", user);
         m.addAttribute("currentUser", currentUser);
-
 
         return "userProfile";
     }
@@ -402,12 +404,20 @@ public class PetMatchController {
 
     @GetMapping("/approve/{animalId}/{userId}")
     public String approveMatch(@PathVariable int animalId, @PathVariable int userId) {
-
         Matches match = matchRepository.findByAnimalIdAndUserId(animalId, userId);
         approveMatch(match.getId());
         System.out.println("Match id: " + match.getId());
 
         return "redirect:/sellersAnimalLikes/" + animalId;
+    }
+
+    @GetMapping("/approveUser/{animalId}/{userId}")
+    public String approveUserMatch(@PathVariable int animalId, @PathVariable int userId) {
+        Matches match = matchRepository.findByAnimalIdAndUserId(animalId, userId);
+        approveMatch(match.getId());
+        System.out.println("Match id: " + match.getId());
+
+        return "redirect:/userProfile/" + userId + '/' + animalId;
     }
 
 
