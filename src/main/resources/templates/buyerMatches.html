@@ -28,7 +28,7 @@
         <div class="animalMatchesPicIcon">
             <a th:href="'/animalProfile/' + ${eachAnimal.id}">
                 <img class="animalMatchesPic" th:src="${eachAnimal.getAnimalImg1()}" alt="">
-                <p class="animalMatchesTextStyle" th:text="${eachAnimal.name}">Kira</p>
+                <p class="animalMatchesTextStyle" th:text="${eachAnimal.name + ' ' + eachAnimal.age + ' år'}">Kira</p>
                 <img class="heartIconStyle" src="image/redHeart.png" alt="">
             </a>
         </div>
