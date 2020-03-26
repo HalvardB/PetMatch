@@ -28,14 +28,14 @@
         <img id="userPic" th:src="${user.getUserImg()}" alt="">
     </div>
 
-    <div th:if="${
+    <div id="whiteHeartUserDiv" th:if="${
         currentUser.getUserType() == T(com.example.demo.UserType).SELLER &&
         user.id != currentUser.id
     }">
         <a th:href="${'/approveUser/'+ animalId + '/' + user.getId()}">
-            <img th:if="${animalMatch == null}" class="whiteHeartIcon" src="/image/heartOutlinedWhite.png" alt="White Match heart">
+            <img th:if="${animalMatch == null}" class="whiteHeartIconUser" src="/image/heartOutlinedWhite.png" alt="White Match heart">
         </a>
-        <img th:if="${animalMatch != null}" class="redHeartIcon" src="/image/redHeart.png" alt="Red Match heart">
+        <img th:if="${animalMatch != null}" class="redHeartIconUser" src="/image/redHeart.png" alt="Red Match heart">
     </div>
 
     <a th:if="${user.id == currentUser.id}" class="editCameraUser" th:href="'/userProfile/' + ${user.id}+ '/bilde'">

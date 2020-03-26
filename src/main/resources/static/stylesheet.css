@@ -244,20 +244,35 @@ input #ToS, input #NL {
 
 
 #redHeartDiv {
-    /*Posisjonering av match hjertet*/
     position: absolute;
     top: 324px;
     left: 229px;
+}
+.whiteHeartIcon {
+    width: 85px;
+    height: 77px;
+    margin: 30px;
 }
 
 .redHeartIcon {
     width: 150px;
     height: 150px;
 }
-.whiteHeartIcon {
-    width: 85px;
-    height: 77px;
-    margin: 30px;
+
+#whiteHeartUserDiv {
+    position: absolute;
+    top: 90px;
+    right: 86px;
+}
+.redHeartIconUser {
+    width: 129px;
+    height: 129px;
+    margin: -26px;
+}
+
+.whiteHeartIconUser {
+    width: 63px;
+    height: 56px;
 }
 
 #animalProfileGallery {
