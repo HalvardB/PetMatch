@@ -23,7 +23,7 @@
 
 <!-------- MAIN -------->
 <div class="animalMatchesContainer">
-    <p style="font-size: 14px; text-align: center; width: 375px" th:if="${matchedAnimals.size() == 0}">Du har ingen matcher enda..</p>
+    <p style="font-size: 14px; text-align: center; width: 375px" th:if="${matchedAnimals.size() == 0}">Oops, her var det ingen matches... enda.</p>
     <div th:each="eachAnimal : ${matchedAnimals}">
         <div class="animalMatchesPicIcon">
             <a th:href="'/animalProfile/' + ${eachAnimal.id}">
