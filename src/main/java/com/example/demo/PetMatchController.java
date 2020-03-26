@@ -158,11 +158,6 @@ public class PetMatchController {
         return "redirect:/preferanser";
     }
 
-    @GetMapping("/pref-gammel")
-    public String getPreferanser() {
-        return "reg2_userType";
-    }
-
     @GetMapping("/preferanser")
     public String getPreferanser2(@ModelAttribute Buyer buyer, @ModelAttribute Animal animal,Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
@@ -171,19 +166,11 @@ public class PetMatchController {
         return "reg7_pref";
     }
 
-
-    @GetMapping("/nyttdyr")
-    public String getNyttDyr(@ModelAttribute Animal animal, HttpSession s, Model m) {
-        User user = (User) s.getAttribute("currentUser");
-        m.addAttribute("user", user);
-        return "reg3_newAnimal";
-    }
-
     @PostMapping("/nyttdyr")
     public String postNyttDyr(@Valid User user, @Valid Animal animal, BindingResult result, HttpSession s) {
 
         if (result.hasErrors()) {
-            return "reg3_newAnimal";
+            return "reg7_pref";
         }
 
         // Create user
@@ -238,15 +225,10 @@ public class PetMatchController {
 
     }
 
-    @GetMapping("/kjoper")
-    public String getSellerPreferanser(@ModelAttribute Buyer buyer) {
-        return "reg4_buyer";
-    }
-
     @PostMapping("/kjoper")
     public String postSellerPreferanser(@Valid Buyer buyer, BindingResult result, HttpSession s) {
         if (result.hasErrors()) {
-            return "reg4_buyer";
+            return "reg7_pref";
         }
 
         User user = (User) s.getAttribute("currentUser");

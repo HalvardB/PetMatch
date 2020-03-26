@@ -1,4 +1,5 @@
-const animalTypeOption = document.getElementById("animalTypeOption");
+// SELLER OPTIONS
+const animalTypeOptionSeller = document.getElementById("animalTypeOptionSeller");
 const chippedOption = document.getElementById("chippedOption");
 const vaccinatedOption = document.getElementById("vaccinatedOption");
 const childFriendlyOption = document.getElementById("childFriendlyOption");
@@ -6,7 +7,7 @@ const isSterilizedOption = document.getElementById("isSterilizedOption");
 const isFemaleOption = document.getElementById("isFemaleOption");
 // const isActiveOption = document.getElementById("isActiveOption");
 
-animalTypeOption.value = "DOG";
+animalTypeOptionSeller.value = "DOG";
 chippedOption.value = true;
 vaccinatedOption.value = true;
 childFriendlyOption.value = true;
@@ -19,28 +20,28 @@ function editImgClass(item){
     item.className = "optionImg imgOption";
 }
 
-// SELLER OPTIONS
-const dog = document.getElementById("DOG");
-const cat = document.getElementById("CAT");
+
+const dogSeller = document.getElementById("DOGSELLER");
+const catSeller = document.getElementById("CATSELLER");
 const animalOption = document.getElementById("animalOption");
 
 animalOption.addEventListener("click", (event) => {
     const type = event.target.id;
-    animalTypeOption.value = type;
+    animalTypeOptionSeller.value = type.substring(0,3);
 });
 
-dog.addEventListener("click", (event) => {
+dogSeller.addEventListener("click", (event) => {
     event.target.className = "optionImg imgActiveOption";
     event.target.src = "image/dogIcon.png";
-    cat.src = "image/catIconGrey.png";
-    editImgClass(cat);
+    catSeller.src = "image/catIconGrey.png";
+    editImgClass(catSeller);
 });
 
-cat.addEventListener("click", (event) => {
+catSeller.addEventListener("click", (event) => {
     event.target.className = "optionImg imgActiveOption";
     event.target.src = "image/catIcon.png";
-    dog.src = "image/dogIconGrey.png";
-    editImgClass(dog);
+    dogSeller.src = "image/dogIconGrey.png";
+    editImgClass(dogSeller);
 });
 
 

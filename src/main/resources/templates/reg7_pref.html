@@ -6,7 +6,7 @@
     <title>Preferanser</title>
     <link rel="stylesheet" type="text/css" href="/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="/indexHB.css">
-    <link rel="icon" type="image/png" href="image/paw.png">
+    <link rel="icon" type="image/png" href="/image/paw.png">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
 
             <div class="optionType">
                 <p class="errorText" th:if="${#fields.hasErrors('name')}">Navnet må være mellom 3-20 tegn</p>
-                <input type="text" th:errorclass="error" th:field="*{name}" placeholder="Navn">
+                <input type="text" th:errorclass="error" th:field="*{name}" placeholder="Navn" required>
             </div>
 
             <div class="optionType">
@@ -59,7 +59,7 @@
             <div class="optionType">
                 <p class="errorText" th:if="${#fields.hasErrors('bio')}">Bio kan maks innehold 500 tegn</p>
                 <textarea th:errorclass="error" type="text" th:field="*{bio}"
-                          placeholder="Skriv litt om dyret"></textarea>
+                          placeholder="Skriv litt om dyret" required></textarea>
             </div>
 
             <div class="optionType">
