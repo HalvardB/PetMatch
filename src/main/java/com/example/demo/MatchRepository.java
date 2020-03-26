@@ -25,7 +25,13 @@ public interface MatchRepository extends CrudRepository<Matches, Integer> {
     @Query("SELECT m FROM Matches m WHERE m.animalId = ?1 and m.userId = ?2 and m.approved = TRUE")
     Matches findApprovedByAnimalIdAndUserId(Integer animalId, Integer userId);
 
-
+    @Query("SELECT new com.example.demo.AnimalMatches(u, a, count(m.userId)) " +
+            "FROM User u " +
+            "LEFT JOIN Animal a ON a.ownerId = u.id " +
+            "LEFT JOIN Matches m on a.id = m.animalId " +
+            "WHERE u.id = ?1 " +
+            "group by a.id")
+    List<AnimalMatches> findCountByUserId(Integer userId);
 
 
 

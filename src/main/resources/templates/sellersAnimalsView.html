@@ -22,15 +22,16 @@
 
 <div class="animalsViewContainer">
 
-    <div th:each="eachAnimal : ${myAnimals}">
+    <div th:each="eachAnimal : ${myMatches}">
 
-        <a th:href="'/sellersAnimalLikes/' + ${eachAnimal.id}">
-            <img id="sellerViewAnimalPic" th:src="${eachAnimal.getAnimalImg1()}" alt="">
+        <a th:href="'/sellersAnimalLikes/' + ${eachAnimal.animal.getId()}">
+            <img id="sellerViewAnimalPic" th:src="${eachAnimal.animal.getAnimalImg1()}" alt="">
         </a>
 
         <div id="textIconContainer">
-            <p class="sellerViewText" th:text="${eachAnimal.name + ' ' + eachAnimal.age + ' år'}">Kira</p>
+            <p class="sellerViewText" th:text="${eachAnimal.animal.name + ' ' + eachAnimal.animal.age + ' år'}">Kira</p>
             <img class="heartAmount" src="/image/redHeart.png" alt="">
+            <p th:text="${eachAnimal.getLikes() + ' matcher'}"></p>
         </div>
     </div>
 

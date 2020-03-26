@@ -2,7 +2,6 @@ package com.example.demo;
 
 import javax.persistence.*;
 
-@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
 public class Matches {
 

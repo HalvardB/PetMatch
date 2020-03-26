@@ -14,6 +14,8 @@ class PetmatchApplicationTests {
     @Autowired
     PetMatchController pmc = new PetMatchController();
 
+
+
     @Test
     void contextLoads() {
     }
@@ -52,5 +54,11 @@ class PetmatchApplicationTests {
 
         match = pmc.matchRepository.findById(1).get();
         assertEquals(true, match.getApproved());
+    }
+
+    @Test
+    void testGetAnimalsFromMatches2(){
+       User getUser =  pmc.userRepository.findById(1).get();
+       assertEquals(4, pmc.matchRepository.findCountByUserId(3).size());
     }
 }

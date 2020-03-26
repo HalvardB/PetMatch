@@ -26,6 +26,7 @@ public class PetMatchController {
     @Autowired
     MatchRepository matchRepository;
 
+
     @GetMapping("/")
     public String getHome() {
         return "intropage";
@@ -324,10 +325,11 @@ public class PetMatchController {
     public String getsellersAnimalsView(Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
 
+//        List<Animal> myAnimals = animalRepository.findAllByOwnerId(user.getId());
 
-        List<Animal> myAnimals = animalRepository.findAllByOwnerId(user.getId());
+        List<AnimalMatches> myMatches = matchRepository.findCountByUserId(user.getId());
 
-        m.addAttribute("myAnimals", myAnimals);
+        m.addAttribute("myMatches", myMatches);
         m.addAttribute("user", user);
         m.addAttribute("currentUser", user);
 
