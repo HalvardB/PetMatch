@@ -39,10 +39,13 @@ public class PetMatchController {
         int getOwnerId = animal.getOwnerId();
         User theAnimalUser = userRepository.findById(getOwnerId).get();
 
+        Boolean isApprovedMatch = isApprovedMatch(id, user.getId());
+
+        m.addAttribute("isApprovedMatch", isApprovedMatch);
         m.addAttribute("animal", animal);
         m.addAttribute("user", user);
         m.addAttribute("theAnimalUser", theAnimalUser);
-        m.addAttribute("currentUser", user);
+        m.addAttribute("currentUser", user); // Må ha currentUser da menyen trenger variabelnavnet
         return "animalProfile";
     }
 
@@ -64,7 +67,6 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}")
     public String getUserProfile(@PathVariable int userId, Model m, HttpSession s) {
         User user = userRepository.findById(userId).get();
-
         User currentUser = (User) s.getAttribute("currentUser");
 
         m.addAttribute("isApprovedMatch", false);
@@ -82,9 +84,10 @@ public class PetMatchController {
         User currentUser = (User) s.getAttribute("currentUser");
 
         Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
-        User owner = userRepository.findById(animalId).get();
+        User buyer = userRepository.findById(userId).get();
+
         m.addAttribute("isApprovedMatch", isApprovedMatch);
-        m.addAttribute("owner", owner);
+        m.addAttribute("owner", buyer);
         m.addAttribute("animalId", animalId);
         m.addAttribute("user", user);
         m.addAttribute("currentUser", currentUser);
@@ -247,8 +250,14 @@ public class PetMatchController {
         String errorMsg = "Feil e-post eller passord";
         m.addAttribute("errorMsg", errorMsg);
         return "login";
-
     }
+
+    @GetMapping("/logout")
+    public String getlogout(HttpSession s) {
+        s.removeAttribute("currentUser");
+        return "intropage";
+    }
+
 
     @GetMapping("/buyerMatches")
     public String getBuyerMatches(HttpSession s, Model m) {

@@ -64,6 +64,14 @@
             </div>
         </div>
     </div>
+
+<div th:if="${isApprovedMatch}">
+    <hr class="userProfileLine">
+    <p class="kontaktEierText">Kontakt eier</p>
+    <p th:text="${theAnimalUser.firstName + ' ' + theAnimalUser.lastName}">Her kommer kontakt info..</p>
+    <img class="eierPic" th:src="${theAnimalUser.getUserImg()}" alt="">
+    <p style="margin-bottom: 80px" th:text="${theAnimalUser.getEmail()}"></p>
+</div>
 </div>
 
 <div class="menu" th:include="templates :: menu"></div>

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="indexHB.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/indexHB.css">
     <title>Pet Match | Matcher</title>
     <link rel="icon" type="image/png" href="image/paw.png">
 </head>
 <body>
-<style>
+<!--<style>
     @import url("/stylesheet.css");
     @import url("/indexHB.css");
-</style>
+</style>-->
 <!-------- HEADER -------->
 <div class="dyrMatchHeaderDiv">
     <a class="NotActive" href="/buyerAllAnimalsView"><p class="textInActiveNotActive">Dyr</p></a>
@@ -23,7 +23,7 @@
 
 <!-------- MAIN -------->
 <div class="animalMatchesContainer">
-    <p th:if="${matchedAnimals.size() == 0}">Beklager, du har ingen matcher enda..</p>
+    <p style="font-size: 14px; text-align: center; width: 375px" th:if="${matchedAnimals.size() == 0}">Du har ingen matcher enda..</p>
     <div th:each="eachAnimal : ${matchedAnimals}">
         <div class="animalMatchesPicIcon">
             <a th:href="'/animalProfile/' + ${eachAnimal.id}">

@@ -15,12 +15,13 @@
 <!-------- HEADER -------->
 <header>
     <div>
-        <p>Brukerprofil</p>
+        <p>Min profil</p>
     </div>
 </header>
 
 
-<a th:if="${animalId != null}" class="leftArrowAtag" th:href="'/sellersAnimalLikes/' + ${animalId}"><p id="arrowPtag">&#60;</p></a>
+<a th:if="${animalId != null}" class="leftArrowAtagUser" th:href="'/sellersAnimalLikes/' + ${animalId}"><p
+        id="arrowPtag">&#60;</p></a>
 <!-------- USER PICTURE + NAME -------->
 <div id="userPicNameDiv">
     <div class="centerDivs">
@@ -33,7 +34,6 @@
     <div class="centerDivs">
         <h3 th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">Kristine Hansen</h3>
     </div>
-
 
 
 </div>
@@ -72,16 +72,22 @@
     <div th:if="${user.getUserType() == T(com.example.demo.UserType).BUYER}" class="userIconTextBox">
         <img class="prefIcons" src="/image/kid.png" alt="kids">
         <p th:if="${user.hasChildren}">Har barn</p>
-        <p th:unless="${user.hasChildren}" >Har ikke barn</p>
+        <p th:unless="${user.hasChildren}">Har ikke barn</p>
     </div>
 
-    <hr class="userProfileLine">
 
     <div th:if="${isApprovedMatch}">
-        <p class="kontaktEierText">Kontakt eier</p>
+        <hr class="userProfileLine">
+        <p class="kontaktEierText">Kontaktinfo</p>
         <p th:text="${owner.getFirstName() + ' ' + owner.getLastName()}">Her kommer kontakt info..</p>
-        <img class="eierPic" th:src="${user.getUserImg()}" alt="">
+        <!--        <img class="eierPic" th:src="${user.getUserImg()}" alt="">-->
         <p th:text="${owner.getEmail()}"></p>
+    </div>
+
+    <div class="logoutDiv" >
+        <div class="orangeButtonLog">
+            <a class="textLogNy" th:href="'/logout'">Logg ut</a>
+        </div>
     </div>
 
 </div>

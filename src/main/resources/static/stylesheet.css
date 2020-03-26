@@ -82,13 +82,19 @@ a, a:link:active, a:visited:active {
 
 .leftArrowAtag {
     display: inline-block;
-    margin-top: 26px;
+    margin-top: 51px;
+    margin-bottom: 15px;
     margin-left: 40px;
     color: black;
 }
 
-#arrowPtag {
-
+.leftArrowAtagUser {
+    display: inline-block;
+    position: absolute;
+    left: 37px;
+    top: 98px;
+    color: black;
+    z-index: 1;
 }
 
 /*----------- GENERAL PROFILES ----------*/
@@ -169,6 +175,13 @@ a, a:link:active, a:visited:active {
     background-color: #ff914d;
     color: white;
     text-align: center;
+}
+.logoutDiv{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+
 }
 
 .faqAboutButtonAtag {
