@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -316,7 +317,7 @@ public class PetMatchController {
         List<Matches> allMatches = matchRepository.findAllByUserId(user.getId());
         List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
 
-        List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
+        List<Animal> allAnimals = animalRepository.findAllByOrderByIdDesc();
 
         m.addAttribute("allAnimals", allAnimals);
         m.addAttribute("matchedAnimals", matchedAnimals);
