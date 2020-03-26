@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Preferanser</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/indexHB.css">
+    <link rel="icon" type="image/png" href="image/paw.png">
+</head>
+<body>
+
+    <!-------- HEADER -------->
+    <header>
+        <div class="headerNyBruker">
+            <p id="headerLoginTekst">Preferanser</p>
+        </div>
+    </header>
+
+    <!-------- USER OPTIONS -------->
+    <p>Hva ønsker du å gjøre?</p>
+    <div class="optionType">
+        <p id="sellerOption" class="activeOption optionItem">Selge dyr</p>
+        <p id="buyerOption" class="option optionItem">Kjøpe dyr</p>
+    </div>
+
+    <div id="sellerForm" class="showOptions">
+        <!-------- SELLER FORM -------->
+        <form action="/nyttdyr" method="post" th:object="${animal}">
+            <input type="hidden" id="animalTypeOptionSeller" th:field="*{animalType}">
+            <input type="hidden" id="chippedOption" th:field="*{isChipped}">
+            <input type="hidden" id="vaccinatedOption" th:field="*{isVaccinated}">
+            <input type="hidden" id="childFriendlyOption" th:field="*{isChildFriendly}">
+            <input type="hidden" id="isSterilizedOption" th:field="*{isSterilized}">
+            <input type="hidden" id="isFemaleOption" th:field="*{isFemale}">
+            <!--        <input type="hidden" id="isActiveOption" th:field="*{isActive}">-->
+
+            <div id="sellerOptions">
+                <div class="optionType" id="animalOption">
+                    <p class="optionItem">Hund eller katt?</p>
+                    <div class="imageDiv">
+                        <img id="DOGSELLER" src="image/dogIcon.png" alt="Hund" class="imgActiveOption optionImg">
+                        <img id="CATSELLER" src="image/catIconGrey.png" alt="Katt" class="imgOption optionImg">
+                    </div>
+                </div>
+
+                <div class="optionType">
+                    <p class="errorText" th:if="${#fields.hasErrors('name')}">Navnet må være mellom 3-20 tegn</p>
+                    <input type="text" th:errorclass="error" th:field="*{name}" placeholder="Navn">
+                </div>
+
+                <div class="optionType">
+                    <p class="errorText" th:if="${#fields.hasErrors('age')}">Alder må være mellom 0-20 år</p>
+                    <input th:errorclass="error" type="number" min="0" max="20" th:field="*{age}" placeholder="Alder" required>
+                </div>
+
+                <div class="optionType">
+                    <p class="errorText" th:if="${#fields.hasErrors('bio')}">Bio kan maks innehold 500 tegn</p>
+                    <textarea th:errorclass="error" type="text" th:field="*{bio}" placeholder="Skriv litt om dyret"></textarea>
+                </div>
+
+                <select name="municipality" required>
+                    <option value="" selected disabled hidden>Beliggenhet</option>
+                    <option th:each="municipality : ${T(com.example.demo.Municipality).values()}"
+                            th:value="${municipality}" th:text="${municipality.displayValue}"></option>
+                </select>
+
+
+                <select name="animalSize" required>
+                    <option value="" selected disabled hidden>Størrelse</option>
+                    <option th:each="animalSize : ${T(com.example.demo.AnimalSize).values()}"
+                            th:value="${animalSize}" th:text="${animalSize.displayValuet}"></option>
+                </select>
+
+
+                <div class="optionType">
+                    <p class="optionItem">Chip:</p>
+                    <p id="yesChipped" class="activeOption optionItem textOption">Ja</p>
+                    <p id="noChipped" class="option optionItem textOption">Nei</p>
+                </div>
+
+                <div class="optionType">
+                    <p class="optionItem">Vaksinert:</p>
+                    <p id="yesVaccinated" class="activeOption optionItem textOption">Ja</p>
+                    <p id="noVaccinated" class="option optionItem textOption">Nei</p>
+                </div>
+
+                <div class="optionType">
+                    <p class="optionItem">Barnevennlig:</p>
+                    <p id="yesChildfriendly" class="activeOption optionItem textOption">Ja</p>
+                    <p id="noChildfriendly" class="option optionItem textOption">Nei</p>
+                </div>
+
+                <div class="optionType">
+                    <p class="optionItem">Sterilisert/Kastrert:</p>
+                    <p id="yesSterilized" class="activeOption optionItem textOption">Ja</p>
+                    <p id="noSterilized" class="option optionItem textOption">Nei</p>
+                </div>
+
+                <div class="optionType">
+                    <p class="optionItem">Kjønn:</p>
+                    <p id="female" class="activeOption optionItem textOption">Hunkjønn</p>
+                    <p id="male" class="option optionItem textOption">Hankjønn</p>
+                </div>
+            </div>
+
+            <input class="continueButtons" type="submit" value="Fortsett">
+        </form>
+    </div>
+
+    <!-------- BUYER FORM -------->
+    <div id="buyerForm" class="hideOptions">
+        <form action="/kjoper" method="post" th:object="${buyer}">
+            <input type="hidden" id="animalTypeOptionBuyer" th:field="*{animalType}">
+            <input type="hidden" id="homeTypeOptionBuyer" th:field="*{homeType}">
+            <input type="hidden" id="previousAnimalOption" th:field="*{isPreviousAnimalOwner}">
+            <input type="hidden" id="hasChildrenOption" th:field="*{hasChildren}">
+
+            <div id="buyerOptions" class="showOptions">
+                <div class="optionTypeCatDog" id="animalOptionBuyer">
+                    <p class="optionItem">Hva slags type dyr er du ute etter?</p>
+                    <div class="imageDiv">
+                        <img id="DOG" src="image/dogIcon.png" alt="Hund" class="imgActiveOption optionImg">
+                        <img id="CAT" src="image/catIconGrey.png" alt="Katt" class="optionImg imgOption">
+                    </div>
+                </div>
+
+                <div>
+                    <p class="errorText" th:if="${#fields.hasErrors('bio')}">Maks 500 tegn tillatt</p>
+                    <textarea type="text" th:field="*{bio}" th:errorclass="error" placeholder="Skriv litt om deg selv"></textarea>
+                </div>
+
+                <div>
+
+                    <select name="municipality" required>
+                        <label>Hvor bor du?</label>
+                        <option class="textInput" value="" selected disabled hidden>Velg fylke</option>
+                        <option th:each="municipality : ${T(com.example.demo.Municipality).values()}"
+                                th:value="${municipality}" th:text="${municipality.displayValue}"></option>
+                    </select>
+
+                </div>
+
+                <div class="optionType" id="homeType">
+                    <p class="optionItem rightAlignText">Bopel:</p>
+                    <p id="APARTMENT" class="activeOption optionItem textOption">Leilighet</p>
+                    <p id="HOUSE" class="option optionItem textOption">Hus</p>
+                </div>
+
+                <div class="optionType">
+                    <p class="optionItem rightAlignText">Hatt dyr tidligere:</p>
+                    <p id="yesPrevious" class="activeOption optionItem textOption">Ja</p>
+                    <p id="noPrevious" class="option optionItem textOption">Nei</p>
+                </div>
+
+                <div class="optionType">
+                    <p class="optionItem rightAlignText">Barn i husstanden:</p>
+                    <p id="yesChildren" class="activeOption optionItem textOption">Ja</p>
+                    <p id="noChildren" class="option optionItem textOption">Nei</p>
+                </div>
+            </div>
+            <input class="continueButtons" type="submit" value="Fortsett">
+        </form>
+    </div>
+    <script src="reg7_pref.js"></script>
+</body>
+</html>

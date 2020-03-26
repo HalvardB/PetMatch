@@ -145,10 +145,19 @@ public class PetMatchController {
         return "redirect:/preferanser";
     }
 
-    @GetMapping("/preferanser")
+    @GetMapping("/pref-gammel")
     public String getPreferanser() {
         return "reg2_userType";
     }
+
+    @GetMapping("/preferanser")
+    public String getPreferanser2(@ModelAttribute Buyer buyer, @ModelAttribute Animal animal,Model m, HttpSession s) {
+        User user = (User) s.getAttribute("currentUser");
+        m.addAttribute("user", user);
+
+        return "reg7_pref";
+    }
+
 
     @GetMapping("/nyttdyr")
     public String getNyttDyr(@ModelAttribute Animal animal, HttpSession s, Model m) {
