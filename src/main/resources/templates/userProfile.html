@@ -84,7 +84,7 @@
         <p th:text="${owner.getEmail()}"></p>
     </div>
 
-    <div class="logoutDiv" >
+    <div th:if="${currentUser.id == user.id}" class="logoutDiv" >
         <div class="orangeButtonLog">
             <a class="textLogNy" th:href="'/logout'">Logg ut</a>
         </div>

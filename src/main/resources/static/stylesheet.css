@@ -114,7 +114,8 @@ a, a:link:active, a:visited:active {
 .containerProfiles {
     margin: 0 30px;
     width: 85%;
-    margin-bottom: 60px;
+    margin-bottom: 65px;
+    padding-bottom: 20px;
     /*Posisjonering av match hjertet*/
 }
 .containerProfilesSeller {
@@ -129,6 +130,7 @@ a, a:link:active, a:visited:active {
 
 .iconContainer {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -329,6 +331,8 @@ input#ToS {
 }
 .eierPic {
     width: 100px;
+    height: 75px;
+    object-fit: contain;
 }
 
 .userBioContainer {
@@ -522,6 +526,7 @@ input#ToS {
 .editCameraAnimal{
     display: flex;
     color: black;
+    align-items: center;
     padding-left: 10px;
 }
 

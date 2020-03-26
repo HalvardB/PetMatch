@@ -15,7 +15,7 @@
     <img id="animalProfileGallery" th:src="${animal.getAnimalImg1()}" alt="">
     <a th:if="${user.id == theAnimalUser.id}" class="editCamera" th:href="'/animalProfile/' + ${animal.id}+ '/bilde'">
         <img class="editIcon" src="/image/camera.png" alt="Edit">
-    <p class="editCameraText">Oppdater</p>
+        <p class="editCameraText">Oppdater</p>
     </a>
 </div>
 
@@ -65,13 +65,17 @@
         </div>
     </div>
 
-<div th:if="${isApprovedMatch}">
-    <hr class="userProfileLine">
-    <p class="kontaktEierText">Kontakt eier</p>
-    <p th:text="${theAnimalUser.firstName + ' ' + theAnimalUser.lastName}">Her kommer kontakt info..</p>
-    <img class="eierPic" th:src="${theAnimalUser.getUserImg()}" alt="">
-    <p style="margin-bottom: 80px" th:text="${theAnimalUser.getEmail()}"></p>
-</div>
+    <div th:if="${isApprovedMatch}">
+        <hr class="userProfileLine">
+        <p class="kontaktEierText">Kontakt eier</p>
+        <div style="display: flex">
+            <img class="eierPic" th:src="${theAnimalUser.getUserImg()}" alt="">
+            <div style="margin-left: 15px">
+                <p style="margin-top: 0; font-weight: 800" th:text="${theAnimalUser.firstName + ' ' + theAnimalUser.lastName}">Her kommer kontakt info..</p>
+                <p  th:text="'E-post: ' + ${theAnimalUser.getEmail()}"></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="menu" th:include="templates :: menu"></div>
