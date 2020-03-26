@@ -58,7 +58,12 @@ public class PetMatchController {
     @GetMapping("/animalProfile/{animalId}/bilde")
     public String getAnimalPicture(HttpSession s, @PathVariable int animalId, Model m) {
         Animal animal = animalRepository.findById(animalId).get();
+        User currentUser = (User) s.getAttribute("currentUser");
+        User owner = userRepository.findById(animal.getOwnerId()).get();
+
         m.addAttribute("animal", animal);
+        m.addAttribute("currentUser", currentUser);
+        m.addAttribute("user", owner);
         return "reg6_animalPicture";
     }
 
@@ -111,10 +116,12 @@ public class PetMatchController {
     @GetMapping("/userProfile/{userId}/bilde")
     public String getProfilePicture(HttpSession s, Model m, @PathVariable int userId) {
         User user = userRepository.findById(userId).get();
+        User currentUser = (User) s.getAttribute("currentUser");
         if (s.getAttribute("currentUser") == null) {
             return "redirect:/";
         }
         m.addAttribute("user", user);
+        m.addAttribute("currentUser", currentUser);
         return "reg5_profilePicture";
     }
 

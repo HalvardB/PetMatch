@@ -590,3 +590,7 @@ input:focus {
     outline: none;
 }
 
+.uploader-button {
+    margin-top: 30px;
+}
+

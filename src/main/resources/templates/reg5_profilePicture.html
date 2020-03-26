@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>PetMatch | Last opp profilbilde</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link rel="icon" type="image/png" href="image/paw.png">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/indexHB.css">
+    <link rel="icon" type="image/png" href="/image/paw.png">
     <script>
         UPLOADCARE_PUBLIC_KEY = '3a73fb11eb76a50c3d05';
     </script>
@@ -19,7 +20,7 @@
             buttons: {
                 choose: {
                     files: {
-                        one: 'Upload image'
+                        one: 'Last opp bilde'
                     }
                 }
             }
@@ -36,12 +37,15 @@
         </div>
     </header>
 
-    <span class="uploader-button">
-      <input
-              type="hidden"
-              role="uploadcare-uploader"
-              data-tabs="file camera facebook instagram" />
-    </span>
+    <div  style="margin-top: 30px">
+        <span class="uploader-button" style="margin-top: 30px" value="Last opp bilde">
+          <input
+                  type="hidden"
+                  role="uploadcare-uploader"
+                  data-tabs="file camera facebook instagram" />
+        </span>
+    </div>
+
 
     <script>
         (function(src, cb) {
@@ -60,11 +64,16 @@
         })
     </script>
 
-    <form method="post" th:action="'/userProfile/' + ${user.id} + '/bilde'">
-        <input name="imageUrl" type="hidden">
-        <input type="submit">
-    </form>
 
+    <div style="display: flex; justify-content: center; width: 375px; margin-top: 30px">
+        <form method="post" th:action="'/userProfile/' + ${user.id} + '/bilde'">
+            <input name="imageUrl" type="hidden">
+            <input type="submit" class="continueButtons" value="Lagre">
+        </form>
+    </div>
+    <!-------- MENU -------->
+
+    <div class="menu" th:include="templates :: menu"></div>
 
 </body>
 </html>
