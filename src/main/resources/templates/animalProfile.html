@@ -20,7 +20,11 @@
 </div>
 
 <div id="redHeartDiv">
-    <img id="redHeartIcon" src="../image/redHeart.png" alt="Match heart">
+    <a th:href="${'/matchBuyer/'+ animal.getId() + '/' + user.getId()}">
+        <img th:if="${buyerMatch == null}" class="whiteHeartIcon" src="/image/heartOutlinedWhite.png" alt="White Match heart">
+    </a>
+    <img th:if="${buyerMatch != null}" class="redHeartIcon" src="/image/redHeart.png" alt="Red Match heart">
+
 </div>
 
 <!-------- ANIMAL NAME + AGE -------->

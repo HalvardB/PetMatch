@@ -238,9 +238,14 @@ input#ToS {
     left: 229px;
 }
 
-#redHeartIcon {
+.redHeartIcon {
     width: 150px;
     height: 150px;
+}
+.whiteHeartIcon {
+    width: 85px;
+    height: 77px;
+    margin: 30px;
 }
 
 #animalProfileGallery {

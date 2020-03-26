@@ -47,6 +47,9 @@ public class PetMatchController {
 
         Boolean isApprovedMatch = isApprovedMatch(id, user.getId());
 
+        Matches buyerMatch = matchRepository.findByAnimalIdAndUserId(id, user.getId());
+
+        m.addAttribute("buyerMatch", buyerMatch);
         m.addAttribute("isApprovedMatch", isApprovedMatch);
         m.addAttribute("animal", animal);
         m.addAttribute("user", user);
@@ -388,6 +391,13 @@ public class PetMatchController {
         Matches match = new Matches(animalId, userId, false);
         matchRepository.save(match);
         return "redirect:/buyerAllAnimalsView";
+    }
+
+    @GetMapping("/matchBuyer/{animalId}/{userId}")
+    public String getMatchBuyer(@PathVariable int animalId, @PathVariable int userId) {
+        Matches match = new Matches(animalId, userId, false);
+        matchRepository.save(match);
+        return "redirect:/animalProfile/" + animalId;
     }
 
     @GetMapping("/approve/{animalId}/{userId}")
