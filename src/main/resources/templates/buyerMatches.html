@@ -25,7 +25,7 @@
 <div class="animalMatchesContainer">
     <div th:if="${matchedAnimals.size() == 0}">
         <p style="font-size: 14px; text-align: center; width: 375px" >Oops, her var det ingen matches... enda.</p>
-        <img class="pawLoad" src="/image/pawLoad.gif" alt="Loading gif">
+        <img class="pawLoad" src="/image/pawLoad.gif" alt="Loading gif" style="width: 40px; margin: 150px">
     </div>
     <div th:each="eachAnimal : ${matchedAnimals}">
         <div class="animalMatchesPicIcon">
