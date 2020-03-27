@@ -23,7 +23,10 @@
 
 <!-------- MAIN -------->
 <div class="animalMatchesContainer">
-    <p style="font-size: 14px; text-align: center; width: 375px" th:if="${matchedAnimals.size() == 0}">Oops, her var det ingen matches... enda.</p>
+    <div th:if="${matchedAnimals.size() == 0}">
+        <p style="font-size: 14px; text-align: center; width: 375px" >Oops, her var det ingen matches... enda.</p>
+        <img class="pawLoad" src="/image/pawLoad.gif" alt="Loading gif">
+    </div>
     <div th:each="eachAnimal : ${matchedAnimals}">
         <div class="animalMatchesPicIcon">
             <a th:href="'/animalProfile/' + ${eachAnimal.id}">
