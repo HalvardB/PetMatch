@@ -34,7 +34,6 @@ public class User {
     private String bio;
     private String userImg;
 
-
     public User(){}
 
     public User(String firstName, String lastName, String password, String email, Municipality municipality, String bio, Boolean wantNewsletter, UserType userType, String userImg) {

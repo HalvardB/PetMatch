@@ -44,9 +44,7 @@ public class PetMatchController {
         Animal animal = animalRepository.findById(id).get();
         int getOwnerId = animal.getOwnerId();
         User theAnimalUser = userRepository.findById(getOwnerId).get();
-
         Boolean isApprovedMatch = isApprovedMatch(id, user.getId());
-
         Matches buyerMatch = matchRepository.findByAnimalIdAndUserId(id, user.getId());
 
         m.addAttribute("buyerMatch", buyerMatch);
@@ -86,7 +84,6 @@ public class PetMatchController {
         if (s.getAttribute("currentUser") == null) {
             return "redirect:/";
         }
-
         m.addAttribute("isApprovedMatch", false);
         m.addAttribute("animalId", null);
         m.addAttribute("user", user);
@@ -102,10 +99,8 @@ public class PetMatchController {
         if (s.getAttribute("currentUser") == null) {
             return "redirect:/";
         }
-
         Boolean isApprovedMatch = isApprovedMatch(animalId, userId);
         User buyer = userRepository.findById(userId).get();
-
         Matches animalMatch = matchRepository.findApprovedByAnimalIdAndUserId(animalId, userId);
 
         m.addAttribute("animalMatch", animalMatch);
@@ -159,10 +154,9 @@ public class PetMatchController {
     }
 
     @GetMapping("/preferanser")
-    public String getPreferanser2(@ModelAttribute Buyer buyer, @ModelAttribute Animal animal,Model m, HttpSession s) {
+    public String getPreferanser2(@ModelAttribute Buyer buyer, @ModelAttribute Animal animal, Model m, HttpSession s) {
         User user = (User) s.getAttribute("currentUser");
         m.addAttribute("user", user);
-
         return "reg7_pref";
     }
 
@@ -230,7 +224,6 @@ public class PetMatchController {
         if (result.hasErrors()) {
             return "reg7_pref";
         }
-
         User user = (User) s.getAttribute("currentUser");
 
         // Update buyer fields
@@ -265,10 +258,8 @@ public class PetMatchController {
             if (logger.getUserType() == UserType.BUYER) {
                 return "redirect:/buyerAllAnimalsView";
             }
-
             return "redirect:/sellersAnimalsView";
         }
-
         String errorMsg = "Feil e-post eller passord";
         m.addAttribute("errorMsg", errorMsg);
         return "login";
@@ -280,7 +271,6 @@ public class PetMatchController {
         return "redirect:/";
     }
 
-
     @GetMapping("/buyerMatches")
     public String getBuyerMatches(HttpSession s, Model m) {
         User user = (User) s.getAttribute("currentUser");
@@ -288,15 +278,12 @@ public class PetMatchController {
         if (s.getAttribute("currentUser") == null) {
             return "redirect:/";
         }
-
         List<Matches> allMatches = matchRepository.findAllApprovedMatches(user.getId());
-
         List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
 
         m.addAttribute("user", user);
         m.addAttribute("matchedAnimals", matchedAnimals);
         m.addAttribute("currentUser", currentUser);
-
         return "buyerMatches";
     }
 
@@ -307,25 +294,15 @@ public class PetMatchController {
         if (s.getAttribute("currentUser") == null) {
             return "redirect:/";
         }
-
         List<Matches> allMatches = matchRepository.findAllByUserId(user.getId());
         List<Animal> matchedAnimals = getAnimalsFromMatches(allMatches);
-
         List<Animal> allAnimals = animalRepository.findAllByOrderByIdDesc();
 
         m.addAttribute("allAnimals", allAnimals);
         m.addAttribute("matchedAnimals", matchedAnimals);
         m.addAttribute("user", user);
         m.addAttribute("currentUser", currentUser);
-
         return "buyerAllAnimalsView";
-    }
-
-    @GetMapping("/allAnimals")
-    public String getAllAnimals(Model m, HttpSession s) {
-        List<Animal> allAnimals = (List<Animal>) animalRepository.findAll();
-        m.addAttribute("allAnimals", allAnimals);
-        return "redirect:/";
     }
 
     @GetMapping("/sellersAnimalLikes/{animalId}")
@@ -335,11 +312,9 @@ public class PetMatchController {
         if (s.getAttribute("currentUser") == null) {
             return "redirect:/";
         }
-
         Animal animal = animalRepository.findById(animalId).get();
         List<Matches> allMatches = matchRepository.findAllByAnimalId(animal.getId());
         List<User> matchedUsers = getUsersFromMatches(allMatches);
-
         List<Matches> allApprovedMatches = matchRepository.findAllApprovedMatchesByAnimalId(animalId);
         List<User> approvedUsers = getUsersFromMatches(allApprovedMatches);
 
@@ -348,7 +323,6 @@ public class PetMatchController {
         m.addAttribute("matchedUsers", matchedUsers);
         m.addAttribute("approvedUsers", approvedUsers);
         m.addAttribute("currentUser", user);
-
         return "sellersAnimalLikes";
     }
 
@@ -365,8 +339,6 @@ public class PetMatchController {
         m.addAttribute("myMatches", myMatches);
         m.addAttribute("user", user);
         m.addAttribute("currentUser", user);
-
-
         return "sellersAnimalsView";
     }
 
@@ -389,7 +361,6 @@ public class PetMatchController {
         Matches match = matchRepository.findByAnimalIdAndUserId(animalId, userId);
         approveMatch(match.getId());
         System.out.println("Match id: " + match.getId());
-
         return "redirect:/sellersAnimalLikes/" + animalId;
     }
 
@@ -398,10 +369,8 @@ public class PetMatchController {
         Matches match = matchRepository.findByAnimalIdAndUserId(animalId, userId);
         approveMatch(match.getId());
         System.out.println("Match id: " + match.getId());
-
         return "redirect:/userProfile/" + userId + '/' + animalId;
     }
-
 
     public List<Animal> getAnimalsFromMatches(List<Matches> matchList) {
         List<Animal> matchedAnimals = new ArrayList<>();
@@ -410,7 +379,6 @@ public class PetMatchController {
             Animal animal = animalRepository.findById(match.getAnimalId()).get();
             matchedAnimals.add(animal);
         }
-
         return matchedAnimals;
     }
 
@@ -436,8 +404,6 @@ public class PetMatchController {
         if (match != null) {
             return true;
         }
-
         return false;
     }
-
 }

@@ -176,7 +176,6 @@ public class Animal {
         this.ownerId = ownerId;
     }
 
-
     public String getAnimalImg1() {
         return animalImg1;
     }

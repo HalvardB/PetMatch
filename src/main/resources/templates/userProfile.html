@@ -19,7 +19,6 @@
     </div>
 </header>
 
-
 <a th:if="${animalId != null}" class="leftArrowAtagUser" th:href="'/sellersAnimalLikes/' + ${animalId}"><p
         id="arrowPtag">&#60;</p></a>
 <!-------- USER PICTURE + NAME -------->
@@ -33,7 +32,8 @@
         user.id != currentUser.id
     }">
         <a th:href="${'/approveUser/'+ animalId + '/' + user.getId()}">
-            <img th:if="${animalMatch == null}" class="whiteHeartIconUser" src="/image/heartOutlinedWhite.png" alt="White Match heart">
+            <img th:if="${animalMatch == null}" class="whiteHeartIconUser" src="/image/heartOutlinedWhite.png"
+                 alt="White Match heart">
         </a>
         <img th:if="${animalMatch != null}" class="redHeartIconUser" src="/image/redHeart.png" alt="Red Match heart">
     </div>
@@ -45,8 +45,6 @@
     <div class="centerDivs">
         <h3 th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">Kristine Hansen</h3>
     </div>
-
-
 </div>
 
 <hr class="userProfileLine">
@@ -91,11 +89,10 @@
         <hr class="userProfileLine">
         <p class="kontaktEierText">Kontaktinfo</p>
         <p th:text="${owner.getFirstName() + ' ' + owner.getLastName()}">Her kommer kontakt info..</p>
-        <!--        <img class="eierPic" th:src="${user.getUserImg()}" alt="">-->
         <p th:text="${owner.getEmail()}"></p>
     </div>
 
-    <div th:if="${currentUser.id == user.id}" class="logoutDiv" >
+    <div th:if="${currentUser.id == user.id}" class="logoutDiv">
         <div class="orangeButtonLog">
             <a class="textLogNy" th:href="'/logout'">Logg ut</a>
         </div>
@@ -103,8 +100,8 @@
 
 </div>
 
+<!-------- MENU -------->
 <div class="menu" th:include="templates :: menu"></div>
 
 </body>
-
 </html>

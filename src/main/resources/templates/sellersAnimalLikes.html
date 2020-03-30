@@ -22,15 +22,14 @@
     </a>
 </div>
 
-
 <!-------- ANIMAL NAME + AGE -------->
 <div class="containerProfilesSeller">
-
     <div id="animalNameAge">
         <h1 id="animalName" th:text="${animal.name}">Chico</h1>
         <h3 id="animalAge" th:text="${animal.age} + ' år'">0.5 år</h3>
     </div>
     <hr class="userProfileLine">
+
     <!-------- ANIMAL BIO + PREFERENCES -------->
 
     <div id="animalBio">
@@ -43,7 +42,6 @@
         </p>
     </div>
 
-
     <div class="locationBopelContainerSeller">
         <img class="prefIcons" src="/image/lokasjon.png" alt="Lokasjon">
         <p class="bioText" th:text="${user.municipality.getDisplayValue()}">Oslo</p>
@@ -51,7 +49,6 @@
 
     <div>
         <h4 class="prefH4">Preferanser</h4>
-
         <div class="iconContainer">
             <img th:if="${animal.getFemale()}" class="prefIcons" src="/image/female.png" alt="">
             <img th:unless="${animal.getFemale()}" class="prefIcons" src="/image/male.png" alt="">
@@ -70,7 +67,6 @@
 <!-------- BUYER INFO -------->
 <div class="buyerInfoContainer">
     <div th:each="owner : ${matchedUsers}">
-
         <hr class="userProfileLine">
         <div class="buyerIconContainer">
             <p class="userBioName" th:text="${owner.getFirstName() + ' ' + owner.getLastName() +
@@ -96,7 +92,6 @@
             <p class="iconTextBo" th:if="${owner.homeType == T(com.example.demo.HomeType).HOUSE}" th:text="Hus">Hus</p>
             <p class="iconTextBo" th:if="${owner.homeType == T(com.example.demo.HomeType).APARTMENT}" th:text="Leilighet">Leilighet</p>
         </div>
-
     </div>
 </div>
 

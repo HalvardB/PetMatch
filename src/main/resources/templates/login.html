@@ -9,11 +9,9 @@
     <title>Logg inn</title>
     <link rel="icon" type="image/png" href="/image/paw.png">
 </head>
-
 <body>
 
     <!-------- HEADER -------->
-
     <header>
         <div class="headerLogin">
             <p id="headerLoginTekst">Velkommen</p>
@@ -21,9 +19,8 @@
     </header>
 
     <a class="leftArrowAtag" href="/"><p id="arrowPtag">&#60;</p></a>
+
     <!-------- FORM LOGIN -------->
-
-
     <form action="/login" method="post" th:object="${user}" >
         <div class="formContainer" >
                 <p th:if="${errorMsg}" th:text="${errorMsg}" class="errorText"></p>
@@ -33,7 +30,5 @@
         </div>
     </form>
 
-
 </body>
-
 </html>
